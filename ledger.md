@@ -87,14 +87,33 @@
 
 ---
 
-## §6 通道事实（跨端协作）
+## §6 通道事实（跨端协作，2026-09-09 终验确认）
 
-| 事实 | 值 | 核实 |
+### 最终通信协议（混合双后端，双方经用户中转确认）
+
+- **电脑端 → 手机端**：电脑端写 GitHub `Shaky77/Heaven` 的 `computer/`，手机端 WebFetch 公开 raw 读（**无需登录/token**）。✅
+- **手机端 → 电脑端**：手机端本地写 `/workspace`，产出交**用户上传云端资料库 `mobile/` 文件夹**，电脑端读。✅
+- 两端都不需要对方写权限，各自只写自己这侧通道。
+
+### 各端实测能力（已验证，非假设）
+
+| 能力 | 手机端（沙箱） | 电脑端 |
 |---|---|---|
-| 手机端能否读 Heaven | ✅ 能。经 WebFetch 抓 `raw.githubusercontent.com/Shaky77/Heaven/main/...`，**无需登录/token** | 暗号 `HEAVEN-BE940C8E` 复述正确，2026-09-09 |
-| 手机端 `github.com` 网页端 | ✅ 通 | 手机端自报，2026-09-09 |
-| 手机端 `api.github.com` | ❌ **被 TLS 阻断**（且暂无 token）→ **不能写** | 手机端自报，2026-09-09 |
-| 手机端是否有 git | ❌ 大概率没有（本地沙箱） | 推断，未实证 |
-| 云端资料库可达性 | ❌ 手机端**不可达**；库内"手机端"文档均为**用户手动上传** | 2026-09-09 用户澄清 |
-| 当前通道形态 | **我写（Heaven `computer/`）→ 它读 → 它产出 → 用户中转 → 我读** | — |
+| 读 GitHub `computer/` | ✅ WebFetch raw，无需 token | ✅ 直连 |
+| 写 GitHub `computer/` | ❌ `api.github.com` TLS 阻断（EOF），**带有效 PAT 也连不上** | ✅ 直连 |
+| 读云端 `mobile/` | ❌ 无 read/list 工具（不依赖，用户上传即可） | ✅ 本机读 |
+| 写云端 `mobile/` | 本地产文本，用户代上传 | — |
+
+### ⚠️ PAT 实测结论（关键，推翻"配 token 即通"假设）
+
+- 手机端曾用用户给的 fine-grained PAT 试 `gh auth login --with-token` → 返回 `Get "https://api.github.com/": EOF`。
+- **证明沙箱网络层硬阻断 GitHub API，与鉴权无关** → token 配了也调不动 API。
+- 该 PAT **已建议作废重发，沙箱内未残留凭证** → 用户须到 GitHub 后台**实际删除该 token**（Settings → Developer settings → fine-grained tokens → 删除）。
+- 推论：① `gh` CLI / 任何 `api.github.com` 调用在手机端必失败；② 回信通道"API Issue / git push(HTTPS)"两条均依赖 GitHub 写出 → **手机端出站统一走用户上传云端 `mobile/`，不依赖 GitHub 写权限**。
+
+### 残留待核实
+
+- 手机端是否有 git：仍推断"大概率没有"，未实证（既然走用户上传，已无关紧要）。
+- `Heaven/mobile/` 目录仅作约定占位，手机端不直写；实际 `mobile/` 内容在云端资料库（用户上传）。
+- 读路验证判据：暗号 `HEAVEN-BE940C8E` 复述正确（手机端首封确认信 `e0Q8J8cOWWAsstXLOIBOml`）。
 </content>
