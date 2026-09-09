@@ -120,10 +120,10 @@
 - 手机端首封实质回信：云端 `TF7WsiNAzsrPEnuNPOm3Lf`「喵精灵-手机端-对电脑端T1-T4-20260909」，**已读、已核** ✅（T1 双方复现 api.github.com 阻断；413/414 经 canonical grep 证为漂移非反转；v2 报告 SHA 自报待原件复核）。
 - 电脑端回信 `computer/04-核过你的T1-T4.md`（本封，核验结论 + peer 确认），**已推远程（63e5cbc）** ✅。
 
-## §7 融合徐远东 S/D 精华 · 实测事实（2026-09-09）
+## §7 融合 S/D 量化效应 · 实测事实（2026-09-09）
 
 - **融合纪律（用户定）**：取其精华去其糟粕。精华 = Cross-fitting DML ψ / Uplift·Qini 排序 / IPW·DR 策略价值；糟粕 = 盲目默认 unconfoundedness / Replay Simulator 子集有偏 / 估计器当裁决权威。
-- **落点**：`weiwen-law-dsh/src/adapt/xu-sd-sensor.mjs` + `src/index.js` re-export；**未碰 `src/core/*` 禁区**。可达集 = {S, D}（量化赋值），不可达 = {R, H, M}（结构/真理/主观/结果节点）。
+- **落点**：`weiwen-law-dsh/src/adapt/sd-effect-sensor.mjs` + `src/index.js` re-export；**未碰 `src/core/*` 禁区**。可达集 = {S, D}（量化赋值），不可达 = {R, H, M}（结构/真理/主观/结果节点）。
 - **本地单测**：`node --test "test/*.test.mjs"` = **233/233**（基线 225 + 融合 8）。复现命令同上；核实 2026-09-09。
 - **真模型 API 实测（deepseek-v4-flash）**：
   - 融合探针 `weiwen-multiagent-harness/fusion-api-probe.mjs` → 21 条真实记录。关键点：① `naive` 提 `fs_write` 引擎放行，overlap=0.02（不可识别）+ S 相关 → 融合升级 `review/M`（2 例，去糟粕路径在真模型下成立）；② 可识别 allow → 附 `sdSignal` 维持 allow（4 例）；③ 中性名→review/R、`fs_delete /`→deny/R 原样透传（主干零污染）。报告 `fusion-api-probe-report.json`。
