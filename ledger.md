@@ -13,18 +13,16 @@
 
 | 项 | 值 | 核实方式 | 时间 |
 |---|---|---|---|
-| CN 仓 | `Shaky77/weiwen-law-dsh`，main，HEAD `1810fe9` | `git rev-parse HEAD` | 2026-09-09 |
-| EN 仓 | `Shaky77/KISS_Law-DSH`，main，HEAD `30f67d3` | `git rev-parse HEAD` | 2026-09-09 |
+| CN 仓 | `Shaky77/weiwen-law-dsh`，main，HEAD **`e169e04`**（远程已同步） | `git rev-parse HEAD` + `git ls-remote origin main` | 2026-09-10 |
+| EN 仓 | `Shaky77/KISS_Law-DSH`，main，HEAD **`30f67d3`**（本地 **ahead 1，未推远程**） | `git rev-parse HEAD` + `git status -sb` | 2026-09-10 |
 | 两仓 remote | `git@github.com:Shaky77/<repo>.git`（**owner 是 Shaky77，非 deepseek-ai 组织**） | `git remote -v` | 2026-09-09 |
-| 未推送提交 | 两仓各 **ahead 1**（CN `1810fe9`、EN `30f67d3` 均**尚未推远程**） | `git status -sb` | 2026-09-09 |
-| 远程 main 实际 HEAD | CN 远程 = `6c0e49f` | `api.github.com/repos/Shaky77/weiwen-law-dsh` | 2026-09-09 |
-| 测试（标准口径） | CN **225/225**、EN **225/225**，各 12 个测试文件 | `node --test "test/*.test.mjs"` | 2026-09-09 |
+| 测试（标准口径） | CN **244/244** ｜ EN **225/225**（EN 落后 19，待同步） | `node --test "test/*.test.mjs"` | 2026-09-10 |
 
 **⚠️ 测试口径易错点**（已踩过两次，勿再犯）：
-- 正确命令是 `node --test "test/*.test.mjs"` → **225**。
+- 正确命令是 `node --test "test/*.test.mjs"` → **CN 244 / EN 225**（2026-09-10 实测）。
 - 用 `node --test test/` 会**报错**（目录被当文件加载），不是代码问题。
-- 用默认扫描 `node --test` 会多跑 `versions/.../legal_jurisdiction_test.mjs` → **226**。
-- **对外报数只用标准口径 225。**
+- 用默认扫描 `node --test` 会多跑 `versions/.../legal_jurisdiction_test.mjs` → **多 1 条**。
+- **对外报数只用标准口径，且必须注明是哪个仓**（两仓当前不等）。
 
 ---
 
