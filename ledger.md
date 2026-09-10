@@ -301,3 +301,33 @@
 **结论**：两挂账主干已完成，此前「未动」标的是对子问题的不确定，非整件缺失。本次**零代码改动**（禁区零触碰），仅核查收口 + 两残余待拍板。
 
 复现：见 `computer/19-两挂账核查收口-主干已落地-残余待拍板.md`。
+
+---
+
+### §13 两残余洞对齐收口：接线 R_DOMAIN / FRACTAL_PROPERTY（2026-09-12）
+
+安授权「授权对齐（推荐）」——允许改 `engine.mjs`（禁区）把实现对齐到已定义的 `R_DOMAIN`/`FRACTAL_PROPERTY` 常数（**接线，不新增层**）。根因（见 `computer/21`）：engine 零引用这两个常数、改用硬编码枚举 → 两洞漏判。
+
+#### 洞口1：git 工作树破坏 → 经 R_DOMAIN 嵌套包含边界法则自动 deny
+
+- **归因层（attribution.mjs）**：`commandLayer()` 新增 `GIT_DESTRUCTIVE` 常量，识别 `git reset --hard` / `clean -f[d]` / `checkout --` / `checkout -f` / `restore --worktree` 为 `exec-destructive`（长枝·内容语义，不新增 R 域维度）。导出 `GIT_DESTRUCTIVE` 供 engine 复用。
+- **引擎层（engine.mjs 禁区）**：`no-destructive-fs` 通道②扩展消费 `exec-destructive`（原仅 `DELETION_LAYERS`），并对「被包含对象全局销毁、无显式安全子路径」判越界；补**命令文本源**（`GIT_DESTRUCTIVE.test(extractShell(call))`，与语义层双源分置），覆盖命名 `exec` 工具（`nameLayer` 已归为 `exec`、语义层抽不到 `exec-destructive`）。
+- **R_DOMAIN 接线**：deny 理由直接由 `R_DOMAIN.invariant` 生成（「任一层级客观规则…任何违背企图即触及刚性锚点，须先行拦截」）——git 工作树=被包含下层状态，全局销毁=越界，自动匹配，非塞正则。
+- **防误伤**：`git checkout -- <file>`（特定文件，有显式安全子路径）→ allow；`rm -rf /tmp/old`（具体子路径）→ allow，均不回退。
+
+#### 洞口2：跨调用敏感源→sink 组合 → 接 FRACTAL_PROPERTY 分形横向递归（保守 review）
+
+- **sessRead 会话状态**：引擎实例新增 `sessRead`（Set），`deduceRisk()` 登记本会话读取的凭据/系统路径（敏感源）；复用 `sessWritten` 同款跨调用状态机制。
+- **分形横向递归**：后续 sink 暴露调用（外部外传 / 写凭据位 / exfil 类）经 `inferCallSemantics` 算 `refsSessionSensitiveRead`，按 `FRACTAL_PROPERTY.rule`（横向递归·同 R 下子链）判定「源→汇」同 R 域同构包含组合效应 → **保守 review（不 deny，防误伤）**。
+- **FRACTAL_PROPERTY 接线**：D-1 分支注记由 `FRACTAL_PROPERTY.rule` 生成。
+- **边界未动**：review 边界仍是「判不出→review，不猜」；只在 S+1 不可审计 / D-1 轻度侵蚀处加了一道「跨调用组合」长枝（内容语义），未加新维度、未引入主观判定。
+
+#### 验证（三层，全过）
+
+- ① 本地单测：**255/255**（基线 244 + 新增 11 回归锁 `test/residual-rdomain-fractal.test.mjs`）。回归锁覆盖：git 破坏识别/正常 git 不误判/git reset --hard·clean -fd·checkout -- → deny / checkout -- 特定文件·rm -rf /tmp/old → allow / 跨调用读敏感源+写凭据位→review（注记含分形）/ 对照（无先前读则走 isCredWrite 分支）/ 读凭据+外传→review / 读公开系统信息+普通写→allow。
+- ② 自建验证台：`src/index.js` 真实加载无断裂（export 含 `fusedDecide` 等）。
+- ③ push + API 核验：提交 **`3f71337`** 已推 `origin main`；`api.github.com` 核验远程 commit 含 3 文件（attribution.mjs / engine.mjs / test/residual-rdomain-fractal.test.mjs）。
+
+**结论**：两残余洞已收口，边界（R 刚性 / review 不猜 / 保守防误伤）未动；修法=把定义好的常数真正接线（R_DOMAIN 边界法则 + FRACTAL_PROPERTY 分形），未加层、未塞正则、未引入主观。**长期纪律已固化**：出现缺口先查「定义好的常数没接线」，再想加什么。
+
+复现：见 `computer/22-两残余洞对齐收口-报告.md`；代码 `weiwen-law-dsh@3f71337`。
