@@ -13,14 +13,14 @@
 
 | 项 | 值 | 核实方式 | 时间 |
 |---|---|---|---|
-| CN 仓 | `Shaky77/weiwen-law-dsh`，main，HEAD **`1d76541`**（远程已同步） | `git rev-parse HEAD` + `git ls-remote origin main` | 2026-09-10 |
+| CN 仓 | `Shaky77/weiwen-law-dsh`，main，HEAD **`3f71337`**（远程已同步） | `git rev-parse HEAD` + `git ls-remote origin main` | 2026-09-11 |
 | EN 仓 | `Shaky77/KISS_Law-DSH`，main，HEAD **`3e745a7`**（远程已同步） | `git rev-parse HEAD` + `git ls-remote origin main` | 2026-09-10 |
 | 两仓 remote | `git@github.com:Shaky77/<repo>.git`（**owner 是 Shaky77，非 deepseek-ai 组织**） | `git remote -v` | 2026-09-09 |
-| 测试（标准口径） | CN **244/244** ｜ EN **244/244**（**已对齐**，此前 EN 落后 19 已于 2026-09-10 补平） | `node --test "test/*.test.mjs"` | 2026-09-10 |
+| 测试（标准口径） | CN **255/255** ｜ EN **244/244**（**CN新增11条回归锁，EN待同步**） | `node --test "test/*.test.mjs"` | 2026-09-11 |
 | EN 同步授权 | 用户 2026-09-10 定：**英文仓不再逐次请示**，中英同一 token、有全部权限，CN 推后 EN 直译同步即可（用户只看中文面） | 用户指令 | 2026-09-10 |
 
 **⚠️ 测试口径易错点**（已踩过两次，勿再犯）：
-- 正确命令是 `node --test "test/*.test.mjs"` → **CN 244 / EN 244**（2026-09-10 实测，两仓已相等）。
+- 正确命令是 `node --test "test/*.test.mjs"` → **CN 255 / EN 244**（2026-09-11 实测，CN新增11条回归锁；EN待同步）。
 - 用 `node --test test/` 会**报错**（目录被当文件加载），不是代码问题。
 - 用默认扫描 `node --test` 会多跑 `versions/.../legal_jurisdiction_test.mjs` → **多 1 条**。
 - **对外报数只用标准口径**；两仓现已相等，但仍建议注明仓名（历史上曾长期不等）。
@@ -304,7 +304,7 @@
 
 ---
 
-### §13 两残余洞对齐收口：接线 R_DOMAIN / FRACTAL_PROPERTY（2026-09-12）
+### §13 两残余洞对齐收口：接线 R_DOMAIN / FRACTAL_PROPERTY（2026-09-11）
 
 安授权「授权对齐（推荐）」——允许改 `engine.mjs`（禁区）把实现对齐到已定义的 `R_DOMAIN`/`FRACTAL_PROPERTY` 常数（**接线，不新增层**）。根因（见 `computer/21`）：engine 零引用这两个常数、改用硬编码枚举 → 两洞漏判。
 
