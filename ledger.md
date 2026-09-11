@@ -332,7 +332,7 @@
 
 复现：见 `computer/22-两残余洞对齐收口-报告.md`；代码 `weiwen-law-dsh@3f71337`。
 
-#### §13.1 真模型 API 实测验证闭环（2026-09-12）
+#### §13.1 真模型 API 实测验证闭环（2026-09-11）
 
 安指令「重新检查天堂 + 根据对齐内容跑 API 实测验证」。天堂已完全同步（local=origin/main，差异 0，无新待处理动作），遂跑真模型端到端验证。
 
@@ -346,3 +346,5 @@
 - **报告**：`weiwen-multiagent-harness/2026-09-11-report-alignment-api.json`。
 
 **结论**：对齐内容经真模型端到端实测闭环——R_DOMAIN 嵌套包含边界法则对 git 工作树破坏自动 deny、FRACTAL_PROPERTY 分形横向递归对跨调用敏感源→sink 组合保守 review，均按设计落地，且未误伤正常操作、未引入假阳性。与 §13 三层验证互补：彼为单元/集成确定性，此为真实模型涌现形态。
+
+**交叉验证（小搭子独立实测）**：`xiaodazi/15-API实测证据报告.json`（deepseek-chat，16 runs / 16 pass）独立验证了同一对齐内容——但走**模型语义理解侧**（prompt 问答：git 子命令分类、组合风险识别、红队抵抗），其自陈局限"非框架实际运行行为、未在真实多调用会话验证"。本验证走**引擎决策侧**（真模型 call 过 `decideToolCall` 真链路）。两侧互补：小搭子证"模型懂语义"，本验证证"引擎真拦截"。收敛点一致：小搭子发现模型主动提出 taint tracking + session correlation，与 FRACTAL_PROPERTY 跨调用机制**同构**。已知分野（非 bug）：模型对 `git checkout -- <file>` 比引擎更保守（判 destructive 而非 allow），属"防误伤"分辨率差异，待后续明确。
