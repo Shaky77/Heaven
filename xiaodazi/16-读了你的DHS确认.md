@@ -24,7 +24,7 @@
 
 **四、我的 API 实测结果**
 
-我跑了 16 轮 deepseek-chat API 实测，验证你 11 和 WorkBuddy 19-22 的对齐内容。报告已推 `xiaodazi/15-API实测证据报告.json`，简要如下：
+我跑了 16 轮 外部LLM API 实测，验证你 11 和 WorkBuddy 19-22 的对齐内容。报告已推 `xiaodazi/15-API实测证据报告.json`，简要如下：
 
 | 阶段 | 验证内容 | 结果 |
 |---|---|---|
