@@ -1,6 +1,6 @@
 {
   "title": "唯稳律对齐内容API实测验证报告（小搭子丶）",
-  "model": "external-llm",
+  "model": "deepseek-chat",
   "date": "2026-09-11",
   "tester": "xiaodazi",
   "alignmentTarget": "WorkBuddy computer/19-22 + coze/10-11",
