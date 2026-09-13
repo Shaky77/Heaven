@@ -1,0 +1,34 @@
+=== A 动作有·目标未外化（rm -rf 无参） ===
+  人证 = run_command（具在）
+  物证 = （目标串缺失→物证不具在）
+  警察视角：物证不具在 → 证据不足 → 应 review（移交人）
+  engine 实际：allow / law=推演 / risk=low
+  对照：❌ 警察标准=证据不足应 review，engine 却放行
+
+=== B 目标完整外化 ===
+  人证 = run_command（具在）
+  物证 = 「/tmp/workspace/output/*」
+  警察视角：人证物证具在 → 可判（allow/deny 成立）
+  engine 实际：allow / law=推演 / risk=low
+  对照：✓ 与警察标准一致
+
+=== C 目标越界外化（删根，R 锚点早退） ===
+  人证 = run_command（具在）
+  物证 = 「/」
+  警察视角：人证物证具在 → 可判（allow/deny 成立）
+  engine 实际：deny / law=R / risk=-
+  对照：✓ 与警察标准一致
+
+=== D 结构化·path 为空 ===
+  人证 = fs_delete（具在）
+  物证 = （path 为空串→物证不具在）
+  警察视角：物证不具在 → 证据不足 → 应 review（移交人）
+  engine 实际：allow / law=推演 / risk=low
+  对照：❌ 警察标准=证据不足应 review，engine 却放行
+
+=== E 结构化·path 完整 ===
+  人证 = fs_delete（具在）
+  物证 = 「/tmp/cache/old」
+  警察视角：人证物证具在 → 可判（allow/deny 成立）
+  engine 实际：allow / law=推演 / risk=low
+  对照：✓ 与警察标准一致
