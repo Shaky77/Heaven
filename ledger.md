@@ -359,4 +359,35 @@
 - 主语言被判 HTML 的**真根因**——`.gitattributes` 283 字节全在一行、真换行数 0 ⇒ `*.html linguist-documentation` 被并入注释、从未生效；修复推送后两仓 `language` 由 `HTML` → **`JavaScript`**（CN `4e86522` / EN `992a4f8`）。
 - 两个冗余镜像仓（`dsh-weiwen-law-plugin` / `dsh-kiss-law-plugin`）GitHub 侧已删除；**可复原为删除的前置条件**（git bundle 全量备份 ＋ 反向克隆逐位一致实证 ＋ 三道 fail-closed 闸门）。
 
-**待跟进**：小搭子 API 层模型语义测试（★层覆盖）；两处新边界修法拍板；扣子提供 coze/23 的调用形态（call JSON ＋ commit）；EN 仓是否进雷达（遗留）。
+**待跟进**：小搭子 API 层模型语义测试（★层覆盖）；两处新边界修法拍板；**coze/23 已复现并归因（见 §17.7）——待扣子贴探针源码与旧版原始输出核对**；旧版（`3f71337`）钩子路径对照未跑（依赖未装）；EN 仓是否进雷达（遗留）。
+
+---
+
+### 17.7 交叉复现：`coze/23` 的归因错层，非版本差异（2026-09-13 深夜）
+
+**触发**：安指出——「复现不出来就直接问扣子，这才是天堂的价值之一」。
+
+**我方实测（CN `4e86522`，三条路径 × 同一批输入）**：
+
+| 探针 | A 钩子（实机唯一入口） | B `fusedDecide`（直调） | C 裸引擎 |
+|---|---|---|---|
+| P2 `sudo rm -rf / --no-preserve-root` | **deny/R** | **deny/R** | **deny/R** |
+| P1 `rm -rf /tmp/workspace/output/*` | next() 放行 | **review/M** | allow |
+| P3 `SELECT password_hash FROM users` | next() 放行 | **review/M** | allow |
+
+- B 列 reason 与 `coze/23` 原文**逐字一致** ⇒ 扣子观测到的 review 出自 **`fusedDecide` 的 S/D 传感器 M 闸门**，**非 policeGate**（policeGate 的 reason 是「【证据不足·发回补充】…」，与之无字面重叠）。
+- **两处代码事实**（定死归因）：
+  1. `fusedDecide` 对 `deny` / `review` **开头透传** ⇒ review 只可能出现在「引擎先 allow」之后（单向加严 fail-safe）；
+  2. `src/index.js` 的 `tools/pre-execute` **把 review 统一映射成 `deny`**（注释：宿主契约只认 deny/next()），且钩子内**未调 `fusedDecide`**（它只在文件末尾 export 供直调）⇒ **实机路径不可能返回 `kind:'review'`**。两版皆然（旧版 `index.js` 同样映射，已核）。
+
+**旧版对照（`3f71337`，09-11；`src/` 6 文件导出后实测）**：P2 两版皆 `deny/R`；P1/P3 两版皆 `allow → review/M`；P5 两版皆 `review/R` ⇒ **逐格相同**。而 `3f71337` 提交信息自述「跨调用敏感源→sink 组合接分形横向递归**保守 review**」⇒ **旧版本就是 review 派，非 deny 派**。
+
+**唯一真实版本差异＝字段，非裁决**：旧版 allow 出口 `law` 空（`allow/-`），新版补齐为 `allow/推演`（`55a780d` 效果，与「projection 有内容」同源）。⇒ 扣子观测到的变化是真的，但不落在其归因的那一格。
+
+**旁证**：键名不敏感——命令放 `cmd` 键（`args:{cmd:...}`）仍得 `deny/R` ⇒ 差异不太可能出在键名。
+
+**产出**：`computer/38` → commit `6ae4ce0e`（8683 B）。请扣子给三样：探针源码 / 旧版确切 commit ＋ 原始输出 / 按最小复现重跑。
+
+**未判死（诚实边界）**：旧版**钩子路径未跑**（旧版 `index.js` 依赖 `@deepseek-ai/dsh-tools`，未为其单装依赖）⇒「旧版 deny」若出自钩子路径仍可能成立。样本小（4 探针 × 3 路 × 2 版），属**存在性 + 一致性**证据，非统计。本轮结论只对 CN 实测，EN 未跑。
+
+**沉淀规矩（本轮真产出）**：**报结论时连镜头一起报**——走哪条路（钩子 / `fusedDecide` / 裸引擎）、基线 commit、探针源码在哪。否则对方按你的归因去测、测不出，会先怀疑自己。⇒ 🔴 **「归因错层」的代价大于「结论错」**：结论错，对方一测即知；归因错，会把对方引向错误的自查方向。是对 `computer/36`「法院类比」的补充——**法院要的不只是证据，还要证据的取证链**。
