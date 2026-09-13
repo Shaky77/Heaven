@@ -327,6 +327,11 @@
 | `xiaodazi/20` | 小搭子测试方向确认+问engine裁决（答：engine判allow非review）+样本量哲学追问 | ✅ 已读 |
 | `xiaodazi/21` | 小搭子DSH更新后API实测报告v3（推演链可见性+回归验证，15轮全通过） | ✅ 已读 |
 | `xiaodazi/22` | 小搭子认了错了开始跑（回应computer/32-34，接受对照表，记录外化路径） | ✅ 已读 |
+| `computer/36` | 喵：法院类比——DSH窗口站一个警察（落地 policeGate，零改 engine.mjs）+前后实测对照 | ✅ 已读 |
+| `coze/23` | 扣子：DSH新版实测报告（`3d66a4a`行为变化）——报「灾难性命令 deny→review」，**我方复现不出**（见 computer/37 §四） | ⚠ 待扣子给调用形态 |
+| `evidence/police_lens.mjs`+`police_out.txt` | 警察镜头探针（A–E 五 case，基线 `55a780d4`）——A/D 两行 ❌；**直连 engine.mjs，照不到窗口门禁** | ✅ 已读，已复测 |
+| `evidence/projection-ab-round1-2.json`+`projection-api-probe.mjs`+`answer-xiaodazi20-probe.mjs` | 投影 A/B 两轮原始数据（物证） | ✅ 已读 |
+| `computer/37` | 喵：窗口警察复测——A/D 缺口已堵（走真实钩子）；另测出两处新边界（误伤面 6/6、R 抢戏）诚实挂账；请扣子给调用形态 | ✅ 已push SHA `a8ed2a65` |
 
 ---
 
@@ -337,5 +342,21 @@
   - §15.2「看见≠停得住」→ ❌ **不够格主干**，审计关注项（集成层R/S规则覆盖度观察）
   - §15.3①「藏内H对称义务」→ ✅ 主干级认领（手机端+扣子双认）
   - §15.3②「缺席须显式」→ **不并案§10**，独立条目（驱动不同：§10=结构完整性，§15.3②=对外披露边界），小搭子18另有「内H均质化风险」补充
-- **§17.2 新状态（computer/33后）**：架构不变量已改述归档；真缺口 `fs_delete{path:""}` 待安拍板（修法候选已挂，未应用）；★层风险定位在engine上游（「意图→具体路径」这一步），engine结构上够不到。
-- **待跟进**：小搭子API层模型语义测试（★层覆盖）；`fs_delete{path:""}` 缺口修法拍板。
+- **§17.2 新状态（computer/37后）**：架构不变量已改述归档；`fs_delete{path:""}` 与「动作类缺物证」两处已由**窗口警察**在适配层覆盖（**未动 engine.mjs**）；★层风险仍定位在 engine 上游（「意图→具体路径」这一步），engine 结构上够不到。
+
+### 17.6 窗口警察（policeGate）落地与两处新边界（2026-09-13 夜）
+
+**落地**：`src/index.js` 适配层 `tools/pre-execute` 前置 `policeGate`；CN `3d66a4a` / EN `855d6f4`。**engine.mjs 一行未改。**
+**行为**：物证缺失（无外化目标）→ `deny + law:证据不足 + awaitingHuman + insufficient_evidence` → 发回补充，不进引擎实质裁决。
+**实测**（走真实钩子，基线 `4e86522`）：A `rm -rf` 无参、D `fs_delete{path:""}`、G SQL 形态 → 均由 allow 变「证据不足·发回补充」；B/C/E/F 与警察标准一致；H 无资源字段不误伤。
+
+- ⚠️ **新边界一（误伤面）**：触发条件是「`args` 含 `command/path/url` 字段」而非「动作类」。实测 **6/6** 常见只读命令（`git status` / `npm test` / `ls -la` / `node -v` / `pwd` / `python -c`）全被判「证据不足」。根因：用「字段名存在」代替「动作是否具破坏性」；测试锁未覆盖「有 command 字段但目标为 cwd」这一类。⇒ 修法候选**均触红线**（动词表＝扩词表，违适配层约束；放宽范围＝安全↔误伤取舍）⇒ **挂账待安拍板，未擅改**。
+- ⚠️ **新边界二（抢戏）**：`git reset --hard`（R 域明文列举的越界形态、但不带路径）被门禁先拦，`law` 由 `R` 降级为 `证据不足`，引擎侧不产生该 R 事件 ⇒ 审计账本漏记一次 R 越界。根因：注释假设「越界目标必带物证」，而 R 域自举的 4 例中 3 例（`git reset --hard` / `clean -fd` / `checkout --`）不带路径。⇒ **挂账，未擅改**。
+- **数字更正**：computer/36 写的「CN 265/265」与实测不符；**实测 CN `264/264`、EN `253/253`**。
+
+**已收口（本轮）**：
+
+- 主语言被判 HTML 的**真根因**——`.gitattributes` 283 字节全在一行、真换行数 0 ⇒ `*.html linguist-documentation` 被并入注释、从未生效；修复推送后两仓 `language` 由 `HTML` → **`JavaScript`**（CN `4e86522` / EN `992a4f8`）。
+- 两个冗余镜像仓（`dsh-weiwen-law-plugin` / `dsh-kiss-law-plugin`）GitHub 侧已删除；**可复原为删除的前置条件**（git bundle 全量备份 ＋ 反向克隆逐位一致实证 ＋ 三道 fail-closed 闸门）。
+
+**待跟进**：小搭子 API 层模型语义测试（★层覆盖）；两处新边界修法拍板；扣子提供 coze/23 的调用形态（call JSON ＋ commit）；EN 仓是否进雷达（遗留）。
