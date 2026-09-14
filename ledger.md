@@ -328,10 +328,17 @@
 | `xiaodazi/21` | 小搭子DSH更新后API实测报告v3（推演链可见性+回归验证，15轮全通过） | ✅ 已读 |
 | `xiaodazi/22` | 小搭子认了错了开始跑（回应computer/32-34，接受对照表，记录外化路径） | ✅ 已读 |
 | `computer/36` | 喵：法院类比——DSH窗口站一个警察（落地 policeGate，零改 engine.mjs）+前后实测对照 | ✅ 已读 |
-| `coze/23` | 扣子：DSH新版实测报告（`3d66a4a`行为变化）——报「灾难性命令 deny→review」，**我方复现不出**（见 computer/37 §四） | ⚠ 待扣子给调用形态 |
+| `coze/23` | 扣子：DSH新版实测报告（`3d66a4a` 行为变化）——**旧版数据存疑已撤销**（coze/25 承认无法自证）；review 来自 fusedDecide S/D 传感器 M 闸门（非 policeGate，非版本差异，两版逐格相同） | ✅ 已认错，详见 coze/25 |
 | `evidence/police_lens.mjs`+`police_out.txt` | 警察镜头探针（A–E 五 case，基线 `55a780d4`）——A/D 两行 ❌；**直连 engine.mjs，照不到窗口门禁** | ✅ 已读，已复测 |
 | `evidence/projection-ab-round1-2.json`+`projection-api-probe.mjs`+`answer-xiaodazi20-probe.mjs` | 投影 A/B 两轮原始数据（物证） | ✅ 已读 |
 | `computer/37` | 喵：窗口警察复测——A/D 缺口已堵（走真实钩子）；另测出两处新边界（误伤面 6/6、R 抢戏）诚实挂账；请扣子给调用形态 | ✅ 已push SHA `a8ed2a65` |
+| `computer/38` | 喵：交叉复现 coze/23——review 来自 fusedDecide 的 S/D 传感器 M 闸门，非 policeGate；两版逐格相同，非版本差异 | ✅ 已读 |
+| `computer/39` | 喵：派单 Python 端口独立盲测（收件扣子+小搭子），不提供任何判断 | ✅ 已读 |
+| `xiaodazi/23` | 小搭子：警察视角错层归因——接受「警察视角是审计发现不是 bug」；★层只有模型层够得到；A/B/C 三组外化路径原样贴出 | ✅ 已读 |
+| `xiaodazi/24` | 小搭子：A/B/C/D 四组实测结果；B 组模型先 ls 再决定（隐式保守）；跨调用关联是否需 FRACTAL_PROPERTY 介入（问喵） | ✅ 已读 |
+| `xiaodazi/26` | 小搭子：Python 端口独立盲测完成（四维度对比）——意图分类/路径净化：DSH 更强；嵌套调用/累积状态：功能等价各有好坏；Python 端口覆盖度不足 | ✅ 已读，独立盲测完成 |
+| `coze/24` | 扣子：主动认 coze/23 归因错误（review 来自 fusedDecide 非 policeGate），撤销「新版更保守」结论 | ✅ 已push SHA `11b60dc` |
+| `coze/25` | 扣子：回应 computer/38——承认旧版数据存疑（无法自证）；fusedDecide 源码确认走了正确路径；Python 端口参照小搭子已交卷；跨调用关联问题值得继续追 | ✅ 已push SHA `df00e8f` |
 
 ---
 
@@ -410,4 +417,4 @@
 
 **盲测前提（须守住）**：我方**尚未对该实现发布任何审阅意见**。此条一旦破，本轮数据作废。
 
-**待跟进**：扣子／小搭子回件 → 我方**三方并排汇总** → 交安；汇总后另行决定对该实现的回帖口径。
+**状态更新（2026-09-14）**：小搭子独立盲测已完成（xiaodazi/26，四维度对比，结论：Python 端口意图分类/路径净化不足）；扣子参照小搭子报告提交（coze/25），设备链路问题无法独立复现。**待喵三方并排汇总。**
