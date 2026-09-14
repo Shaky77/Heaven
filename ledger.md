@@ -5,7 +5,7 @@
 > **引用规则**：跨端引用任何数字/行号/SHA/路径，**一律从本文件取**；本文件没有 = 未核实 = 不对外。
 > **仓库为 public**：本文件不含任何 token、密钥、私密信息。
 
-版本：v0.2 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端 ｜ 更新：2026-09-14（真实API核验HEAD+测试数；修正三仓关系误记；补09-14外部同行线进展）
+版本：v0.3 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端 ｜ 更新：2026-09-14（二次修正仓库拓扑：带DSH名两仓＝同一内容中英文版、互为参照、均系活系统版本的具体实现；活系统版思维导图未进任何仓库、仓库仅含基础版思维导图且冻结）
 
 ---
 
@@ -13,10 +13,10 @@
 
 | 项 | 值 | 核实方式 | 时间 |
 |---|---|---|---|
-| CN 仓（活系统版·中文·active） | `Shaky77/weiwen-law-dsh`，main，HEAD **`4e865223b188048721e55d8fe7eba6a873cc4c77`**（远程已同步） | GitHub API `commits?per_page=1` + 本地 `git rev-parse HEAD`（两值一致） | 2026-09-14 实测 |
-| EN 仓（含 DSH 名·英文·active·据活系统版做的衍生物） | `Shaky77/KISS_Law-DSH`，main，HEAD **`072c35e814578ea19f438ecc068e58fa0f207572`**（远程已同步） | GitHub API + 本地 `git rev-parse HEAD`（两值一致） | 2026-09-14 实测 |
+| CN 仓（DSH 名·中文·active·据活系统版做的实现） | `Shaky77/weiwen-law-dsh`，main，HEAD **`4e865223b188048721e55d8fe7eba6a873cc4c77`**（远程已同步） | GitHub API `commits?per_page=1` + 本地 `git rev-parse HEAD`（两值一致） | 2026-09-14 实测 |
+| EN 仓（DSH 名·英文·active·与 `weiwen-law-dsh` 同内容·CN/EN 互为参照·据活系统版做的实现） | `Shaky77/KISS_Law-DSH`，main，HEAD **`072c35e814578ea19f438ecc068e58fa0f207572`**（远程已同步） | GitHub API + 本地 `git rev-parse HEAD`（两值一致） | 2026-09-14 实测 |
 | EN 基础版（英文·冻结·doc-only·无测试） | `Shaky77/KISS-s_Law`，main，HEAD **`98ec5d68e4eed86f176b17106e02157373ad114c`**（2026-08-31 后无提交，冻结） | GitHub API | 2026-09-14 实测 |
-| 三仓关系（09-14 安纠正） | 三者是**三个不同仓**：`weiwen-law-dsh`（活系统版·CN·active）≠ `KISS_Law-DSH`（含DSH名·EN·active·据活系统版做的衍生物）≠ `KISS-s_Law`（基础版·英文·冻结·无测试）。旧账本误将 `KISS_Law-DSH` 记为「待改名为 `KISS-s_Law`」——**错**：`KISS-s_Law` 是基础版、独立存在；`KISS_Law-DSH` 不可改 metadata（用户铁律）。活系统版思维导图（`versions/活系统版/weiwen_maps.html`，电脑端所绘、软著 2026SR0748746）对应 `weiwen-law-dsh`，**不是** `KISS_Law-DSH`。 | 用户指令 2026-09-14 | 2026-09-14 |
+| 仓库拓扑（09-14 安纠正·v0.3） | **带 DSH 名的仓＝同一内容的中英文版、互为参照**：`weiwen-law-dsh`（CN）≡ `KISS_Law-DSH`（EN），二者都是「活系统版本」做出来的具体实现（非互异、非改名关系）。`KISS-s_Law`（EN 基础版·冻结·doc-only）与 `Weiwen-s_Law`（CN 基础版·冻结）是另一组，独立存在。**活系统版本的思维导图**（`versions/活系统版/weiwen_maps.html`，电脑端所绘、软著 2026SR0748746）**未进任何仓库**；仓库里只有「基础版思维导图」，用户要求冻结、不可再修改。旧账本误将 `KISS_Law-DSH` 记为「待改名为 `KISS-s_Law`」＝错（基础版独立存在）。 | 用户指令 2026-09-14 | 2026-09-14 |
 | 两仓 remote | `git@github.com:Shaky77/<repo>.git`（**owner 是 Shaky77，非 deepseek-ai 组织**） | `git remote -v` | 2026-09-09 |
 | 测试（标准口径 `node --test "test/*.test.mjs"`） | CN **264/264** ｜ EN `KISS_Law-DSH` **253/253** ｜ `KISS-s_Law` 无测试（doc-only）。注：默认 `node --test`（扫全仓含 `versions/.../legal_jurisdiction_test.mjs`）CN 多 1 条＝265/265。 | 本地 managed node 22.22.2 于 `weiwen-law-dsh`@`4e86522` 与 `KISS_Law-DSH`@`072c35e` | 2026-09-14 实测 |
 | API实测（DeepSeek真API） | **13/13 PASS** · 13场景（psi类型闸门3 + git语义4 + 组合操作3 + 红队3）· 扣子直调`deepseek-chat`，`coze/14-API实测-DeepSeek-13场景-13pass.json` | DeepSeek API `deepseek-chat`，`sk-80cc...` | 2026-09-11 |
@@ -346,7 +346,7 @@
 
 ### 17.5 待同步事项
 
-- **EN仓名（09-14 安纠正，已修正 §1）**：`KISS_Law-DSH` 与 `KISS-s_Law` 是**两个不同仓**，非改名关系。`KISS_Law-DSH`＝含 DSH 名·英文·active·据活系统版做的衍生物（HEAD `072c35e8`，253/253）；`KISS-s_Law`＝基础版·英文·冻结·doc-only（HEAD `98ec5d6`，无测试）。旧条目「待改名为 KISS-s_Law」已撤销。✔️
+- **EN仓名（09-14 安纠正，已修正 §1）**：`KISS_Law-DSH` 与 `KISS-s_Law` 是**两个不同仓**，非改名关系。`KISS_Law-DSH`＝DSH 名·英文·与 `weiwen-law-dsh` 同内容·CN/EN 互为参照·据活系统版做的实现（HEAD `072c35e8`，253/253）；`KISS-s_Law`＝基础版·英文·冻结·doc-only（HEAD `98ec5d6`，无测试）。旧条目「待改名为 KISS-s_Law」已撤销。✔️ 另：带 DSH 名两仓＝同一内容中英文版，均系活系统版本的具体实现；活系统版思维导图未进任何仓库（见 §1 仓库拓扑）。
 - **§15 待办落地（本轮）**：
   - §15.2「看见≠停得住」→ ❌ **不够格主干**，审计关注项（集成层R/S规则覆盖度观察）
   - §15.3①「藏内H对称义务」→ ✅ 主干级认领（手机端+扣子双认）
