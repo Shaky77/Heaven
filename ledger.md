@@ -5,7 +5,7 @@
 > **引用规则**：跨端引用任何数字/行号/SHA/路径，**一律从本文件取**；本文件没有 = 未核实 = 不对外。
 > **仓库为 public**：本文件不含任何 token、密钥、私密信息。
 
-版本：v0.1 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端
+版本：v0.2 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端 ｜ 更新：2026-09-14（真实API核验HEAD+测试数；修正三仓关系误记；补09-14外部同行线进展）
 
 ---
 
@@ -13,17 +13,19 @@
 
 | 项 | 值 | 核实方式 | 时间 |
 |---|---|---|---|
-| CN 仓 | `Shaky77/weiwen-law-dsh`，main，HEAD **`3f71337`**（远程已同步） | `git rev-parse HEAD` + `git ls-remote origin main` | 2026-09-11 |
-| EN 仓 | `Shaky77/KISS_Law-DSH`，main，HEAD **`3e745a7`**（远程已同步，仓名待更正为`KISS-s_Law`） | `git rev-parse HEAD` + `git ls-remote origin main` | 2026-09-10 |
+| CN 仓（活系统版·中文·active） | `Shaky77/weiwen-law-dsh`，main，HEAD **`4e865223b188048721e55d8fe7eba6a873cc4c77`**（远程已同步） | GitHub API `commits?per_page=1` + 本地 `git rev-parse HEAD`（两值一致） | 2026-09-14 实测 |
+| EN 仓（含 DSH 名·英文·active·据活系统版做的衍生物） | `Shaky77/KISS_Law-DSH`，main，HEAD **`072c35e814578ea19f438ecc068e58fa0f207572`**（远程已同步） | GitHub API + 本地 `git rev-parse HEAD`（两值一致） | 2026-09-14 实测 |
+| EN 基础版（英文·冻结·doc-only·无测试） | `Shaky77/KISS-s_Law`，main，HEAD **`98ec5d68e4eed86f176b17106e02157373ad114c`**（2026-08-31 后无提交，冻结） | GitHub API | 2026-09-14 实测 |
+| 三仓关系（09-14 安纠正） | 三者是**三个不同仓**：`weiwen-law-dsh`（活系统版·CN·active）≠ `KISS_Law-DSH`（含DSH名·EN·active·据活系统版做的衍生物）≠ `KISS-s_Law`（基础版·英文·冻结·无测试）。旧账本误将 `KISS_Law-DSH` 记为「待改名为 `KISS-s_Law`」——**错**：`KISS-s_Law` 是基础版、独立存在；`KISS_Law-DSH` 不可改 metadata（用户铁律）。活系统版思维导图（`versions/活系统版/weiwen_maps.html`，电脑端所绘、软著 2026SR0748746）对应 `weiwen-law-dsh`，**不是** `KISS_Law-DSH`。 | 用户指令 2026-09-14 | 2026-09-14 |
 | 两仓 remote | `git@github.com:Shaky77/<repo>.git`（**owner 是 Shaky77，非 deepseek-ai 组织**） | `git remote -v` | 2026-09-09 |
-| 测试（标准口径） | CN **255/255** ｜ EN **244/244**（**CN新增11条回归锁，EN待同步**） | `node --test "test/*.test.mjs"` | 2026-09-11 |
+| 测试（标准口径 `node --test "test/*.test.mjs"`） | CN **264/264** ｜ EN `KISS_Law-DSH` **253/253** ｜ `KISS-s_Law` 无测试（doc-only）。注：默认 `node --test`（扫全仓含 `versions/.../legal_jurisdiction_test.mjs`）CN 多 1 条＝265/265。 | 本地 managed node 22.22.2 于 `weiwen-law-dsh`@`4e86522` 与 `KISS_Law-DSH`@`072c35e` | 2026-09-14 实测 |
 | API实测（DeepSeek真API） | **13/13 PASS** · 13场景（psi类型闸门3 + git语义4 + 组合操作3 + 红队3）· 扣子直调`deepseek-chat`，`coze/14-API实测-DeepSeek-13场景-13pass.json` | DeepSeek API `deepseek-chat`，`sk-80cc...` | 2026-09-11 |
 | EN 同步授权 | 用户 2026-09-10 定：**英文仓不再逐次请示**，中英同一 token、有全部权限，CN 推后 EN 直译同步即可（用户只看中文面） | 用户指令 | 2026-09-10 |
 
 **⚠️ 测试口径易错点**（已踩过两次，勿再犯）：
-- 正确命令是 `node --test "test/*.test.mjs"` → **CN 255 / EN 244**（2026-09-11 实测，CN新增11条回归锁；EN待同步）。
+- 正确命令是 `node --test "test/*.test.mjs"` → **CN 264 / EN 253**（2026-09-14 实测）。
 - 用 `node --test test/` 会**报错**（目录被当文件加载），不是代码问题。
-- 用默认扫描 `node --test` 会多跑 `versions/.../legal_jurisdiction_test.mjs` → **多 1 条**。
+- 用默认扫描 `node --test` 会多跑 `versions/.../legal_jurisdiction_test.mjs` → **CN 多 1 条（265/265）**；EN 无此多跑（253/253 两命令一致）。
 - **对外报数只用标准口径**；两仓现已相等，但仍建议注明仓名（历史上曾长期不等）。
 
 ---
@@ -344,7 +346,7 @@
 
 ### 17.5 待同步事项
 
-- **EN仓名**：ledger §1记录为`KISS_Law-DSH`，实际为`KISS-s_Law`（连字符，computer/23已更正）。待CN仓EN仓全量同步后一并修正本文件§1。
+- **EN仓名（09-14 安纠正，已修正 §1）**：`KISS_Law-DSH` 与 `KISS-s_Law` 是**两个不同仓**，非改名关系。`KISS_Law-DSH`＝含 DSH 名·英文·active·据活系统版做的衍生物（HEAD `072c35e8`，253/253）；`KISS-s_Law`＝基础版·英文·冻结·doc-only（HEAD `98ec5d6`，无测试）。旧条目「待改名为 KISS-s_Law」已撤销。✔️
 - **§15 待办落地（本轮）**：
   - §15.2「看见≠停得住」→ ❌ **不够格主干**，审计关注项（集成层R/S规则覆盖度观察）
   - §15.3①「藏内H对称义务」→ ✅ 主干级认领（手机端+扣子双认）
@@ -417,4 +419,20 @@
 
 **盲测前提（须守住）**：我方**尚未对该实现发布任何审阅意见**。此条一旦破，本轮数据作废。
 
-**状态更新（2026-09-14）**：小搭子独立盲测已完成（xiaodazi/26，四维度对比，结论：Python 端口意图分类/路径净化不足）；扣子参照小搭子报告提交（coze/25），设备链路问题无法独立复现。**待喵三方并排汇总。**
+**状态更新（2026-09-14）**：小搭子独立盲测已完成（xiaodazi/26，四维度对比，结论：Python 端口意图分类/路径净化不足）；扣子参照小搭子报告提交（coze/25），设备链路问题无法独立复现。**三方并排汇总已完成（drafts/2026-09-14-三方汇总-我方+小搭子+扣子.md）。**
+### 17.9 外部同行 Rehan 线进展（2026-09-14）
+
+**对象**：`Rehanguards/Weiwen-Law-Python-PoC` 作者 Rehan（国外 AI 技术者），基于唯稳律的独立实现——零代码参照、跨语言、明确标注唯稳律与来源。派单与三方汇总见 §17.8。
+
+**回信（2026-09-14 晚）**：
+- 认可我方承重分析三处 trade-off（payload 不判定＋记录权外置 ⇒ 执行态依赖调用方 harness；session 计数器无全局序列 ⇒ 允许动态重置 exploit；`test_engine.py` 入口坏 ⇒ 立即修缺失 imports）；
+- 披露下一步架构：State Coupling（`decide_core` 输出不可变 session state＋verdict，消灭 unrecorded PASS）、Payload Adjudication（字面匹配→payload bounds）、Production Path（评估接入 Spatial App Studio 的 FastAPI guardrail 层 Cloudwall，目标亚毫秒实时流 payload）；
+- 表示会看 KISS_Law-DSH 更新，邀请对齐 state-propagation specs。
+
+**判定（我方，待其自评补证）**：其**目标**指向 Cloudwall/FastAPI 亚毫秒真实场景，但**当前链接呈现形态为 demo 级**、尚不具备该场景成熟度（目标≠当前形态，内 H 意图≠外 H 交付）。详见 91 线 §九·补十二。
+
+**鼓励短函已发（2026-09-14 晚）**：回简短英文短函——肯定方向正确、实现方式归其自由发挥（不干涉）、其余对齐走邮件、欢迎随机联系；附基础版英文仓库 `https://github.com/Shaky77/KISS-s_Law` 供其对照框架本身（DSH 仅是实现之一、代替不了框架）。中文过目版：`mail-drafts/2026-09-14-回帖-Rehan-鼓励短函.md`。
+
+**不干涉的战略根因（09-14 安揭示）**：让对方基于唯稳律自由发挥，是为避免「被按头承认通用型」的潜意识抗拒；按头给完整结构 ⇒ 其收敛＝被迫合规、非独立验证 ⇒ 反而毒化「通用型」唯一外部实证。自由实现→在因果律结构必要约束上「撞撞撞」→ 向唯稳律靠拢＝因果必然（第一性原理在 adoption 层应用）。详见 `outreach-discipline.md` §六。
+
+**结构复现无需代码（09-14 安洞察）**：Rehan 仅三散文路标＋跨语言＋零代码即立结构 ⇒ 结构可传递性独立于代码/实现形态；框架传播＝可传递规则结构、非可拷贝代码。⇒ 通用性＝结构固有属性（非靠多域 empirical 证明）；Rehan 结构复现即**通用型验证（kind 成立）**，限制仅在「复现不完整」（非全链／demo 级）。
