@@ -5,7 +5,7 @@
 > **引用规则**：跨端引用任何数字/行号/SHA/路径，**一律从本文件取**；本文件没有 = 未核实 = 不对外。
 > **仓库为 public**：本文件不含任何 token、密钥、私密信息。
 
-版本：v0.3 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端 ｜ 更新：2026-09-14（二次修正仓库拓扑：带DSH名两仓＝同一内容中英文版、互为参照、均系活系统版本的具体实现；活系统版思维导图未进任何仓库、仓库仅含基础版思维导图且冻结）
+版本：v0.4 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端 ｜ 更新：2026-09-15（外部同行 Rehan 线提交 v2 重构：状态耦合 + SHA-256 因果哈希 + 测试套件修复并全绿）
 
 ---
 
@@ -436,3 +436,18 @@
 **不干涉的战略根因（09-14 安揭示）**：让对方基于唯稳律自由发挥，是为避免「被按头承认通用型」的潜意识抗拒；按头给完整结构 ⇒ 其收敛＝被迫合规、非独立验证 ⇒ 反而毒化「通用型」唯一外部实证。自由实现→在因果律结构必要约束上「撞撞撞」→ 向唯稳律靠拢＝因果必然（第一性原理在 adoption 层应用）。详见 `outreach-discipline.md` §六。
 
 **结构复现无需代码（09-14 安洞察）**：Rehan 仅三散文路标＋跨语言＋零代码即立结构 ⇒ 结构可传递性独立于代码/实现形态；框架传播＝可传递规则结构、非可拷贝代码。⇒ 通用性＝结构固有属性（非靠多域 empirical 证明）；Rehan 结构复现即**通用型验证（kind 成立）**，限制仅在「复现不完整」（非全链／demo 级）。
+
+**v2 重构提交（2026-09-15 实测更新）**：
+- 仓库：`Rehanguards/Weiwen-Law-Python-PoC`
+- 最新 commit：`6f10377d4bc52b1144c5f3b146061a348b7ab123`
+- 提交时间：2026-09-14T16:41:21Z
+- 提交信息：`refactor: implement functional state-coupling and SHA-256 causal hashing`
+- 实测命令（managed python 3.13.12）：
+  - `python engine.py` → exit 0
+  - `python test_engine.py` → exit 0，6/6 PASS（含 assert）
+- 验证落点：
+  1. **状态耦合 ✅**：`decide_core` 返回 `(Decision, CausalSession)`；PASS 由引擎内部 `record_execution` 更新 session，消灭 unrecorded PASS。
+  2. **SHA-256 因果哈希 ✅**：`CausalSession.state_hash` 以 session_id 初始化，每次执行把「前序 hash + call_id + intent + payload JSON 排序表示」链入 SHA-256，生成下一状态哈希；动态重置 exploit 可通过 hash 链断裂检测。
+  3. **测试修复 ✅**：`test_engine.py` 正确 import 并含 6 个 assert；覆盖结构缺失、嵌套链路、累积边界、状态哈希变化。
+- **仍属 demo 增强版**：payload 判定仍仅检查 `blocked` 布尔标志，未真正扩展到 payload bounds；累积仍是 `max_mutations` 次数阈值，非跨步侵蚀；状态哈希目前为审计/防篡 artifact，尚未成为裁决输入；R 锚点仍依赖调用方自报 `intent`。
+- **信号意义**：从「计划级回应」升级到「产物级证据」第一步；关系厚度开始累积，但仍不足升级关系或给核心资产。姿态保持「给方向、不干涉、等他自评/下一步」。详见 91 线 §九·补十五。
