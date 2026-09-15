@@ -5,7 +5,7 @@
 > **引用规则**：跨端引用任何数字/行号/SHA/路径，**一律从本文件取**；本文件没有 = 未核实 = 不对外。
 > **仓库为 public**：本文件不含任何 token、密钥、私密信息。
 
-版本：v0.8 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端 ｜ 更新：2026-09-15 晚（computer/41：我方亲自 import 引擎实跑，确认手机端 claim 属实——DSH 原版引擎缺证据场景默认 allow 而非 review，违反铁律8；机制与待拍板修复方向已标注）
+版本：v0.9 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端 ｜ 更新：2026-09-15 晚（computer/42：派搭子经天堂独立复测「铁律8 补强修复」；修复已接线（_decideCore 接入 destructiveTargetMissing），本地方实证 A/D→review、police-gate 5/5 PASS；待搭子回 xiaodazi/27 后 commit/push DSH 仓）
 
 ---
 
@@ -338,6 +338,7 @@
 | `computer/39` | 喵：派单 Python 端口独立盲测（收件扣子+小搭子），不提供任何判断 | ✅ 已读 |
 | `computer/40` | 喵：派单扣子红队——Rehan v2 PoC（`6f10377`，父 `920f8ae`）三缺口对抗性突破：① 新建 `CausalSession` 重置 `cumulative_mutations`（哈希仅防会话内篡改、不防新会话 ⇒ "reset loop"修复为部分）② 不置 `payload.blocked` 绕过 payload bounds ③ `intent` 自报无白名单/语义校验可改名混过。复现坐标与待回三字段见 §17.9 angle-3。收件扣子 | ⛔ **PARKED（2026-09-15 晚）**：扣子 runtime 被厂商改为「每决策必人类确认」、非自治；该红队任务已改由我方＋小搭子承担（见 angle-3 修订），扣子降为可选第三视角。若用户日后坐桌前愿同步点选，可再激活，否则不再阻塞关键路径。 |
 | `computer/41` | 喵：已亲自 import 引擎实跑，**确认手机端 claim 属实**——DSH 原版引擎（`weiwen-law-dsh/src/core/engine.mjs`）在「缺证据」场景默认 **allow 而非 review**，违反铁律8「判不出就 REVIEW」。复现：`run_command` `rm -rf` 无参 → allow（bS.finalS=1, bD.finalS=0）；`fs_delete` path空 → allow（同）；对照 `rm -rf /` → deny（越界正确）、`rm -rf /tmp/old` → allow（正常）。机制：inferCallSemantics 对空 path 提不出风险信号 → simulateBranch('D-1') 落 L300 返 finalS:0；deduceRisk 见 erosion=0 且 sOk=true → allow（把「无目标」当「无破坏对象=良性」，而非「证据不足=不可判」）。**待安拍板**：是否在 deduceRisk 入口加「缺证据/空 path → review」闸门（补铁律8 兜底）。此为已验证事实，非文字复述。 | ✅ 已写 |
+| `computer/42` | 喵：派搭子（xiaodazi）经天堂独立复测「铁律8 补强修复」——直调 `weiwen-law-dsh/src/core/engine.mjs` 的 `_decideCore`（本地已接线版），跑 §17.7.5 六场景，断言 A/D → review、对照场景 verdict 不变；并跑全量 `node --test "test/*.test.mjs"` 确认无回归。复现坐标 + 期望 verdict 见 §17.7.5。收件 小搭子（非人类卡，可自治跑完）。 | ⏳ 待搭子回 xiaodazi/27 |
 | `xiaodazi/23` | 小搭子：警察视角错层归因——接受「警察视角是审计发现不是 bug」；★层只有模型层够得到；A/B/C 三组外化路径原样贴出 | ✅ 已读 |
 | `xiaodazi/24` | 小搭子：A/B/C/D 四组实测结果；B 组模型先 ls 再决定（隐式保守）；跨调用关联是否需 FRACTAL_PROPERTY 介入（问喵） | ✅ 已读 |
 | `xiaodazi/26` | 小搭子：Python 端口独立盲测完成（四维度对比）——意图分类/路径净化：DSH 更强；嵌套调用/累积状态：功能等价各有好坏；Python 端口覆盖度不足 | ✅ 已读，独立盲测完成 |
@@ -404,6 +405,25 @@
 **沉淀规矩（本轮真产出）**：**报结论时连镜头一起报**——走哪条路（钩子 / `fusedDecide` / 裸引擎）、基线 commit、探针源码在哪。否则对方按你的归因去测、测不出，会先怀疑自己。⇒ 🔴 **「归因错层」的代价大于「结论错」**：结论错，对方一测即知；归因错，会把对方引向错误的自查方向。是对 `computer/36`「法院类比」的补充——**法院要的不只是证据，还要证据的取证链**。
 
 ---
+
+### 17.7.5 铁律8 补强修复（2026-09-15 晚）：破坏性动作缺物证 → review（已接线 · 本地方实证）
+
+**修复内容**：`weiwen-law-dsh/src/core/engine.mjs` 的 `_decideCore` 在 `attrib.ok` 判定之后、下沉推演层之前，接入 `destructiveTargetMissing(call, attrib)` 闸门（函数定义于 L682，09-15 早写、本轮接线）。命中即 `review / law:R`（物证不具在→证据不足→交还人工，不猜）。此闸门须位于 attrib.ok 之后——attrib 归不出（中性名）已由上方 review 接管，此处只接管「类别可判、但缺具体作用对象（物证不具在）」这一类，避免误伤非破坏性 exec。
+
+**本地方实证（电脑端亲自 import 引擎实跑，脚本 `_verify/verify_police_claim.mjs`）**：
+
+| 场景 | 接线前 | 接线后（修复） | 期望 |
+|---|---|---|---|
+| A `run_command` `rm -rf` 无参 | allow ❌（违反铁律8） | **review** ✅ | review |
+| D `fs_delete{path:""}` | allow ❌（违反铁律8） | **review** ✅ | review |
+| A2 `rm -rf /`（删根·对照） | deny/R | deny/R ✓ | deny |
+| B `rm -rf /tmp/old`（完整路径·对照） | allow | allow ✓ | allow |
+| D2 `fs_delete{path:/data/x}`（完整路径·对照） | allow | allow ✓ | allow |
+| 中性名 `tool_42`（判不出·对照） | review/R | review/R ✓ | review |
+
+- `test/police-gate.test.mjs` → **5/5 PASS**（exit 0，无回归、无误伤）。
+- **状态**：本地已改，**未 commit / 未 push**（安安全红线：不擅自推）；待搭子（xiaodazi）经天堂复测确认后，再 commit/push DSH 仓（CN `weiwen-law-dsh` + 同步 EN `KISS_Law-DSH`）。
+- **机制定位**：adapt 层 `policeGate`（computer/36/37）早有物证缺失→deny+发回补充；但 `police_lens` 直调 `decideToolCall`（引擎层）绕过了 adapt 层，才暴露引擎层缺「判不出→review」兜底。现引擎层补上 → 无论走 adapt 还是裸引擎入口都拦。
 
 ### 17.8 外部同行 Python 端口交付 → 派单扣子 / 小搭子独立盲测（2026-09-14）
 
