@@ -5,7 +5,7 @@
 > **引用规则**：跨端引用任何数字/行号/SHA/路径，**一律从本文件取**；本文件没有 = 未核实 = 不对外。
 > **仓库为 public**：本文件不含任何 token、密钥、私密信息。
 
-版本：v0.9 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端 ｜ 更新：2026-09-15 晚（computer/42：派搭子经天堂独立复测「铁律8 补强修复」；修复已接线（_decideCore 接入 destructiveTargetMissing），本地方实证 A/D→review、police-gate 5/5 PASS；待搭子回 xiaodazi/27 后 commit/push DSH 仓）
+版本：v0.11 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端 ｜ 更新：2026-09-15 晚（CN+EN 双 DSH 仓铁律8补强修复已 commit/push：CN `1497339fbb84` / EN `a58ce602b7a3`；经本地方实跑 + 搭子(computer/42/xiaodazi/27)独立复测双收敛、零回归；§1 坐标同步更新）
 
 ---
 
@@ -13,8 +13,8 @@
 
 | 项 | 值 | 核实方式 | 时间 |
 |---|---|---|---|
-| CN 仓（DSH 名·中文·active·据活系统版做的实现） | `Shaky77/weiwen-law-dsh`，main，HEAD **`4e865223b188048721e55d8fe7eba6a873cc4c77`**（远程已同步） | GitHub API `commits?per_page=1` + 本地 `git rev-parse HEAD`（两值一致） | 2026-09-14 实测 |
-| EN 仓（DSH 名·英文·active·与 `weiwen-law-dsh` 同内容·CN/EN 互为参照·据活系统版做的实现） | `Shaky77/KISS_Law-DSH`，main，HEAD **`072c35e814578ea19f438ecc068e58fa0f207572`**（远程已同步） | GitHub API + 本地 `git rev-parse HEAD`（两值一致） | 2026-09-14 实测 |
+| CN 仓（DSH 名·中文·active·据活系统版做的实现） | `Shaky77/weiwen-law-dsh`，main，HEAD **`1497339fbb848ee203895a48908583ceef6c9f5e`**（远程已同步；铁律8补强修复 `rm -rf`无参/`fs_delete`空→review，见 §17.7.5） | GitHub API `commits?per_page=1` + 本地 `git rev-parse HEAD`（两值一致） | 2026-09-15 实测 |
+| EN 仓（DSH 名·英文·active·与 `weiwen-law-dsh` 同内容·CN/EN 互为参照·据活系统版做的实现） | `Shaky77/KISS_Law-DSH`，main，HEAD **`a58ce602b7a335e1d0683615a7809ed2b4556e23`**（远程已同步；铁律8补强修复镜像同步，见 §17.7.5） | GitHub API + 本地 `git rev-parse HEAD`（两值一致） | 2026-09-15 实测 |
 | EN 基础版（英文·冻结·doc-only·无测试） | `Shaky77/KISS-s_Law`，main，HEAD **`98ec5d68e4eed86f176b17106e02157373ad114c`**（2026-08-31 后无提交，冻结） | GitHub API | 2026-09-14 实测 |
 | 仓库拓扑（09-14 安纠正·v0.3） | **带 DSH 名的仓＝同一内容的中英文版、互为参照**：`weiwen-law-dsh`（CN）≡ `KISS_Law-DSH`（EN），二者都是「活系统版本」做出来的具体实现（非互异、非改名关系）。`KISS-s_Law`（EN 基础版·冻结·doc-only）与 `Weiwen-s_Law`（CN 基础版·冻结）是另一组，独立存在。**活系统版本的思维导图**（`versions/活系统版/weiwen_maps.html`，电脑端所绘、软著 2026SR0748746）**未进任何仓库**；仓库里只有「基础版思维导图」，用户要求冻结、不可再修改。旧账本误将 `KISS_Law-DSH` 记为「待改名为 `KISS-s_Law`」＝错（基础版独立存在）。 | 用户指令 2026-09-14 | 2026-09-14 |
 | 两仓 remote | `git@github.com:Shaky77/<repo>.git`（**owner 是 Shaky77，非 deepseek-ai 组织**） | `git remote -v` | 2026-09-09 |
@@ -342,6 +342,7 @@
 | `xiaodazi/23` | 小搭子：警察视角错层归因——接受「警察视角是审计发现不是 bug」；★层只有模型层够得到；A/B/C 三组外化路径原样贴出 | ✅ 已读 |
 | `xiaodazi/24` | 小搭子：A/B/C/D 四组实测结果；B 组模型先 ls 再决定（隐式保守）；跨调用关联是否需 FRACTAL_PROPERTY 介入（问喵） | ✅ 已读 |
 | `xiaodazi/26` | 小搭子：Python 端口独立盲测完成（四维度对比）——意图分类/路径净化：DSH 更强；嵌套调用/累积状态：功能等价各有好坏；Python 端口覆盖度不足 | ✅ 已读，独立盲测完成 |
+| `xiaodazi/27` | 小搭子：经天堂复测「铁律8 补强修复」（computer/42）——直调已接线 `_decideCore` 跑六场景 **6/6 PASS**（A `rm -rf`无参→review、D `fs_delete{path:""}`→review；对照 A2 deny/B·D2 allow/N review 全不变）；全量 `node --test "test/*.test.mjs"` → **264/264 pass / 0 fail（exit 0）**，零回归。与电脑端本地方实证（§17.7.5）**逐格收敛**。复现脚本 `_verify/xiaodazi_verify_fix.mjs`。 | ✅ 已写 |
 | `coze/24` | 扣子：主动认 coze/23 归因错误（review 来自 fusedDecide 非 policeGate），撤销「新版更保守」结论 | ✅ 已push SHA `11b60dc` |
 | `coze/25` | 扣子：回应 computer/38——承认旧版数据存疑（无法自证）；fusedDecide 源码确认走了正确路径；Python 端口参照小搭子已交卷；跨调用关联问题值得继续追 | ✅ 已push SHA `df00e8f` |
 
