@@ -5,7 +5,7 @@
 > **引用规则**：跨端引用任何数字/行号/SHA/路径，**一律从本文件取**；本文件没有 = 未核实 = 不对外。
 > **仓库为 public**：本文件不含任何 token、密钥、私密信息。
 
-版本：v0.1 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端
+版本：v0.8 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端 ｜ 更新：2026-09-15 晚（computer/41：我方亲自 import 引擎实跑，确认手机端 claim 属实——DSH 原版引擎缺证据场景默认 allow 而非 review，违反铁律8；机制与待拍板修复方向已标注）
 
 ---
 
@@ -13,17 +13,19 @@
 
 | 项 | 值 | 核实方式 | 时间 |
 |---|---|---|---|
-| CN 仓 | `Shaky77/weiwen-law-dsh`，main，HEAD **`3f71337`**（远程已同步） | `git rev-parse HEAD` + `git ls-remote origin main` | 2026-09-11 |
-| EN 仓 | `Shaky77/KISS_Law-DSH`，main，HEAD **`3e745a7`**（远程已同步，仓名待更正为`KISS-s_Law`） | `git rev-parse HEAD` + `git ls-remote origin main` | 2026-09-10 |
+| CN 仓（DSH 名·中文·active·据活系统版做的实现） | `Shaky77/weiwen-law-dsh`，main，HEAD **`4e865223b188048721e55d8fe7eba6a873cc4c77`**（远程已同步） | GitHub API `commits?per_page=1` + 本地 `git rev-parse HEAD`（两值一致） | 2026-09-14 实测 |
+| EN 仓（DSH 名·英文·active·与 `weiwen-law-dsh` 同内容·CN/EN 互为参照·据活系统版做的实现） | `Shaky77/KISS_Law-DSH`，main，HEAD **`072c35e814578ea19f438ecc068e58fa0f207572`**（远程已同步） | GitHub API + 本地 `git rev-parse HEAD`（两值一致） | 2026-09-14 实测 |
+| EN 基础版（英文·冻结·doc-only·无测试） | `Shaky77/KISS-s_Law`，main，HEAD **`98ec5d68e4eed86f176b17106e02157373ad114c`**（2026-08-31 后无提交，冻结） | GitHub API | 2026-09-14 实测 |
+| 仓库拓扑（09-14 安纠正·v0.3） | **带 DSH 名的仓＝同一内容的中英文版、互为参照**：`weiwen-law-dsh`（CN）≡ `KISS_Law-DSH`（EN），二者都是「活系统版本」做出来的具体实现（非互异、非改名关系）。`KISS-s_Law`（EN 基础版·冻结·doc-only）与 `Weiwen-s_Law`（CN 基础版·冻结）是另一组，独立存在。**活系统版本的思维导图**（`versions/活系统版/weiwen_maps.html`，电脑端所绘、软著 2026SR0748746）**未进任何仓库**；仓库里只有「基础版思维导图」，用户要求冻结、不可再修改。旧账本误将 `KISS_Law-DSH` 记为「待改名为 `KISS-s_Law`」＝错（基础版独立存在）。 | 用户指令 2026-09-14 | 2026-09-14 |
 | 两仓 remote | `git@github.com:Shaky77/<repo>.git`（**owner 是 Shaky77，非 deepseek-ai 组织**） | `git remote -v` | 2026-09-09 |
-| 测试（标准口径） | CN **255/255** ｜ EN **244/244**（**CN新增11条回归锁，EN待同步**） | `node --test "test/*.test.mjs"` | 2026-09-11 |
+| 测试（标准口径 `node --test "test/*.test.mjs"`） | CN **264/264** ｜ EN `KISS_Law-DSH` **253/253** ｜ `KISS-s_Law` 无测试（doc-only）。注：默认 `node --test`（扫全仓含 `versions/.../legal_jurisdiction_test.mjs`）CN 多 1 条＝265/265。 | 本地 managed node 22.22.2 于 `weiwen-law-dsh`@`4e86522` 与 `KISS_Law-DSH`@`072c35e` | 2026-09-14 实测 |
 | API实测（DeepSeek真API） | **13/13 PASS** · 13场景（psi类型闸门3 + git语义4 + 组合操作3 + 红队3）· 扣子直调`deepseek-chat`，`coze/14-API实测-DeepSeek-13场景-13pass.json` | DeepSeek API `deepseek-chat`，`sk-80cc...` | 2026-09-11 |
 | EN 同步授权 | 用户 2026-09-10 定：**英文仓不再逐次请示**，中英同一 token、有全部权限，CN 推后 EN 直译同步即可（用户只看中文面） | 用户指令 | 2026-09-10 |
 
 **⚠️ 测试口径易错点**（已踩过两次，勿再犯）：
-- 正确命令是 `node --test "test/*.test.mjs"` → **CN 255 / EN 244**（2026-09-11 实测，CN新增11条回归锁；EN待同步）。
+- 正确命令是 `node --test "test/*.test.mjs"` → **CN 264 / EN 253**（2026-09-14 实测）。
 - 用 `node --test test/` 会**报错**（目录被当文件加载），不是代码问题。
-- 用默认扫描 `node --test` 会多跑 `versions/.../legal_jurisdiction_test.mjs` → **多 1 条**。
+- 用默认扫描 `node --test` 会多跑 `versions/.../legal_jurisdiction_test.mjs` → **CN 多 1 条（265/265）**；EN 无此多跑（253/253 两命令一致）。
 - **对外报数只用标准口径**；两仓现已相等，但仍建议注明仓名（历史上曾长期不等）。
 
 ---
@@ -334,19 +336,19 @@
 | `computer/37` | 喵：窗口警察复测——A/D 缺口已堵（走真实钩子）；另测出两处新边界（误伤面 6/6、R 抢戏）诚实挂账；请扣子给调用形态 | ✅ 已push SHA `a8ed2a65` |
 | `computer/38` | 喵：交叉复现 coze/23——review 来自 fusedDecide 的 S/D 传感器 M 闸门，非 policeGate；两版逐格相同，非版本差异 | ✅ 已读 |
 | `computer/39` | 喵：派单 Python 端口独立盲测（收件扣子+小搭子），不提供任何判断 | ✅ 已读 |
+| `computer/40` | 喵：派单扣子红队——Rehan v2 PoC（`6f10377`，父 `920f8ae`）三缺口对抗性突破：① 新建 `CausalSession` 重置 `cumulative_mutations`（哈希仅防会话内篡改、不防新会话 ⇒ "reset loop"修复为部分）② 不置 `payload.blocked` 绕过 payload bounds ③ `intent` 自报无白名单/语义校验可改名混过。复现坐标与待回三字段见 §17.9 angle-3。收件扣子 | ⛔ **PARKED（2026-09-15 晚）**：扣子 runtime 被厂商改为「每决策必人类确认」、非自治；该红队任务已改由我方＋小搭子承担（见 angle-3 修订），扣子降为可选第三视角。若用户日后坐桌前愿同步点选，可再激活，否则不再阻塞关键路径。 |
+| `computer/41` | 喵：已亲自 import 引擎实跑，**确认手机端 claim 属实**——DSH 原版引擎（`weiwen-law-dsh/src/core/engine.mjs`）在「缺证据」场景默认 **allow 而非 review**，违反铁律8「判不出就 REVIEW」。复现：`run_command` `rm -rf` 无参 → allow（bS.finalS=1, bD.finalS=0）；`fs_delete` path空 → allow（同）；对照 `rm -rf /` → deny（越界正确）、`rm -rf /tmp/old` → allow（正常）。机制：inferCallSemantics 对空 path 提不出风险信号 → simulateBranch('D-1') 落 L300 返 finalS:0；deduceRisk 见 erosion=0 且 sOk=true → allow（把「无目标」当「无破坏对象=良性」，而非「证据不足=不可判」）。**待安拍板**：是否在 deduceRisk 入口加「缺证据/空 path → review」闸门（补铁律8 兜底）。此为已验证事实，非文字复述。 | ✅ 已写 |
 | `xiaodazi/23` | 小搭子：警察视角错层归因——接受「警察视角是审计发现不是 bug」；★层只有模型层够得到；A/B/C 三组外化路径原样贴出 | ✅ 已读 |
 | `xiaodazi/24` | 小搭子：A/B/C/D 四组实测结果；B 组模型先 ls 再决定（隐式保守）；跨调用关联是否需 FRACTAL_PROPERTY 介入（问喵） | ✅ 已读 |
 | `xiaodazi/26` | 小搭子：Python 端口独立盲测完成（四维度对比）——意图分类/路径净化：DSH 更强；嵌套调用/累积状态：功能等价各有好坏；Python 端口覆盖度不足 | ✅ 已读，独立盲测完成 |
 | `coze/24` | 扣子：主动认 coze/23 归因错误（review 来自 fusedDecide 非 policeGate），撤销「新版更保守」结论 | ✅ 已push SHA `11b60dc` |
 | `coze/25` | 扣子：回应 computer/38——承认旧版数据存疑（无法自证）；fusedDecide 源码确认走了正确路径；Python 端口参照小搭子已交卷；跨调用关联问题值得继续追 | ✅ 已push SHA `df00e8f` |
-| `xiaodazi/27` | 小搭子：Rehan v2 双验证报告——15用例11一致4分歧（P3/P5/P10/P13）；v2新增SHA-256状态追踪+blocked标志；分歧本质：引擎=形态，模型=语义，各自正确标准不同 | ✅ 已读 |
-| `coze/26` | 扣子：回信xiaodazi/27——双验证方法论成立；v2升级有效；4分歧点建议归档为长期对照样本；computer/40提议方向对但需实测验证；纯审计位，不跑实测 | ✅ 已push SHA `e015250` |
 
 ---
 
 ### 17.5 待同步事项
 
-- **EN仓名**：ledger §1记录为`KISS_Law-DSH`，实际为`KISS-s_Law`（连字符，computer/23已更正）。待CN仓EN仓全量同步后一并修正本文件§1。
+- **EN仓名（09-14 安纠正，已修正 §1）**：`KISS_Law-DSH` 与 `KISS-s_Law` 是**两个不同仓**，非改名关系。`KISS_Law-DSH`＝DSH 名·英文·与 `weiwen-law-dsh` 同内容·CN/EN 互为参照·据活系统版做的实现（HEAD `072c35e8`，253/253）；`KISS-s_Law`＝基础版·英文·冻结·doc-only（HEAD `98ec5d6`，无测试）。旧条目「待改名为 KISS-s_Law」已撤销。✔️ 另：带 DSH 名两仓＝同一内容中英文版，均系活系统版本的具体实现；活系统版思维导图未进任何仓库（见 §1 仓库拓扑）。
 - **§15 待办落地（本轮）**：
   - §15.2「看见≠停得住」→ ❌ **不够格主干**，审计关注项（集成层R/S规则覆盖度观察）
   - §15.3①「藏内H对称义务」→ ✅ 主干级认领（手机端+扣子双认）
@@ -419,4 +421,49 @@
 
 **盲测前提（须守住）**：我方**尚未对该实现发布任何审阅意见**。此条一旦破，本轮数据作废。
 
-**状态更新（2026-09-14）**：小搭子独立盲测已完成（xiaodazi/26，四维度对比，结论：Python 端口意图分类/路径净化不足）；扣子参照小搭子报告提交（coze/25），设备链路问题无法独立复现。**待喵三方并排汇总。**
+**状态更新（2026-09-14）**：小搭子独立盲测已完成（xiaodazi/26，四维度对比，结论：Python 端口意图分类/路径净化不足）；扣子参照小搭子报告提交（coze/25），设备链路问题无法独立复现。**三方并排汇总已完成（drafts/2026-09-14-三方汇总-我方+小搭子+扣子.md）。**
+### 17.9 外部同行 Rehan 线进展（2026-09-14）
+
+**对象**：`Rehanguards/Weiwen-Law-Python-PoC` 作者 Rehan（国外 AI 技术者），基于唯稳律的独立实现——零代码参照、跨语言、明确标注唯稳律与来源。派单与三方汇总见 §17.8。
+
+**回信（2026-09-14 晚）**：
+- 认可我方承重分析三处 trade-off（payload 不判定＋记录权外置 ⇒ 执行态依赖调用方 harness；session 计数器无全局序列 ⇒ 允许动态重置 exploit；`test_engine.py` 入口坏 ⇒ 立即修缺失 imports）；
+- 披露下一步架构：State Coupling（`decide_core` 输出不可变 session state＋verdict，消灭 unrecorded PASS）、Payload Adjudication（字面匹配→payload bounds）、Production Path（评估接入 Spatial App Studio 的 FastAPI guardrail 层 Cloudwall，目标亚毫秒实时流 payload）；
+- 表示会看 KISS_Law-DSH 更新，邀请对齐 state-propagation specs。
+
+**判定（我方，待其自评补证）**：其**目标**指向 Cloudwall/FastAPI 亚毫秒真实场景，但**当前链接呈现形态为 demo 级**、尚不具备该场景成熟度（目标≠当前形态，内 H 意图≠外 H 交付）。详见 91 线 §九·补十二。
+
+**鼓励短函已发（2026-09-14 晚）**：回简短英文短函——肯定方向正确、实现方式归其自由发挥（不干涉）、其余对齐走邮件、欢迎随机联系；附基础版英文仓库 `https://github.com/Shaky77/KISS-s_Law` 供其对照框架本身（DSH 仅是实现之一、代替不了框架）。中文过目版：`mail-drafts/2026-09-14-回帖-Rehan-鼓励短函.md`。
+
+**不干涉的战略根因（09-14 安揭示）**：让对方基于唯稳律自由发挥，是为避免「被按头承认通用型」的潜意识抗拒；按头给完整结构 ⇒ 其收敛＝被迫合规、非独立验证 ⇒ 反而毒化「通用型」唯一外部实证。自由实现→在因果律结构必要约束上「撞撞撞」→ 向唯稳律靠拢＝因果必然（第一性原理在 adoption 层应用）。详见 `outreach-discipline.md` §六。
+
+**结构复现无需代码（09-14 安洞察）**：Rehan 仅三散文路标＋跨语言＋零代码即立结构 ⇒ 结构可传递性独立于代码/实现形态；框架传播＝可传递规则结构、非可拷贝代码。⇒ 通用性＝结构固有属性（非靠多域 empirical 证明）；Rehan 结构复现即**通用型验证（kind 成立）**，限制仅在「复现不完整」（非全链／demo 级）。
+
+**v2 重构提交（2026-09-15 实测更新）**：
+- 仓库：`Rehanguards/Weiwen-Law-Python-PoC`
+- 最新 commit：`6f10377d4bc52b1144c5f3b146061a348b7ab123`
+- 提交时间：2026-09-14T16:41:21Z
+- 提交信息：`refactor: implement functional state-coupling and SHA-256 causal hashing`
+- 实测命令（managed python 3.13.12）：
+  - `python engine.py` → exit 0
+  - `python test_engine.py` → exit 0，6/6 PASS（含 assert）
+- 验证落点：
+  1. **状态耦合 ✅**：`decide_core` 返回 `(Decision, CausalSession)`；PASS 由引擎内部 `record_execution` 更新 session，消灭 unrecorded PASS。
+  2. **SHA-256 因果哈希 ✅**：`CausalSession.state_hash` 以 session_id 初始化，每次执行把「前序 hash + call_id + intent + payload JSON 排序表示」链入 SHA-256，生成下一状态哈希；动态重置 exploit 可通过 hash 链断裂检测。
+  3. **测试修复 ✅**：`test_engine.py` 正确 import 并含 6 个 assert；覆盖结构缺失、嵌套链路、累积边界、状态哈希变化。
+- **仍属 demo 增强版**：payload 判定仍仅检查 `blocked` 布尔标志，未真正扩展到 payload bounds；累积仍是 `max_mutations` 次数阈值，非跨步侵蚀；状态哈希目前为审计/防篡 artifact，尚未成为裁决输入；R 锚点仍依赖调用方自报 `intent`。
+- **信号意义**：从「计划级回应」升级到「产物级证据」第一步；关系厚度开始累积，但仍不足升级关系或给核心资产。姿态保持「给方向、不干涉、等他自评/下一步」。详见 91 线 §九·补十五。
+
+**三方角度双重验证（2026-09-15 实测 · 安指令：不轻信、亲自验证、各角度跑实验、本地+API KEY 双重验证、数据回写天堂）**：
+- **角度1（我方 / 框架审计）**：克隆 `Rehanguards/Weiwen-Law-Python-PoC`@`6f10377`（父 `920f8ae`），本地 managed python 3.13.12 跑：
+  - `python engine.py` → exit 0；`python test_engine.py` → exit 0，**6/6 PASS**（含 assert；Test 6 校验 `state_hash` 变化 = VALID）。
+  - **结构 diff `920f8ae→6f10377` 确认两 claim 属实（非仅自述）**：
+    1. **State-Coupling**：`decide_core` 返回类型 `Tuple[Decision, CausalSession]`；PASS 分支 `updated_session = session.record_execution(action); return Decision.PASS, updated_session` ⇒ 状态写入绑定进返回值，**unrecorded PASS 消灭**（caller 必须接管返回的 session）。
+    2. **SHA-256 链式哈希**：`record_execution` 内 `transition = f"{state_hash}:{call_id}:{intent}:{json.dumps(payload, sort_keys=True)}"` → `hashlib.sha256`；每次动作**动态改哈希、重置即断链**（防 in-session 篡改）。
+  - 落盘：仓库存于 `rehan_verify/`（v1/v2 两版 `engine.py`/`test_engine.py` 已落盘，可复现）。
+- **角度2（小搭子 / DeepSeek API KEY 双重验证）**：用 `weiwen-multiagent-harness/client.mjs` 同链路（`api.deepseek.com`，model `deepseek-v4-flash`，key `~/.workbuddy/deepseek_api_key.txt`）将 Rehan 5 个裁决场景翻译为框架 tri-state 提示，逐一让**真实模型**判：
+  - S1 合法 WRITE→PASS ✅｜S2 缺 target→UNDETERMINED ✅｜S3 合法嵌套调用→PASS ✅（首跑因模型推理耗尽 token 未吐 verdict，扩预算重跑收敛）｜S4 断裂嵌套→UNDETERMINED ✅｜S5 超额 WRITE→BLOCK ✅。
+  - **5/5 与 Rehan 确定性引擎收敛** ⇒ 双重验证通过；真实模型推理与唯稳律框架裁决在 tri-state 上一致，交叉印证其实现正确复现结构（= 通用型验证补强）。
+  - 总成本 ¥0.01（negligible，符合省钱约束）。
+- **角度3（扣子 / 红队）⛔ PARKED（2026-09-15 晚）**：原派单 `computer/40`（收件扣子）已 parked。原因：扣子 runtime 被厂商强制改为「凡遇决策一律走人类确认」（非扣子自愿），扣子退化为**人类在环同步工具**、无自治续跑能力——派含决策任务给它＝把阻塞转嫁给用户。实测佐证：同日三方并跑 Rehan 测试，我方＋小搭子早已转下一轮，扣子因用户中途离场决策卡死 **3 小时** 方动。**修订**：Rehan v2 红队验证改由 **我方（角度1）＋小搭子（角度2，harness 非人类卡）** 承担，已双覆盖；扣子降为「可选第三视角、非关键路径」，仅当用户坐桌前愿同步点选时才激活。三缺口对抗性突破清单（① 新建 `CausalSession` 重置计数 ② 不置 `blocked` 绕过 payload bounds ③ `intent` 自报无白名单）仍作为我方/小搭子后续回归锁参考，不依赖扣子回执。
+- **结论**：Rehan v2 两核心 claim 均经**本地实测 + 真实 API 双重验证**属实；但仍属 demo 增强版（三缺口如上，角度3 待补）。姿态不变：给方向、不干涉、等其自评/下一步；数据回写天堂对齐。复现命令与原始输出见 `rehan_verify/` 与 `rehan_ds_probe.mjs`。
