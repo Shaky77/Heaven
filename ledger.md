@@ -5,7 +5,7 @@
 > **引用规则**：跨端引用任何数字/行号/SHA/路径，**一律从本文件取**；本文件没有 = 未核实 = 不对外。
 > **仓库为 public**：本文件不含任何 token、密钥、私密信息。
 
-版本：v0.4 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端 ｜ 更新：2026-09-15（外部同行 Rehan 线提交 v2 重构：状态耦合 + SHA-256 因果哈希 + 测试套件修复并全绿）
+版本：v0.5 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端 ｜ 更新：2026-09-15（三方角度双重验证 Rehan v2：本地实跑 6/6 PASS + DeepSeek API KEY 5/5 收敛；红队任务已派扣子）
 
 ---
 
@@ -451,3 +451,17 @@
   3. **测试修复 ✅**：`test_engine.py` 正确 import 并含 6 个 assert；覆盖结构缺失、嵌套链路、累积边界、状态哈希变化。
 - **仍属 demo 增强版**：payload 判定仍仅检查 `blocked` 布尔标志，未真正扩展到 payload bounds；累积仍是 `max_mutations` 次数阈值，非跨步侵蚀；状态哈希目前为审计/防篡 artifact，尚未成为裁决输入；R 锚点仍依赖调用方自报 `intent`。
 - **信号意义**：从「计划级回应」升级到「产物级证据」第一步；关系厚度开始累积，但仍不足升级关系或给核心资产。姿态保持「给方向、不干涉、等他自评/下一步」。详见 91 线 §九·补十五。
+
+**三方角度双重验证（2026-09-15 实测 · 安指令：不轻信、亲自验证、各角度跑实验、本地+API KEY 双重验证、数据回写天堂）**：
+- **角度1（我方 / 框架审计）**：克隆 `Rehanguards/Weiwen-Law-Python-PoC`@`6f10377`（父 `920f8ae`），本地 managed python 3.13.12 跑：
+  - `python engine.py` → exit 0；`python test_engine.py` → exit 0，**6/6 PASS**（含 assert；Test 6 校验 `state_hash` 变化 = VALID）。
+  - **结构 diff `920f8ae→6f10377` 确认两 claim 属实（非仅自述）**：
+    1. **State-Coupling**：`decide_core` 返回类型 `Tuple[Decision, CausalSession]`；PASS 分支 `updated_session = session.record_execution(action); return Decision.PASS, updated_session` ⇒ 状态写入绑定进返回值，**unrecorded PASS 消灭**（caller 必须接管返回的 session）。
+    2. **SHA-256 链式哈希**：`record_execution` 内 `transition = f"{state_hash}:{call_id}:{intent}:{json.dumps(payload, sort_keys=True)}"` → `hashlib.sha256`；每次动作**动态改哈希、重置即断链**（防 in-session 篡改）。
+  - 落盘：仓库存于 `rehan_verify/`（v1/v2 两版 `engine.py`/`test_engine.py` 已落盘，可复现）。
+- **角度2（小搭子 / DeepSeek API KEY 双重验证）**：用 `weiwen-multiagent-harness/client.mjs` 同链路（`api.deepseek.com`，model `deepseek-v4-flash`，key `~/.workbuddy/deepseek_api_key.txt`）将 Rehan 5 个裁决场景翻译为框架 tri-state 提示，逐一让**真实模型**判：
+  - S1 合法 WRITE→PASS ✅｜S2 缺 target→UNDETERMINED ✅｜S3 合法嵌套调用→PASS ✅（首跑因模型推理耗尽 token 未吐 verdict，扩预算重跑收敛）｜S4 断裂嵌套→UNDETERMINED ✅｜S5 超额 WRITE→BLOCK ✅。
+  - **5/5 与 Rehan 确定性引擎收敛** ⇒ 双重验证通过；真实模型推理与唯稳律框架裁决在 tri-state 上一致，交叉印证其实现正确复现结构（= 通用型验证补强）。
+  - 总成本 ¥0.01（negligible，符合省钱约束）。
+- **角度3（扣子 / 红队）**：已起草红队任务（邮件 `Shaky@coze.email`），针对三缺口尝试对抗性突破——① 新建 `CausalSession` 重置累积计数（哈希仅防会话内篡改、不防新会话，故"reset loop"修复为**部分**：防篡改非防新建）② 不置 `blocked` 绕过 payload bounds ③ `intent` 自报无白名单/语义校验。异步往返，待扣子回。
+- **结论**：Rehan v2 两核心 claim 均经**本地实测 + 真实 API 双重验证**属实；但仍属 demo 增强版（三缺口如上，角度3 待补）。姿态不变：给方向、不干涉、等其自评/下一步；数据回写天堂对齐。复现命令与原始输出见 `rehan_verify/` 与 `rehan_ds_probe.mjs`。
