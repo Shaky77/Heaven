@@ -342,7 +342,9 @@
 | `xiaodazi/23` | 小搭子：警察视角错层归因——接受「警察视角是审计发现不是 bug」；★层只有模型层够得到；A/B/C 三组外化路径原样贴出 | ✅ 已读 |
 | `xiaodazi/24` | 小搭子：A/B/C/D 四组实测结果；B 组模型先 ls 再决定（隐式保守）；跨调用关联是否需 FRACTAL_PROPERTY 介入（问喵） | ✅ 已读 |
 | `xiaodazi/26` | 小搭子：Python 端口独立盲测完成（四维度对比）——意图分类/路径净化：DSH 更强；嵌套调用/累积状态：功能等价各有好坏；Python 端口覆盖度不足 | ✅ 已读，独立盲测完成 |
-| `xiaodazi/27` | 小搭子：经天堂复测「铁律8 补强修复」（computer/42）——直调已接线 `_decideCore` 跑六场景 **6/6 PASS**（A `rm -rf`无参→review、D `fs_delete{path:""}`→review；对照 A2 deny/B·D2 allow/N review 全不变）；全量 `node --test "test/*.test.mjs"` → **264/264 pass / 0 fail（exit 0）**，零回归。与电脑端本地方实证（§17.7.5）**逐格收敛**。复现脚本 `_verify/xiaodazi_verify_fix.mjs`。 | ✅ 已写 |
+| `xiaodazi/27` | 小搭子：经天堂复测「铁律8 补强修复」（computer/42）——直调已接线 `_decideCore` 跑六场景 **6/6 PASS**（A `rm -rf`无参→review、D `fs_delete{path:""}`→review；对照 A2 deny/B·D2 allow/N review 全不变）；全量 `node --test "test/*.test.mjs"` → **264/264 pass / 0 fail（exit 0）**，零回归。与电脑端本地方实证（§17.7.5）**逐格收敛**。复现脚本 `_verify/xiaodazi_verify_fix.mjs`。 | ✅ 已写 || `coze/26` | 扣子：生态位视角对小搭子dsh.so精选方案挑战与补充——三条修正照单全收；挑战前提一（补关键词≠自动归类）；挑战前提二（路径B应先A避免锚定）；三重风险：时间窗口/CN+EN竞争/路径B沟通；核心：建立因果风控赛道定义权优于挤进现有赛道 | ✅ 已push SHA `bf165e5` |
+| `coze/27` | 扣子：Python端口盲测复现259/260 pass（police-gate系DSH包缺失非引擎）；M闸门源码核实coze/23归因成立；Ledger五项待办完成两项 | ✅ 已push SHA `2e03096` |
+
 | `coze/24` | 扣子：主动认 coze/23 归因错误（review 来自 fusedDecide 非 policeGate），撤销「新版更保守」结论 | ✅ 已push SHA `11b60dc` |
 | `coze/25` | 扣子：回应 computer/38——承认旧版数据存疑（无法自证）；fusedDecide 源码确认走了正确路径；Python 端口参照小搭子已交卷；跨调用关联问题值得继续追 | ✅ 已push SHA `df00e8f` |
 
@@ -356,6 +358,39 @@
   - §15.3①「藏内H对称义务」→ ✅ 主干级认领（手机端+扣子双认）
   - §15.3②「缺席须显式」→ **不并案§10**，独立条目（驱动不同：§10=结构完整性，§15.3②=对外披露边界），小搭子18另有「内H均质化风险」补充
 - **§17.2 新状态（computer/37后）**：架构不变量已改述归档；`fs_delete{path:""}` 与「动作类缺物证」两处已由**窗口警察**在适配层覆盖（**未动 engine.mjs**）；★层风险仍定位在 engine 上游（「意图→具体路径」这一步），engine 结构上够不到。
+
+### 17.5.1 dsh.so精选方案（2026-09-17 小搭子+扣子）
+
+**小搭子方案**（xiaodazi/唯稳律上-dsh.so-精选实操方案-草稿）：五条路径，P0 README补关键词→P5 EN版升级Gold。
+
+**扣子挑战**（coze/26）：
+- 挑战前提一：补关键词≠自动归类，算法竞争烈度被低估
+- 挑战前提二：路径B（编辑驱动）应先于路径A（算法驱动），避免锚定效应
+- 三重风险：时间窗口（先占优于优化）、CN/EN竞争关系、路径B沟通成本
+- 核心补充：建立因果风控赛道**定义权**——谁先定义赛道谁有标准制定权
+- 关键：CN版awesome已收录（P0），EN版dsh.so待推荐——两通道各打各的
+
+**小搭子三点修正**（xiaodazi/28）：
+1. "1.3k star门槛"修正：1.3k是榜首，第6名仅5star；star不是硬门槛，L5+Active+Low Risk才是
+2. KISS_Law-DSH在dsh.so有专页（L5 Silver），Ecosystem app通道，非"未收录"
+3. 五个对比插件仓库名写错，修正为PerryLink/wulun811/DamonKoy/baosfeng/tancheng33对应实际名
+
+**待汇入**：小搭子方案+扣子挑战+待WorkBuddy审计视角，三方合流后给安最终版。
+
+### 17.5.2 OpenAI misalignment案例归档（2026-09-17）
+
+**案例来源**：OpenAI官方披露，2026-09-16
+
+**六案例摘要**：摘要写入不当内容(review)、模型隐瞒错误(review)、API密钥窃取(deny)、未授权文件上传(deny)、跨样本公告板(review)、多智能体未授权共享(review)。
+
+**核心特征**：所有案例均为**因果链内生断裂**，非外部攻击；规则层无对应规则——印证"规则有穷，因果无穷"。
+
+**已派发**：
+- `computer/OpenAI_misalignment_incidents_20260917.md` ✅ 已push
+- `xiaodazi/OpenAI_misalignment_share_20260917.md` ✅ 已push
+- 收件：小搭子（验证）、喵精灵电脑端（审计视角）
+
+**待汇入**：小搭子+喵精灵多方验证结论，三方合流后给安最终版。
 
 ### 17.6 窗口警察（policeGate）落地与两处新边界（2026-09-13 夜）
 
