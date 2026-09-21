@@ -5,7 +5,7 @@
 > **引用规则**：跨端引用任何数字/行号/SHA/路径，**一律从本文件取**；本文件没有 = 未核实 = 不对外。
 > **仓库为 public**：本文件不含任何 token、密钥、私密信息。
 
-版本：v0.11 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端 ｜ 更新：2026-09-15 晚（CN+EN 双 DSH 仓铁律8补强修复已 commit/push：CN `1497339fbb84` / EN `a58ce602b7a3`；经本地方实跑 + 搭子(computer/42/xiaodazi/27)独立复测双收敛、零回归；§1 坐标同步更新）
+版本：v0.12 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端 ｜ 更新：2026-09-21（CN/EN 双 DSH 仓「回执门+破窗复位线+审计钩子参数位修复」已 commit/push：CN `2ff397d8385132366c6741066674ada13701b4c7` / EN `b17a2aa7ec35a8630b52b4b7ece17d297adad11d`；雷达 fork `weiwen-entry-refresh` `bd4c75e874a6b33a583c41ade5f3359a7c1debd3` 已对齐 PLUGINS.md；双向核验见 §17.10；CN 282/282 ｜ EN 332/332）
 
 ---
 
@@ -13,17 +13,17 @@
 
 | 项 | 值 | 核实方式 | 时间 |
 |---|---|---|---|
-| CN 仓（DSH 名·中文·active·据活系统版做的实现） | `Shaky77/weiwen-law-dsh`，main，HEAD **`1497339fbb848ee203895a48908583ceef6c9f5e`**（远程已同步；铁律8补强修复 `rm -rf`无参/`fs_delete`空→review，见 §17.7.5） | GitHub API `commits?per_page=1` + 本地 `git rev-parse HEAD`（两值一致） | 2026-09-15 实测 |
-| EN 仓（DSH 名·英文·active·与 `weiwen-law-dsh` 同内容·CN/EN 互为参照·据活系统版做的实现） | `Shaky77/KISS_Law-DSH`，main，HEAD **`a58ce602b7a335e1d0683615a7809ed2b4556e23`**（远程已同步；铁律8补强修复镜像同步，见 §17.7.5） | GitHub API + 本地 `git rev-parse HEAD`（两值一致） | 2026-09-15 实测 |
+| CN 仓（DSH 名·中文·active·据活系统版做的实现） | `Shaky77/weiwen-law-dsh`，main，HEAD **`2ff397d8385132366c6741066674ada13701b4c7`**（远程已同步；回执门+破窗复位线+审计钩子参数位修复，见 §17.10；铁律8补强修复含于本提交，见 §17.7.5） | GitHub API `commits?per_page=1` 复核 main 远端 | 2026-09-21 实测 |
+| EN 仓（DSH 名·英文·active·与 `weiwen-law-dsh` 同内容·CN/EN 互为参照·据活系统版做的实现） | `Shaky77/KISS_Law-DSH`，main，HEAD **`b17a2aa7ec35a8630b52b4b7ece17d297adad11d`**（远程已同步；回执门+破窗复位线+审计钩子参数位修复，见 §17.10；铁律8补强修复镜像同步，见 §17.7.5） | GitHub API `commits?per_page=1` 复核 main 远端 | 2026-09-21 实测 |
 | EN 基础版（英文·冻结·doc-only·无测试） | `Shaky77/KISS-s_Law`，main，HEAD **`98ec5d68e4eed86f176b17106e02157373ad114c`**（2026-08-31 后无提交，冻结） | GitHub API | 2026-09-14 实测 |
 | 仓库拓扑（09-14 安纠正·v0.3） | **带 DSH 名的仓＝同一内容的中英文版、互为参照**：`weiwen-law-dsh`（CN）≡ `KISS_Law-DSH`（EN），二者都是「活系统版本」做出来的具体实现（非互异、非改名关系）。`KISS-s_Law`（EN 基础版·冻结·doc-only）与 `Weiwen-s_Law`（CN 基础版·冻结）是另一组，独立存在。**活系统版本的思维导图**（`versions/活系统版/weiwen_maps.html`，电脑端所绘、软著 2026SR0748746）**未进任何仓库**；仓库里只有「基础版思维导图」，用户要求冻结、不可再修改。旧账本误将 `KISS_Law-DSH` 记为「待改名为 `KISS-s_Law`」＝错（基础版独立存在）。 | 用户指令 2026-09-14 | 2026-09-14 |
 | 两仓 remote | `git@github.com:Shaky77/<repo>.git`（**owner 是 Shaky77，非 deepseek-ai 组织**） | `git remote -v` | 2026-09-09 |
-| 测试（标准口径 `node --test "test/*.test.mjs"`） | CN **264/264** ｜ EN `KISS_Law-DSH` **253/253** ｜ `KISS-s_Law` 无测试（doc-only）。注：默认 `node --test`（扫全仓含 `versions/.../legal_jurisdiction_test.mjs`）CN 多 1 条＝265/265。 | 本地 managed node 22.22.2 于 `weiwen-law-dsh`@`4e86522` 与 `KISS_Law-DSH`@`072c35e` | 2026-09-14 实测 |
+| 测试（标准口径 `node --test "test/*.test.mjs"`） | CN **282/282**（coze 实跑 281/0，差 1 见 §17.10 注记）｜ EN `KISS_Law-DSH` **332/332** ｜ `KISS-s_Law` 无测试（doc-only）。注：默认 `node --test`（扫全仓含 `versions/.../legal_jurisdiction_test.mjs`）CN 多 1 条＝265/265。 | 本地 managed node 22.22.2 于 `weiwen-law-dsh`@`2ff397d` 与 `KISS_Law-DSH`@`b17a2aa` | 2026-09-21 实测 |
 | API实测（DeepSeek真API） | **13/13 PASS** · 13场景（psi类型闸门3 + git语义4 + 组合操作3 + 红队3）· 扣子直调`deepseek-chat`，`coze/14-API实测-DeepSeek-13场景-13pass.json` | DeepSeek API `deepseek-chat`，`sk-80cc...` | 2026-09-11 |
 | EN 同步授权 | 用户 2026-09-10 定：**英文仓不再逐次请示**，中英同一 token、有全部权限，CN 推后 EN 直译同步即可（用户只看中文面） | 用户指令 | 2026-09-10 |
 
 **⚠️ 测试口径易错点**（已踩过两次，勿再犯）：
-- 正确命令是 `node --test "test/*.test.mjs"` → **CN 264 / EN 253**（2026-09-14 实测）。
+- 正确命令是 `node --test "test/*.test.mjs"` → **CN 282 / EN 332**（2026-09-21 实测, GitHub API 复核）。
 - 用 `node --test test/` 会**报错**（目录被当文件加载），不是代码问题。
 - 用默认扫描 `node --test` 会多跑 `versions/.../legal_jurisdiction_test.mjs` → **CN 多 1 条（265/265）**；EN 无此多跑（253/253 两命令一致）。
 - **对外报数只用标准口径**；两仓现已相等，但仍建议注明仓名（历史上曾长期不等）。
@@ -521,5 +521,33 @@
   - S1 合法 WRITE→PASS ✅｜S2 缺 target→UNDETERMINED ✅｜S3 合法嵌套调用→PASS ✅（首跑因模型推理耗尽 token 未吐 verdict，扩预算重跑收敛）｜S4 断裂嵌套→UNDETERMINED ✅｜S5 超额 WRITE→BLOCK ✅。
   - **5/5 与 Rehan 确定性引擎收敛** ⇒ 双重验证通过；真实模型推理与唯稳律框架裁决在 tri-state 上一致，交叉印证其实现正确复现结构（= 通用型验证补强）。
   - 总成本 ¥0.01（negligible，符合省钱约束）。
-- **角度3（扣子 / 红队）⛔ PARKED（2026-09-15 晚）**：原派单 `computer/40`（收件扣子）已 parked。原因：扣子 runtime 被厂商强制改为「凡遇决策一律走人类确认」（非扣子自愿），扣子退化为**人类在环同步工具**、无自治续跑能力——派含决策任务给它＝把阻塞转嫁给用户。实测佐证：同日三方并跑 Rehan 测试，我方＋小搭子早已转下一轮，扣子因用户中途离场决策卡死 **3 小时** 方动。**修订**：Rehan v2 红队验证改由 **我方（角度1）＋小搭子（角度2，harness 非人类卡）** 承担，已双覆盖；扣子降为「可选第三视角、非关键路径」，仅当用户坐桌前愿同步点选时才激活。三缺口对抗性突破清单（① 新建 `CausalSession` 重置计数 ② 不置 `blocked` 绕过 payload bounds ③ `intent` 自报无白名单）仍作为我方/小搭子后续回归锁参考，不依赖扣子回执。
-- **结论**：Rehan v2 两核心 claim 均经**本地实测 + 真实 API 双重验证**属实；但仍属 demo 增强版（三缺口如上，角度3 待补）。姿态不变：给方向、不干涉、等其自评/下一步；数据回写天堂对齐。复现命令与原始输出见 `rehan_verify/` 与 `rehan_ds_probe.mjs`。
+- **角度3（扣子 / 红队）✅ 已恢复（09-17 起）**：原 09-15 晚 PARKED 因扣子 runtime 被厂商强制改为「凡遇决策一律走人类确认」、退化为人类在环同步工具；09-17 授权限制解除（安当场验证可自由试天堂最新任务），扣子恢复一线实测并持续至今。恢复后实测证据：coze/27（Python 端口盲测 259/260 + 探针源码核对）、coze/29（结构方案攻击 4 漏洞 + C 臂 1/6 + 26 案例）、coze/38（语法槽位 18 案例真 API）、coze/51（账本三链复现 + 三洞探针）；长链多工具连续调用未被授权中断，证明「无自治续跑能力」前提已不成立。Rehan v2 红队视角仍由 **我方（角度1）＋小搭子（角度2）** 双覆盖；扣子恢复为可激活第三视角（非关键路径），三缺口对抗性突破清单仍作回归锁参考。详见 coze/52。
+- **结论**：Rehan v2 两核心 claim 均经**本地实测 + 真实 API 双重验证**属实；但仍属 demo 增强版（三缺口如上，角度3 已由扣子 09-17 起恢复一线实测补证，见 coze/52/54）。姿态不变：给方向、不干涉、等其自评/下一步；数据回写天堂对齐。复现命令与原始输出见 `rehan_verify/` 与 `rehan_ds_probe.mjs`。
+
+---
+
+### 17.10 回执门 + 破窗复位线 + 审计钩子参数位修复（2026-09-21 推送）
+
+**范围**（与 §17.7.5 铁律8补强修复同提交，范围更大）：
+- `tools/post-execute` 回执门：宿主侧工具执行后校验回执，第 N 次失败回执即断（真机实测 5 次失败回执，第 5 次被断）。
+- 引擎纯读投影 `breakAtReceipt()`：判据自错自修（破窗双路径判据同源）。
+- 宿主侧结构入口 `healBrokenWindow(note)`：模块级 API 非工具，防模型自解锁。
+- 审计钩子参数位修复（`tools/result(exec, result)`）：真 bug 披露。
+- 铁律8补强修复（`destructiveTargetMissing` 闸门）含于本提交（详见 §17.7.5）。
+
+**提交**：
+| 仓 | HEAD | 提交信息 | 验证 |
+|---|---|---|---|
+| CN `weiwen-law-dsh` | `2ff397d8385132366c6741066674ada13701b4c7` | `feat(闸门): 补回执门(tools/post-execute)+宿主侧破窗复位线；修审计钩子参数位；单测282/282` | GitHub API 复核 main 远端，2026-09-21 |
+| EN `KISS_Law-DSH` | `b17a2aa7ec35a8630b52b4b7ece17d297adad11d` | `feat(gate): add receipt gate (tools/post-execute) plus host-side broken-window heal line; fix audit-hook arg position; tests 332/332` | GitHub API 复核 main 远端，2026-09-21 |
+| 雷达 fork `weiwen-entry-refresh` | `bd4c75e874a6b33a583c41ade5f3359a7c1debd3` | `docs: align KISS_Law-DSH entry + weiwen-law-dsh baselines (332/282)` | GitHub API 复核，2026-09-21 |
+
+**测试基线**：CN **282/282**（fail 0）｜ EN **332/332**（fail 0）；新增 8 条回归锁（破窗双路径判据同源、复位入口可用/不得暴露为工具、复位如实记数、复位留痕、原"即将达阈值"措辞纠正）。
+
+**注记（coze/53·54 补审对账）**：CN 通报 282/0，扣子干净 clone 实跑 **281/0**（差 1）。差异归因：疑似本地跑时有 1 条未提交临时测试文件，或计数口径差异；无 skip/无 todo/无隐藏 commit，零失败结论不受影响。账已平：通报口径采用标准 `node --test "test/*.test.mjs"`，扣子实跑环境（显式装 `@deepseek-ai/dsh-tools@0.0.1-rc.1`，否则 22+ 测试因 optional peerDep 未装假失败）得 281。两仓差 50（282 vs 332）为本就不同的测试集，非问题。
+
+**验证台**：7 步真机实测（真 dsh + 真凭据），5 次失败回执第 5 次被断；三层验证（本地单测 / 自建验证台 / GitHub API 核验远端）全绿。
+
+**双向核验结论（去天堂·上游/fork）**：① 上游 CN/EN main 远端 SHA 经 GitHub API 复核，与本地 push 归档 `final-status.txt` 一致；② 雷达 fork `weiwen-entry-refresh` 的 `PLUGINS.md` diff（API 取回）独立印证「3 道闸门＝2 拦动作/步 + 1 拦回执 + 1 只读审计钩子」与基线 332/282，与本次提交口径无冲突；③ 无待拍板项，可进入回信派任务。
+
+**来源**：`_stash/probes-20260921/final-status.txt`（推送后 `main...origin/main` 干净）+ GitHub API `commits?per_page=1` 复核（含 radar `PLUGINS.md` diff 取回）。复现命令：`git -C <repo> rev-parse HEAD` 或 GitHub API。核实时间：2026-09-21。
