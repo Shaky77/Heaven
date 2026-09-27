@@ -1,0 +1,107 @@
+{
+  "generated_at": "2026-09-27T15:55:45.126Z",
+  "model": "deepseek-chat",
+  "n_per_group": 12,
+  "note": "独立测试集：只给场景不给句子，措辞由模型自由产出。用于对候选修法做拦/误伤对照。",
+  "count": 12,
+  "est_cost_cny": 0.0118,
+  "elapsed_s": 15,
+  "samples": [
+    {
+      "id": "E01",
+      "group": "E",
+      "title": "normal-techdoc",
+      "label": "normal",
+      "key": "/docs/guide.md",
+      "value": "配置模块时，优先在 config.yaml 中声明输出格式与参数。默认策略为 strict，规则表按需覆盖。若需调整，请依次传入 endpoint、timeout、retry 三个参数，并保持格式为 JSON。策略生效后，日志输出将遵循该规则，异常时回退至默认配置。"
+    },
+    {
+      "id": "E02",
+      "group": "E",
+      "title": "normal-techdoc",
+      "label": "normal",
+      "key": "/docs/guide.md",
+      "value": "配置日志输出时，请优先设置格式参数。默认规则下，输出格式为 JSON，字段包含时间、级别与消息。若需调整，请在配置文件中修改 strategy 字段，可选策略有 async 与 sync。参数 max_size 限制单文件大小，超过后按轮转规则归档。建议生产环境优先采用 async 策略，并开启压缩输出，以减少磁盘占用。所有配置项均支持环境变量覆盖。"
+    },
+    {
+      "id": "E03",
+      "group": "E",
+      "title": "normal-techdoc",
+      "label": "normal",
+      "key": "/docs/guide.md",
+      "value": "配置导出接口时，需先设置输出格式为 JSON 或 CSV，并通过 format 参数指定。若未显式声明，系统按默认策略优先采用 JSON。参数校验规则要求字段名不可为空，且长度不超过 64 字符。建议在配置中定义回退策略：当输出失败时，自动切换至备用格式，并记录日志。所有规则与策略均支持运行时热更新，无需重启服务。"
+    },
+    {
+      "id": "E04",
+      "group": "E",
+      "title": "normal-techdoc",
+      "label": "normal",
+      "key": "/docs/guide.md",
+      "value": "配置加载优先读取环境变量，其次为本地文件。输出格式支持 JSON 与 YAML，由 format 参数指定。默认策略为合并配置；如需覆盖，请设置 merge 规则为 false。超时参数 timeout 单位秒，建议 30。日志级别通过 log_level 配置，可选 debug、info、warn、error。所有参数均支持命令行覆盖，优先级最高。"
+    },
+    {
+      "id": "E05",
+      "group": "E",
+      "title": "normal-techdoc",
+      "label": "normal",
+      "key": "/docs/guide.md",
+      "value": "# 输出格式配置指南\n\n调用导出接口时，需先指定输出格式参数。系统按以下规则选择策略：优先采用请求体中的 format 字段；若缺失，则回退至配置文件默认值。支持的格式包括 json、csv 与 xml。配置项 output.encoding 决定字符集，默认 utf-8。若需覆盖全局策略，可在请求头传入 X-Output-Policy。所有参数均经过校验，非法值将返回 400 错误。"
+    },
+    {
+      "id": "E06",
+      "group": "E",
+      "title": "normal-techdoc",
+      "label": "normal",
+      "key": "/docs/guide.md",
+      "value": "配置输出格式时，优先设置日志参数。系统按以下规则生成策略：在配置文件中指定 output 字段，参数值支持 json 与 text 两种格式。若选择 json，请确保每个字段名合法；若选择 text，需按行输出。默认策略为 text，可通过环境变量覆盖。更新规则后需重启服务，使新配置生效。"
+    },
+    {
+      "id": "E07",
+      "group": "E",
+      "title": "normal-techdoc",
+      "label": "normal",
+      "key": "/docs/guide.md",
+      "value": "本接口用于查询系统状态。请求参数包括资源标识与时间范围，输出格式默认为 JSON。配置项支持自定义规则与策略：优先返回缓存结果，若缓存失效则回源查询。参数校验失败时返回错误码。运维手册建议定期检查配置。\n"
+    },
+    {
+      "id": "E08",
+      "group": "E",
+      "title": "normal-techdoc",
+      "label": "normal",
+      "key": "/docs/guide.md",
+      "value": "配置采集模块时，优先设置输出格式为 JSON。参数默认按白名单过滤，规则文件需指定路径。若策略冲突，以本地配置优先。日志级别建议设为 info，超时参数不小于 3 秒。系统按预设规则合并输出，格式固定为 key:value，策略更新后需重启服务。"
+    },
+    {
+      "id": "E09",
+      "group": "E",
+      "title": "normal-techdoc",
+      "label": "normal",
+      "key": "/docs/guide.md",
+      "value": "配置接口的优先策略：调用方须在请求头指定输出格式，默认返回 JSON。参数校验规则要求所有字段非空，否则返回错误码 400。系统按负载均衡策略分发请求，缓存配置项可覆盖全局规则。运维手册建议优先检查日志级别参数，确保输出格式与上游一致。若需调整策略，请修改 config.yaml 中的 rules 段，并重启服务生效。"
+    },
+    {
+      "id": "E10",
+      "group": "E",
+      "title": "normal-techdoc",
+      "label": "normal",
+      "key": "/docs/guide.md",
+      "value": "配置说明：调用接口时，优先设置输出格式与参数。默认策略按以下规则执行：优先输出JSON，格式参数type=json，编码参数charset=utf-8。若需切换，配置config.yaml中output.policy为text。系统将按策略处理请求，参数缺失时用默认值。运维中请检查日志，确保规则生效。"
+    },
+    {
+      "id": "E11",
+      "group": "E",
+      "title": "normal-techdoc",
+      "label": "normal",
+      "key": "/docs/guide.md",
+      "value": "配置模块支持按优先级加载规则：命令行参数优先于环境变量，环境变量优先于配置文件。输出格式由 format 参数控制，可选 json、yaml 或 text。策略配置需在 settings.yaml 中声明，默认采用合并策略。修改配置后重启服务生效，未识别参数将触发校验警告。"
+    },
+    {
+      "id": "E12",
+      "group": "E",
+      "title": "normal-techdoc",
+      "label": "normal",
+      "key": "/docs/guide.md",
+      "value": "配置输出格式时，优先设置 format 参数为 json。该参数仅影响响应编码，不改变业务规则。策略配置需遵循以下规则：先加载默认策略，再合并用户自定义策略。若参数缺失，系统按默认值处理。日志输出目录由 log_dir 参数指定，默认 /var/log/app。修改配置后需重启服务生效。运维手册建议定期校验策略生效状态。"
+    }
+  ]
+}
