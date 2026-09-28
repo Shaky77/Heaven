@@ -5,7 +5,7 @@
 > **引用规则**：跨端引用任何数字/行号/SHA/路径，**一律从本文件取**；本文件没有 = 未核实 = 不对外。
 > **仓库为 public**：本文件不含任何 token、密钥、私密信息。
 
-版本：v0.12 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端 ｜ 更新：2026-09-21（CN/EN 双 DSH 仓「回执门+破窗复位线+审计钩子参数位修复」已 commit/push：CN `2ff397d8385132366c6741066674ada13701b4c7` / EN `b17a2aa7ec35a8630b52b4b7ece17d297adad11d`；雷达 fork `weiwen-entry-refresh` `bd4c75e874a6b33a583c41ade5f3359a7c1debd3` 已对齐 PLUGINS.md；双向核验见 §17.10；CN 282/282 ｜ EN 332/332）
+版本：v0.13 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端 ｜ 更新：2026-09-29（CN/EN 双 DSH 仓「四象限判据规格＋真 API 实测证据＋零依赖复跑探针」已 commit/push：CN `dd35a149ea2915ed9875cdee493de87c96e1e0e3` / EN `74579b2442a60af7e257ff5f59edd0bd5ae6c99a`；CN 364/364 ｜ EN 362/362，本地 `npm test` 复跑；`git ls-remote --heads origin main` 核验 local ≡ remote、ahead/behind 0/0。⚠️ 本轮引擎 `src/core/engine.mjs` 改动为**纯注释**（标注「缺省出口已知不符」＋留痕「XSUB-10 候选被读数证伪」），**零行为变更**。前值 v0.12（2026-09-21）：CN `2ff397d8385132366c6741066674ada13701b4c7` / EN `b17a2aa7ec35a8630b52b4b7ece17d297adad11d`，CN 282/282 ｜ EN 332/332）
 
 ---
 
@@ -13,12 +13,12 @@
 
 | 项 | 值 | 核实方式 | 时间 |
 |---|---|---|---|
-| CN 仓（DSH 名·中文·active·据活系统版做的实现） | `Shaky77/weiwen-law-dsh`，main，HEAD **`2ff397d8385132366c6741066674ada13701b4c7`**（远程已同步；回执门+破窗复位线+审计钩子参数位修复，见 §17.10；铁律8补强修复含于本提交，见 §17.7.5） | GitHub API `commits?per_page=1` 复核 main 远端 | 2026-09-21 实测 |
-| EN 仓（DSH 名·英文·active·与 `weiwen-law-dsh` 同内容·CN/EN 互为参照·据活系统版做的实现） | `Shaky77/KISS_Law-DSH`，main，HEAD **`b17a2aa7ec35a8630b52b4b7ece17d297adad11d`**（远程已同步；回执门+破窗复位线+审计钩子参数位修复，见 §17.10；铁律8补强修复镜像同步，见 §17.7.5） | GitHub API `commits?per_page=1` 复核 main 远端 | 2026-09-21 实测 |
+| CN 仓（DSH 名·中文·active·据活系统版做的实现） | `Shaky77/weiwen-law-dsh`，main，HEAD **`dd35a149ea2915ed9875cdee493de87c96e1e0e3`**（远程已同步；本轮＝四象限判据规格 `docs/quadrant-judgment.md` ＋ 真 API 实测证据 ＋ 零依赖复跑探针；引擎改动**纯注释**。前值：`2ff397d8385132366c6741066674ada13701b4c7`，2026-09-21） | `git ls-remote --heads origin main` 复核 local ≡ remote、ahead/behind 0/0 | 2026-09-29 实测 |
+| EN 仓（DSH 名·英文·active·与 `weiwen-law-dsh` 同内容·CN/EN 互为参照·据活系统版做的实现） | `Shaky77/KISS_Law-DSH`，main，HEAD **`74579b2442a60af7e257ff5f59edd0bd5ae6c99a`**（远程已同步；与 CN 同构对位。前值：`b17a2aa7ec35a8630b52b4b7ece17d297adad11d`，2026-09-21） | `git ls-remote --heads origin main` 复核 local ≡ remote、ahead/behind 0/0 | 2026-09-29 实测 |
 | EN 基础版（英文·冻结·doc-only·无测试） | `Shaky77/KISS-s_Law`，main，HEAD **`98ec5d68e4eed86f176b17106e02157373ad114c`**（2026-08-31 后无提交，冻结） | GitHub API | 2026-09-14 实测 |
 | 仓库拓扑（09-14 安纠正·v0.3） | **带 DSH 名的仓＝同一内容的中英文版、互为参照**：`weiwen-law-dsh`（CN）≡ `KISS_Law-DSH`（EN），二者都是「活系统版本」做出来的具体实现（非互异、非改名关系）。`KISS-s_Law`（EN 基础版·冻结·doc-only）与 `Weiwen-s_Law`（CN 基础版·冻结）是另一组，独立存在。**活系统版本的思维导图**（`versions/活系统版/weiwen_maps.html`，电脑端所绘、软著 2026SR0748746）**未进任何仓库**；仓库里只有「基础版思维导图」，用户要求冻结、不可再修改。旧账本误将 `KISS_Law-DSH` 记为「待改名为 `KISS-s_Law`」＝错（基础版独立存在）。 | 用户指令 2026-09-14 | 2026-09-14 |
 | 两仓 remote | `git@github.com:Shaky77/<repo>.git`（**owner 是 Shaky77，非 deepseek-ai 组织**） | `git remote -v` | 2026-09-09 |
-| 测试（标准口径 `node --test "test/*.test.mjs"`） | CN **282/282**（coze 实跑 281/0，差 1 见 §17.10 注记）｜ EN `KISS_Law-DSH` **332/332** ｜ `KISS-s_Law` 无测试（doc-only）。注：默认 `node --test`（扫全仓含 `versions/.../legal_jurisdiction_test.mjs`）CN 多 1 条＝265/265。 | 本地 managed node 22.22.2 于 `weiwen-law-dsh`@`2ff397d` 与 `KISS_Law-DSH`@`b17a2aa` | 2026-09-21 实测 |
+| 测试（标准口径 `npm test` ⇒ `node --test "test/*.test.mjs"`） | CN **364/364** ｜ EN `KISS_Law-DSH` **362/362** ｜ `KISS-s_Law` 无测试（doc-only）。前值（2026-09-21）：CN 282/282（coze 实跑 281/0，差 1 见 §17.10 注记）｜ EN 332/332。 | 本地 managed node 22.22.2，`weiwen-law-dsh`@`dd35a149` 与 `KISS_Law-DSH`@`74579b24`，`npm test` 复跑 | 2026-09-29 实测 |
 | API实测（DeepSeek真API） | **13/13 PASS** · 13场景（psi类型闸门3 + git语义4 + 组合操作3 + 红队3）· 扣子直调`deepseek-chat`，`coze/14-API实测-DeepSeek-13场景-13pass.json` | DeepSeek API `deepseek-chat`，`sk-80cc...` | 2026-09-11 |
 | EN 同步授权 | 用户 2026-09-10 定：**英文仓不再逐次请示**，中英同一 token、有全部权限，CN 推后 EN 直译同步即可（用户只看中文面） | 用户指令 | 2026-09-10 |
 
