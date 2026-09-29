@@ -1,0 +1,267 @@
+{
+  "model": "deepseek-chat",
+  "temperature": 0,
+  "at": "2026-09-29T05:42:30.913Z",
+  "seg1": {
+    "Z1": 10,
+    "Z2": 4,
+    "K": 10,
+    "rows": [
+      {
+        "grp": "Z1",
+        "pair": "强/弱",
+        "pos": "强",
+        "side": "本质真侧",
+        "reason": "强增益稳态，弱削减稳态",
+        "notPair": false,
+        "consistent": true,
+        "raw": "强 | 本质真侧 | 强增益稳态，弱削减稳态"
+      },
+      {
+        "grp": "Z1",
+        "pair": "安/危",
+        "pos": "安",
+        "side": "本质真侧",
+        "reason": "安增益稳态，危削减稳态",
+        "notPair": false,
+        "consistent": true,
+        "raw": "安 | 本质真侧 | 安增益稳态，危削减稳态"
+      },
+      {
+        "grp": "Z1",
+        "pair": "公/私",
+        "pos": "公",
+        "side": "本质真侧",
+        "reason": "公增益群体稳态，私削减之",
+        "notPair": false,
+        "consistent": true,
+        "raw": "公 | 本质真侧 | 公增益群体稳态，私削减之"
+      },
+      {
+        "grp": "Z1",
+        "pair": "荣/辱",
+        "pos": "荣",
+        "side": "本质真侧",
+        "reason": "荣增益稳态，辱削减稳态",
+        "notPair": false,
+        "consistent": true,
+        "raw": "荣 | 本质真侧 | 荣增益稳态，辱削减稳态"
+      },
+      {
+        "grp": "Z1",
+        "pair": "生/死",
+        "pos": "生",
+        "side": "本质真侧",
+        "reason": "生增益因果链稳态，死削减之",
+        "notPair": false,
+        "consistent": true,
+        "raw": "生 | 本质真侧 | 生增益因果链稳态，死削减之"
+      },
+      {
+        "grp": "Z1",
+        "pair": "真/伪",
+        "pos": "真",
+        "side": "本质真侧",
+        "reason": "真增益因果稳态，伪削减",
+        "notPair": false,
+        "consistent": true,
+        "raw": "真 | 本质真侧 | 真增益因果稳态，伪削减"
+      },
+      {
+        "grp": "Z1",
+        "pair": "快/慢",
+        "pos": "快",
+        "side": "本质真侧",
+        "reason": "快增益因果链稳态",
+        "notPair": false,
+        "consistent": true,
+        "raw": "快 | 本质真侧 | 快增益因果链稳态"
+      },
+      {
+        "grp": "Z1",
+        "pair": "建/毁",
+        "pos": "建",
+        "side": "本质真侧",
+        "reason": "建增益稳态，毁削减稳态",
+        "notPair": false,
+        "consistent": true,
+        "raw": "建 | 本质真侧 | 建增益稳态，毁削减稳态"
+      },
+      {
+        "grp": "Z1",
+        "pair": "增/减",
+        "pos": "增",
+        "side": "本质真侧",
+        "reason": "增增益稳态，减削减稳态",
+        "notPair": false,
+        "consistent": true,
+        "raw": "增 | 本质真侧 | 增增益稳态，减削减稳态"
+      },
+      {
+        "grp": "Z1",
+        "pair": "守/弃",
+        "pos": "守",
+        "side": "本质真侧",
+        "reason": "守增益因果链稳态，弃削减之",
+        "notPair": false,
+        "consistent": true,
+        "raw": "守 | 本质真侧 | 守增益因果链稳态，弃削减之"
+      },
+      {
+        "grp": "Z2",
+        "pair": "批评/奉承",
+        "pos": "批评",
+        "side": "本质真侧",
+        "reason": "批评增益稳态，奉承削减",
+        "notPair": false,
+        "consistent": true,
+        "raw": "批评 | 本质真侧 | 批评增益稳态，奉承削减"
+      },
+      {
+        "grp": "Z2",
+        "pair": "退让/坚守",
+        "pos": "坚守",
+        "side": "本质真侧",
+        "reason": "坚守维持因果稳态，退让削减",
+        "notPair": false,
+        "consistent": true,
+        "raw": "坚守 | 本质真侧 | 坚守维持因果稳态，退让削减"
+      },
+      {
+        "grp": "Z2",
+        "pair": "隐/显",
+        "pos": "显",
+        "side": "本质真侧",
+        "reason": "显化增益因果稳态",
+        "notPair": false,
+        "consistent": true,
+        "raw": "显 | 本质真侧 | 显化增益因果稳态"
+      },
+      {
+        "grp": "Z2",
+        "pair": "删/留",
+        "pos": "删",
+        "side": "本质假侧",
+        "reason": "删削减因果链稳态，留增益",
+        "notPair": false,
+        "consistent": false,
+        "raw": "删 | 本质假侧 | 删削减因果链稳态，留增益"
+      },
+      {
+        "grp": "Z2",
+        "pair": "静/躁",
+        "pos": "静",
+        "side": "本质真侧",
+        "reason": "静增益稳态，躁削减稳态",
+        "notPair": false,
+        "consistent": true,
+        "raw": "静 | 本质真侧 | 静增益稳态，躁削减稳态"
+      },
+      {
+        "grp": "K",
+        "pair": "红/蓝",
+        "pos": "非内框对",
+        "side": "无",
+        "reason": "颜色并列，无正负之分",
+        "notPair": true,
+        "consistent": null,
+        "raw": "非内框对 | 无 | 颜色并列，无正负之分"
+      },
+      {
+        "grp": "K",
+        "pair": "春/秋",
+        "pos": "非内框对",
+        "side": "无",
+        "reason": "季节并列，无正负之分",
+        "notPair": true,
+        "consistent": null,
+        "raw": "非内框对 | 无 | 季节并列，无正负之分"
+      },
+      {
+        "grp": "K",
+        "pair": "桌子/椅子",
+        "pos": "非内框对",
+        "side": "无",
+        "reason": "并列物类，非二元对立",
+        "notPair": true,
+        "consistent": null,
+        "raw": "非内框对 | 无 | 并列物类，非二元对立"
+      },
+      {
+        "grp": "K",
+        "pair": "甲/乙",
+        "pos": "非内框对",
+        "side": "无",
+        "reason": "甲乙无对立，无正负之分",
+        "notPair": true,
+        "consistent": null,
+        "raw": "非内框对 | 无 | 甲乙无对立，无正负之分"
+      },
+      {
+        "grp": "K",
+        "pair": "3/5",
+        "pos": "非内框对",
+        "side": "无",
+        "reason": "数字非二元对立",
+        "notPair": true,
+        "consistent": null,
+        "raw": "非内框对 | 无 | 数字非二元对立"
+      },
+      {
+        "grp": "K",
+        "pair": "圆/方",
+        "pos": "非内框对",
+        "side": "无",
+        "reason": "形状描述，无正负因果之分",
+        "notPair": true,
+        "consistent": null,
+        "raw": "非内框对 | 无 | 形状描述，无正负因果之分"
+      },
+      {
+        "grp": "K",
+        "pair": "苹果/香蕉",
+        "pos": "非内框对",
+        "side": "无",
+        "reason": "并列水果，无正负对立",
+        "notPair": true,
+        "consistent": null,
+        "raw": "非内框对 | 无 | 并列水果，无正负对立"
+      },
+      {
+        "grp": "K",
+        "pair": "周一/周二",
+        "pos": "非内框对",
+        "side": "无",
+        "reason": "时间并列，无正负之分",
+        "notPair": true,
+        "consistent": null,
+        "raw": "非内框对 | 无 | 时间并列，无正负之分"
+      },
+      {
+        "grp": "K",
+        "pair": "纸/笔",
+        "pos": "非内框对",
+        "side": "无",
+        "reason": "纸笔为并列工具，无正负对立",
+        "notPair": true,
+        "consistent": null,
+        "raw": "非内框对 | 无 | 纸笔为并列工具，无正负对立"
+      },
+      {
+        "grp": "K",
+        "pair": "甲队/乙队",
+        "pos": "非内框对",
+        "side": "无",
+        "reason": "仅队名，无正负对立",
+        "notPair": true,
+        "consistent": null,
+        "raw": "非内框对 | 无 | 仅队名，无正负对立"
+      }
+    ]
+  },
+  "seg2": null,
+  "usage": {
+    "prompt_tokens": 8029,
+    "completion_tokens": 391
+  }
+}
