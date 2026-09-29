@@ -1,0 +1,417 @@
+{
+  "model": "deepseek-chat",
+  "temperature": 0,
+  "at": "2026-09-29T08:40:00.147Z",
+  "groups": {
+    "sum": {
+      "seg1 · G_VALUE 价值对": "old(v2规格) 4/4  |  new(v3规格) 4/4",
+      "seg1 · G_DEGREE 量差": "old(v2规格) 3/3  |  new(v3规格) 3/3",
+      "seg1 · G_CLASS 类差": "old(v2规格) 2/2  |  new(v3规格) 2/2",
+      "seg2 · G_TIME 时序": "old(v2规格) 0/3  |  new(v3规格) 3/3",
+      "seg2 · G_PSEUDO 假共存": "old(v2规格) 1/4  |  new(v3规格) 3/4",
+      "seg2 · G_TRUE 真共存": "old(v2规格) （不判）  |  new(v3规格) （不判）"
+    },
+    "rows": [
+      {
+        "grp": "seg1 · G_VALUE 价值对",
+        "item": "善/恶",
+        "ver": "old(v2规格)",
+        "kind": "value",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": true,
+        "ok": true,
+        "raw": "价值对 | 善 本质真侧 | 应然两端，善增益稳态"
+      },
+      {
+        "grp": "seg1 · G_VALUE 价值对",
+        "item": "善/恶",
+        "ver": "new(v3规格)",
+        "kind": "value",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": true,
+        "ok": true,
+        "raw": "价值对 | 善 本质真侧 | 2b：善恶同属道德轴两极，本质互斥，善增益稳态为正极。"
+      },
+      {
+        "grp": "seg1 · G_VALUE 价值对",
+        "item": "诚/伪",
+        "ver": "old(v2规格)",
+        "kind": "value",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": true,
+        "ok": true,
+        "raw": "价值对 | 诚 本质真侧 | 诚增益信任稳态，伪削减之"
+      },
+      {
+        "grp": "seg1 · G_VALUE 价值对",
+        "item": "诚/伪",
+        "ver": "new(v3规格)",
+        "kind": "value",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": true,
+        "ok": true,
+        "raw": "价值对 | 诚 本质真侧 | 2b：诚＝真实无欺，伪＝有意掩盖，同一根轴两极，本质互斥。"
+      },
+      {
+        "grp": "seg1 · G_VALUE 价值对",
+        "item": "勤/惰",
+        "ver": "old(v2规格)",
+        "kind": "value",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": true,
+        "ok": true,
+        "raw": "价值对 | 勤 本质真侧 | 勤增益稳态，惰削减稳态"
+      },
+      {
+        "grp": "seg1 · G_VALUE 价值对",
+        "item": "勤/惰",
+        "ver": "new(v3规格)",
+        "kind": "value",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": true,
+        "ok": true,
+        "raw": "价值对 | 勤 本质真侧 | 2b：勤惰同属行为投入轴两极，本质互斥不能同时成立，勤增益稳态。"
+      },
+      {
+        "grp": "seg1 · G_VALUE 价值对",
+        "item": "安/危",
+        "ver": "old(v2规格)",
+        "kind": "value",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": true,
+        "ok": true,
+        "raw": "价值对 | 安 本质真侧 | 安增益稳态，危削减稳态"
+      },
+      {
+        "grp": "seg1 · G_VALUE 价值对",
+        "item": "安/危",
+        "ver": "new(v3规格)",
+        "kind": "value",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": true,
+        "ok": true,
+        "raw": "价值对 | 安 本质真侧 | 2b：安/危同轴两端，本质互斥，安增益稳态为正极。"
+      },
+      {
+        "grp": "seg1 · G_DEGREE 量差",
+        "item": "大/小",
+        "ver": "old(v2规格)",
+        "kind": "reject",
+        "notPair": true,
+        "onAxis": false,
+        "trueSide": false,
+        "ok": true,
+        "raw": "量差 | 无 | 比尺寸，需参照系，非应然两端"
+      },
+      {
+        "grp": "seg1 · G_DEGREE 量差",
+        "item": "大/小",
+        "ver": "new(v3规格)",
+        "kind": "reject",
+        "notPair": true,
+        "onAxis": false,
+        "trueSide": false,
+        "ok": true,
+        "raw": "量差 | 无 | 第一步①：剩可测量度，需参照系比尺寸，属量差，本层够不着。"
+      },
+      {
+        "grp": "seg1 · G_DEGREE 量差",
+        "item": "快/慢",
+        "ver": "old(v2规格)",
+        "kind": "reject",
+        "notPair": true,
+        "onAxis": false,
+        "trueSide": false,
+        "ok": true,
+        "raw": "量差 | 无 | 比速度，需参照系，非应然两端"
+      },
+      {
+        "grp": "seg1 · G_DEGREE 量差",
+        "item": "快/慢",
+        "ver": "new(v3规格)",
+        "kind": "reject",
+        "notPair": true,
+        "onAxis": false,
+        "trueSide": false,
+        "ok": true,
+        "raw": "量差 | 无 | 1：去掉应然剩可测量度（速度），需参照系比快慢，属量差，本层够不着。"
+      },
+      {
+        "grp": "seg1 · G_DEGREE 量差",
+        "item": "强/弱",
+        "ver": "old(v2规格)",
+        "kind": "reject",
+        "notPair": true,
+        "onAxis": false,
+        "trueSide": false,
+        "ok": true,
+        "raw": "量差 | 无 | 强弱比程度，需参照系，非应然两端"
+      },
+      {
+        "grp": "seg1 · G_DEGREE 量差",
+        "item": "强/弱",
+        "ver": "new(v3规格)",
+        "kind": "reject",
+        "notPair": true,
+        "onAxis": false,
+        "trueSide": false,
+        "ok": true,
+        "raw": "量差 | 无 | 1：去应然后剩可测量度，比大小需参照系，属量差，本层够不着。"
+      },
+      {
+        "grp": "seg1 · G_CLASS 类差",
+        "item": "红/蓝",
+        "ver": "old(v2规格)",
+        "kind": "reject",
+        "notPair": true,
+        "onAxis": false,
+        "trueSide": false,
+        "ok": true,
+        "raw": "类差 | 无 | 同属颜色范畴，无应然两端"
+      },
+      {
+        "grp": "seg1 · G_CLASS 类差",
+        "item": "红/蓝",
+        "ver": "new(v3规格)",
+        "kind": "reject",
+        "notPair": true,
+        "onAxis": false,
+        "trueSide": false,
+        "ok": true,
+        "raw": "类差 | 无 | 步1②：红蓝同属颜色范畴，为分类成员，非应然两端。"
+      },
+      {
+        "grp": "seg1 · G_CLASS 类差",
+        "item": "桌子/椅子",
+        "ver": "old(v2规格)",
+        "kind": "reject",
+        "notPair": true,
+        "onAxis": false,
+        "trueSide": false,
+        "ok": true,
+        "raw": "类差 | 无 | 同属家具，分类实例，非应然两端"
+      },
+      {
+        "grp": "seg1 · G_CLASS 类差",
+        "item": "桌子/椅子",
+        "ver": "new(v3规格)",
+        "kind": "reject",
+        "notPair": true,
+        "onAxis": false,
+        "trueSide": false,
+        "ok": true,
+        "raw": "类差 | 无 | 第一步②：同属家具范畴的两个实例，类差，本层够不着。"
+      },
+      {
+        "grp": "seg2 · G_TIME 时序",
+        "item": "时而勤，时而惰",
+        "ver": "old(v2规格)",
+        "kind": "reject",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": true,
+        "ok": false,
+        "raw": "价值对 | 勤 本质真侧 | 勤增益稳态，惰削减稳态"
+      },
+      {
+        "grp": "seg2 · G_TIME 时序",
+        "item": "时而勤，时而惰",
+        "ver": "new(v3规格)",
+        "kind": "reject",
+        "notPair": true,
+        "onAxis": false,
+        "trueSide": false,
+        "ok": true,
+        "raw": "非内框对 | 无 | 2a：先后交替非同时，时间上轮流出现，不构成共存。"
+      },
+      {
+        "grp": "seg2 · G_TIME 时序",
+        "item": "忽冷忽热",
+        "ver": "old(v2规格)",
+        "kind": "reject",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": false,
+        "ok": false,
+        "raw": "价值对 | 无 | 仅单端描述，未构成二元对立对"
+      },
+      {
+        "grp": "seg2 · G_TIME 时序",
+        "item": "忽冷忽热",
+        "ver": "new(v3规格)",
+        "kind": "reject",
+        "notPair": true,
+        "onAxis": false,
+        "trueSide": false,
+        "ok": true,
+        "raw": "非内框对 | 无 | 2a：忽冷忽热是时间上先后交替，非同时共存，不构成两极。"
+      },
+      {
+        "grp": "seg2 · G_TIME 时序",
+        "item": "一张一弛",
+        "ver": "old(v2规格)",
+        "kind": "reject",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": false,
+        "ok": false,
+        "raw": "价值对 | 张 | 本质真侧 | 张为进取增益，弛为松懈削减"
+      },
+      {
+        "grp": "seg2 · G_TIME 时序",
+        "item": "一张一弛",
+        "ver": "new(v3规格)",
+        "kind": "reject",
+        "notPair": true,
+        "onAxis": false,
+        "trueSide": false,
+        "ok": true,
+        "raw": "非内框对 | 无 | 2a：一张一弛是时间上先后交替，非同时共存。"
+      },
+      {
+        "grp": "seg2 · G_PSEUDO 假共存",
+        "item": "大智若愚",
+        "ver": "old(v2规格)",
+        "kind": "reject",
+        "notPair": true,
+        "onAxis": false,
+        "trueSide": false,
+        "ok": true,
+        "raw": "量差 | 无 | 智与愚比程度，属可测量度"
+      },
+      {
+        "grp": "seg2 · G_PSEUDO 假共存",
+        "item": "大智若愚",
+        "ver": "new(v3规格)",
+        "kind": "reject",
+        "notPair": true,
+        "onAxis": false,
+        "trueSide": false,
+        "ok": true,
+        "raw": "非内框对 | 无 | 2b：「愚」仅指表象不显，非认知低，一桶两义，剥去后单极。"
+      },
+      {
+        "grp": "seg2 · G_PSEUDO 假共存",
+        "item": "大巧若拙",
+        "ver": "old(v2规格)",
+        "kind": "reject",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": false,
+        "ok": false,
+        "raw": "价值对 | 巧 | 本质真侧 | 巧增益稳态，拙为表象"
+      },
+      {
+        "grp": "seg2 · G_PSEUDO 假共存",
+        "item": "大巧若拙",
+        "ver": "new(v3规格)",
+        "kind": "reject",
+        "notPair": true,
+        "onAxis": false,
+        "trueSide": false,
+        "ok": true,
+        "raw": "非内框对 | 无 | 2b：「拙」只指表象不显，非真笨拙，一桶两义，剥去表象仅剩单极。"
+      },
+      {
+        "grp": "seg2 · G_PSEUDO 假共存",
+        "item": "大勇若怯",
+        "ver": "old(v2规格)",
+        "kind": "reject",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": false,
+        "ok": false,
+        "raw": "价值对 | 怯 | 本质真侧 | 怯守静不妄进，增益稳态"
+      },
+      {
+        "grp": "seg2 · G_PSEUDO 假共存",
+        "item": "大勇若怯",
+        "ver": "new(v3规格)",
+        "kind": "reject",
+        "notPair": true,
+        "onAxis": false,
+        "trueSide": false,
+        "ok": true,
+        "raw": "非内框对 | 无 | 2b：「怯」仅指表象退让，非真怯，一桶两义，剥去后剩单极。"
+      },
+      {
+        "grp": "seg2 · G_PSEUDO 假共存",
+        "item": "大辩若讷",
+        "ver": "old(v2规格)",
+        "kind": "reject",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": true,
+        "ok": false,
+        "raw": "价值对 | 讷 本质真侧 | 巧言削减稳态，讷言增益"
+      },
+      {
+        "grp": "seg2 · G_PSEUDO 假共存",
+        "item": "大辩若讷",
+        "ver": "new(v3规格)",
+        "kind": "reject",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": true,
+        "ok": false,
+        "raw": "价值对 | 讷 本质真侧 | 2b：讷＝不显于外，与辩同轴互斥，非两义错位"
+      },
+      {
+        "grp": "seg2 · G_TRUE 真共存",
+        "item": "爱恨交织",
+        "ver": "old(v2规格)",
+        "kind": "none",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": true,
+        "ok": null,
+        "raw": "价值对 | 爱 本质真侧 | 爱增益稳态，恨削减"
+      },
+      {
+        "grp": "seg2 · G_TRUE 真共存",
+        "item": "爱恨交织",
+        "ver": "new(v3规格)",
+        "kind": "none",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": true,
+        "ok": null,
+        "raw": "价值对 | 爱 本质真侧 | 2b：爱恨本质同类（趋避同根），可同时成立，两极分正负。"
+      },
+      {
+        "grp": "seg2 · G_TRUE 真共存",
+        "item": "悲喜交加",
+        "ver": "old(v2规格)",
+        "kind": "none",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": false,
+        "ok": null,
+        "raw": "价值对 | 无 | 悲喜是情绪两极，非量非类，属应然价值对立"
+      },
+      {
+        "grp": "seg2 · G_TRUE 真共存",
+        "item": "悲喜交加",
+        "ver": "new(v3规格)",
+        "kind": "none",
+        "notPair": false,
+        "onAxis": true,
+        "trueSide": true,
+        "ok": null,
+        "raw": "价值对 | 喜 本质真侧 | 2b：悲喜本质同类（情绪两极）且互斥，可同时交织，喜增益稳态。"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 30202,
+    "completion_tokens": 903
+  }
+}
