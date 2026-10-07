@@ -5,7 +5,7 @@
 > **引用规则**：跨端引用任何数字/行号/SHA/路径，**一律从本文件取**；本文件没有 = 未核实 = 不对外。
 > **仓库为 public**：本文件不含任何 token、密钥、私密信息。
 
-版本：v0.13 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端 ｜ 更新：2026-09-29（CN/EN 双 DSH 仓「四象限判据规格＋真 API 实测证据＋零依赖复跑探针」已 commit/push：CN `dd35a149ea2915ed9875cdee493de87c96e1e0e3` / EN `74579b2442a60af7e257ff5f59edd0bd5ae6c99a`；CN 364/364 ｜ EN 362/362，本地 `npm test` 复跑；`git ls-remote --heads origin main` 核验 local ≡ remote、ahead/behind 0/0。⚠️ 本轮引擎 `src/core/engine.mjs` 改动为**纯注释**（标注「缺省出口已知不符」＋留痕「XSUB-10 候选被读数证伪」），**零行为变更**。前值 v0.12（2026-09-21）：CN `2ff397d8385132366c6741066674ada13701b4c7` / EN `b17a2aa7ec35a8630b52b4b7ece17d297adad11d`，CN 282/282 ｜ EN 332/332）
+版本：v0.14 ｜ 建立：2026-09-09 ｜ 维护：喵精灵电脑端 ｜ 更新：2026-10-07（**09-21 以来首次续写 · 补 §17.11 清空白**）：CN `c794e6f48d1d55cc69709b2d00545197cfdff66b` / EN `e274067222198978a07a282f6b9e8f43cbd866c2`，CN **364/364** ｜ EN **362/362**（本地 `node --test` 复跑；GitHub API 核 local ≡ remote）。本轮＝xd-* 探针同步入 CN 仓（`versions/live/evidence/quadrant-criteria/`，11 件，与 Heaven 逐字节同）＋ §1 基线刷新。前值 v0.13（2026-09-29）：CN `dd35a149ea2915ed9875cdee493de87c96e1e0e3` / EN `74579b2442a60af7e257ff5f59edd0bd5ae6c99a`，CN 364/364 ｜ EN 362/362）
 
 ---
 
@@ -13,12 +13,12 @@
 
 | 项 | 值 | 核实方式 | 时间 |
 |---|---|---|---|
-| CN 仓（DSH 名·中文·active·据活系统版做的实现） | `Shaky77/weiwen-law-dsh`，main，HEAD **`dd35a149ea2915ed9875cdee493de87c96e1e0e3`**（远程已同步；本轮＝四象限判据规格 `docs/quadrant-judgment.md` ＋ 真 API 实测证据 ＋ 零依赖复跑探针；引擎改动**纯注释**。前值：`2ff397d8385132366c6741066674ada13701b4c7`，2026-09-21） | `git ls-remote --heads origin main` 复核 local ≡ remote、ahead/behind 0/0 | 2026-09-29 实测 |
-| EN 仓（DSH 名·英文·active·与 `weiwen-law-dsh` 同内容·CN/EN 互为参照·据活系统版做的实现） | `Shaky77/KISS_Law-DSH`，main，HEAD **`74579b2442a60af7e257ff5f59edd0bd5ae6c99a`**（远程已同步；与 CN 同构对位。前值：`b17a2aa7ec35a8630b52b4b7ece17d297adad11d`，2026-09-21） | `git ls-remote --heads origin main` 复核 local ≡ remote、ahead/behind 0/0 | 2026-09-29 实测 |
+| CN 仓（DSH 名·中文·active·据活系统版做的实现） | `Shaky77/weiwen-law-dsh`，main，HEAD **`c794e6f48d1d55cc69709b2d00545197cfdff66b`**（远程已同步；本轮＝xd-* 探针同步入 `versions/live/evidence/quadrant-criteria/` ＋ INDEX 目录级索引。前值：`dd35a149ea2915ed9875cdee493de87c96e1e0e3`，2026-09-29） | GitHub API `repos/Shaky77/weiwen-law-dsh/commits/main` 复核 local ≡ remote | 2026-10-07 实测 |
+| EN 仓（DSH 名·英文·active·与 `weiwen-law-dsh` 同内容·CN/EN 互为参照·据活系统版做的实现） | `Shaky77/KISS_Law-DSH`，main，HEAD **`e274067222198978a07a282f6b9e8f43cbd866c2`**（远程已同步；与 CN 同构对位。前值：`74579b2442a60af7e257ff5f59edd0bd5ae6c99a`，2026-09-29） | GitHub API `repos/Shaky77/KISS_Law-DSH/commits/main` 复核 local ≡ remote | 2026-10-07 实测 |
 | EN 基础版（英文·冻结·doc-only·无测试） | `Shaky77/KISS-s_Law`，main，HEAD **`98ec5d68e4eed86f176b17106e02157373ad114c`**（2026-08-31 后无提交，冻结） | GitHub API | 2026-09-14 实测 |
 | 仓库拓扑（09-14 安纠正·v0.3） | **带 DSH 名的仓＝同一内容的中英文版、互为参照**：`weiwen-law-dsh`（CN）≡ `KISS_Law-DSH`（EN），二者都是「活系统版本」做出来的具体实现（非互异、非改名关系）。`KISS-s_Law`（EN 基础版·冻结·doc-only）与 `Weiwen-s_Law`（CN 基础版·冻结）是另一组，独立存在。**活系统版本的思维导图**（`versions/活系统版/weiwen_maps.html`，电脑端所绘、软著 2026SR0748746）**未进任何仓库**；仓库里只有「基础版思维导图」，用户要求冻结、不可再修改。旧账本误将 `KISS_Law-DSH` 记为「待改名为 `KISS-s_Law`」＝错（基础版独立存在）。 | 用户指令 2026-09-14 | 2026-09-14 |
 | 两仓 remote | `git@github.com:Shaky77/<repo>.git`（**owner 是 Shaky77，非 deepseek-ai 组织**） | `git remote -v` | 2026-09-09 |
-| 测试（标准口径 `npm test` ⇒ `node --test "test/*.test.mjs"`） | CN **364/364** ｜ EN `KISS_Law-DSH` **362/362** ｜ `KISS-s_Law` 无测试（doc-only）。前值（2026-09-21）：CN 282/282（coze 实跑 281/0，差 1 见 §17.10 注记）｜ EN 332/332。 | 本地 managed node 22.22.2，`weiwen-law-dsh`@`dd35a149` 与 `KISS_Law-DSH`@`74579b24`，`npm test` 复跑 | 2026-09-29 实测 |
+| 测试（标准口径 `npm test` ⇒ `node --test "test/*.test.mjs"`） | CN **364/364**（fail 0）｜ EN `KISS_Law-DSH` **362/362**（fail 0）｜ `KISS-s_Law` 无测试（doc-only）。前值（2026-09-29）：同为 CN 364/364 · EN 362/362。 | 本地 managed node 22.22.2，`weiwen-law-dsh`@`c794e6f` 与 `KISS_Law-DSH`@`e274067`，`node --test "test/*.test.mjs"` 复跑 | 2026-10-07 实测 |
 | API实测（DeepSeek真API） | **13/13 PASS** · 13场景（psi类型闸门3 + git语义4 + 组合操作3 + 红队3）· 扣子直调`deepseek-chat`，`coze/14-API实测-DeepSeek-13场景-13pass.json` | DeepSeek API `deepseek-chat`，`sk-80cc...` | 2026-09-11 |
 | EN 同步授权 | 用户 2026-09-10 定：**英文仓不再逐次请示**，中英同一 token、有全部权限，CN 推后 EN 直译同步即可（用户只看中文面） | 用户指令 | 2026-09-10 |
 
@@ -551,3 +551,57 @@
 **双向核验结论（去天堂·上游/fork）**：① 上游 CN/EN main 远端 SHA 经 GitHub API 复核，与本地 push 归档 `final-status.txt` 一致；② 雷达 fork `weiwen-entry-refresh` 的 `PLUGINS.md` diff（API 取回）独立印证「3 道闸门＝2 拦动作/步 + 1 拦回执 + 1 只读审计钩子」与基线 332/282，与本次提交口径无冲突；③ 无待拍板项，可进入回信派任务。
 
 **来源**：`_stash/probes-20260921/final-status.txt`（推送后 `main...origin/main` 干净）+ GitHub API `commits?per_page=1` 复核（含 radar `PLUGINS.md` diff 取回）。复现命令：`git -C <repo> rev-parse HEAD` 或 GitHub API。核实时间：2026-09-21。
+
+---
+
+### 17.11 09-21 → 10-07 空白清偿：判据库落码清单 ＋ 悬账清账（2026-10-07）
+
+**性质**：本账本自 §17.10（2026-09-21）停更至 2026-10-07（近半月）—— 本节为**补记**，逐条带 commit 与复现方式（**入库规则：来源 ＋ 复现命令 ＋ 核实时间，三者缺一不入库**）。
+
+**复现命令（本节通用）**：`git -C weiwen-law-dsh log --oneline --since=2026-09-21` ／ 单条 `git -C weiwen-law-dsh show <sha> --stat`。**核实时间：2026-10-07**。
+
+#### A. 引擎 / 判据库关键落码（CN 仓，逐条有 commit）
+
+| 日期 | commit | 内容（判据层） |
+|---|---|---|
+| 09-28 | `30fe7ce` | 修正「**判不出 ⇒ review**」的**落点**：从层内移到**链末**，并按承载域受理（XSUB-10 落地；域外静默实测保持） |
+| 09-28 | `083c326` | **回滚** XSUB-10 的 P5 落地 —— 探针矩阵过闸，但 **API 复测不过闸（正当同类放行 18/22 → 0/22）** ⇒ 如实回滚（**「绿灯 ≠ 覆盖充分」的实测留痕**） |
+| 09-28 | `ddded20` ＋ `dd35a14` | 四象限判据规格（判决语层）＋ 真 API 实测证据 ＋ 独立复跑探针（自包含 · 样本内联） |
+| 09-29 | `dab9ae8` | 四象限「**语法槽位**」读法收口：A 组两维 **4/4**、**词表外同义异形 3/3**；**病因订正**（旧表述「名字」歧义）；补「两维 ⇒ 格名」查阅表 ⇒ **格名自洽 9/9**；「真的假话」两口径均可达 ⇒ **四格不塌**；唯一待裁 ＝「表面维」定义源 |
+| 09-29 | `9434dff` | **XSUB-12 · 判据可落性** —— **无落点 ∧ 有载荷 ⇒ 未判 ⇒ 收口** |
+| 09-29 | `571bf69` ＋ `8eca717` | 「判据可落性」· 作者亲授「**爱的本质是动词**」落成可执行判据（**词性由判据可落性定，不由词形定** ⇒ **名而不带行 ⇒ review**）；收口叠加三级递进 ⇒ **V6 过闸 20/20 · 误伤 0 · 漏放 0 · 三轮无抖动** |
+| 09-29 | `92854cf` / `461a148` / `23f0d4a` | 探针 v2 / v3 / 产物忽略通配（v2 判分器改**只读槽位** —— v1 整段正则假阳性留痕） |
+| 10-02 | `9efeda7` | 四象限 **v4 A/B 对照探针 ＋ DeepSeek 实跑读数**（`X推·默认`） |
+
+#### B. 10-06 一批常量新增（**同日多提交 · 判据库扩容**）
+
+`5f41cbb` RSDHM 意义层（恒定/变量 × 客观/主观 两正交轴）· `db1445f` **CONVERGENCE** · `c3fc11e` REASON_LANDING（J2 分界刀）· `d398aab` FALLBACK_MODE · `d589108` EXISTENCE_NOT_QUANTITATIVE · `a5ceaa0` REVIEW_BOUNDARY · `9e8545a` FORWARD_INFERENCE · `1233532` **M_TWO_TENSES** · `6007eac` **H_ENERGY_POSITION** · `0184b7f` CLASS_BEFORE_MEASURE · `c99bca5`（engine）A3 文本层止血：**外联判据从「HTTP 词形」升为「网络命名空间」**（只收口不放宽、不自称完备）。
+
+**同批证据归档**：`d49ad97` 归档 10-04~10-05 前向推演活体证据（`versions/live/evidence/forward-inference/` 54 件 ＋ 总览）。
+
+**10-07 两条**：
+- `59c4eea` **阈值「不可定」而非「未定」—— 本体论禁止**（安 2026-10-07 01:36 裁定 · coze/82 环三）⇒ `CONVERGENCE.threshold` 定为「**永远不该定**」（写死容差 ＝ 图内验收门折叠未来 ＝ 代理 H 选择权）。
+- `c794e6f` **xd-\* 探针同步入本仓**（`versions/live/evidence/quadrant-criteria/`，**11 件**，与 Heaven `evidence/quadrant-criteria/` **逐字节同**；依 `xiaodazi/67` §六 请求）＋ INDEX 补该目录**目录级索引**。
+
+#### C. 悬账清账（本次一并办结）
+
+| 悬账 | 状态 | 凭据 |
+|---|---|---|
+| `xiaodazi/67` §六「待电脑喵同步 CN 仓证据」 | ✅ **已办** | CN `c794e6f`；远端 `git ls-tree` 计数 **11** |
+| `coze/79`（预言验证 · 双向时间线）正式回件 | ✅ **已成件** | Heaven `computer/90`（含**严格口径记账**：Q4 工具化一项**仍记未兑现**） |
+| `coze/80`（H 能量入口论）正式回件 | ✅ **已成件** | 同上（含落码取证 ＋ 三待裁项**按层分派**：根因层留主人 / 对齐层判为「增补标注」/ 手稿层挂） |
+| 手机端源点补遗 §七「并入来历溯源区或作 0919 件章节」 | ✅ **已办** | 已作 `mobile/…20260919.md` **§七 源点补遗**章节**追加**（§一～§六 原文一字未动） |
+
+#### D. 仍在挂的（如实，不动）
+
+- §17.5.1 `dsh.so` 精选方案（小搭子＋扣子三方合流）—— **无新数据**，仍挂。
+- §17.5.2 OpenAI misalignment 案例归档 —— 批次（09-16 官方披露六例）已归档并派发，**三方合流结论**仍挂。
+- `coze/79` §四 未兑现清单四条（11 月窗口 / 四象限工具化 / Token 因果对接 / S 两态制度观测）—— **未到窗口或无新数据**；其中「四象限判据工具化」**引擎侧已具形态**（见 §E），但按严格口径**仍记未兑现**。
+
+#### E. 本日（10-07）引擎侧推进 —— ⚠️ **未落码，仅作事实登记**
+
+P1 结构性修法（三段式：**有声明 ⇒ 关系判据｜无声明 ⇒ 形态判据｜挂不上 ⇒ 交还**）已在**影子**中完成实测：四电池**逐条零差异**、留出集（全新工具名/键名）**24/24 全收**、**B 类真误伤 0**、单测 364 项与基线逐条一致、40 条行为基线**只变 1 条**（即漏洞形态本身）。
+
+🔴 **`src/` 零改动**（影子 `_stash/_sh-3seg/`，可整体撤销）；落码须**授权 ＋ 打标记**，并配套 ① 重建 docs 镜像 ② EN 仓同步 ③ `test/` 加回归锁。件 ＝ Heaven `computer/88` / `computer/89`（附件自足可复现）。
+
+**来源**：`git -C weiwen-law-dsh log`（本节 A/B 全部 commit）／ `Heaven` 仓 `computer/88..90` ＋ `mobile/` 两件 ／ 本地 `node --test` 读数。**核实时间：2026-10-07**。
