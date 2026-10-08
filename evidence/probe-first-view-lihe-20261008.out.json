@@ -1,0 +1,62 @@
+[
+ {
+  "tag": "A_利他第一视角",
+  "run": 1,
+  "content": "{\"surface\": \"真\", \"essential\": true, \"quadrant\": \"真的真话\", \"reason\": \"利他保护性隐瞒，未造假，本质为真\"}"
+ },
+ {
+  "tag": "A_利他第一视角",
+  "run": 2,
+  "content": "{\"surface\": \"真\", \"essential\": true, \"quadrant\": \"真的真话\", \"reason\": \"利他保护性隐瞒，本质真，未造假话\"}"
+ },
+ {
+  "tag": "A_利他第一视角",
+  "run": 3,
+  "content": "{\"surface\": \"真\", \"essential\": true, \"quadrant\": \"真的真话\", \"reason\": \"利他保护性隐瞒，未造假，本质真\"}"
+ },
+ {
+  "tag": "B_利己第一视角",
+  "run": 1,
+  "content": "{\"surface\": \"真\", \"essential\": false, \"quadrant\": \"真的假话\", \"reason\": \"表面善言，实为利己操控，本质假\"}"
+ },
+ {
+  "tag": "B_利己第一视角",
+  "run": 2,
+  "content": "{\"surface\": \"真\", \"essential\": false, \"quadrant\": \"真的假话\", \"reason\": \"表面善言，实为利己操控，本质假\"}"
+ },
+ {
+  "tag": "B_利己第一视角",
+  "run": 3,
+  "content": "{\"surface\": \"真\", \"essential\": false, \"quadrant\": \"真的假话\", \"reason\": \"表面为你好，实为利己操控，本质假\"}"
+ },
+ {
+  "tag": "C_纯词形无情境",
+  "run": 1,
+  "content": "{\"surface\": \"假\", \"essential\": true, \"quadrant\": \"假真\", \"reason\": \"谎言一重否定，善意二重否定，双否为肯定\"}"
+ },
+ {
+  "tag": "C_纯词形无情境",
+  "run": 2,
+  "content": "{\"surface\": \"假\", \"essential\": true, \"quadrant\": \"假真\", \"reason\": \"谎言一重否定，善意二重否定，双否为肯定\"}"
+ },
+ {
+  "tag": "C_纯词形无情境",
+  "run": 3,
+  "content": "{\"surface\": \"假\", \"essential\": true, \"quadrant\": \"假真\", \"reason\": \"谎言一重否定，善意二重否定，双否为肯定\"}"
+ },
+ {
+  "tag": "D_同B情境但词形旁观",
+  "run": 1,
+  "content": "{\"surface\": \"假\", \"essential\": true, \"quadrant\": \"真肯定\", \"reason\": \"双否为肯定，本质真\"}"
+ },
+ {
+  "tag": "D_同B情境但词形旁观",
+  "run": 2,
+  "content": "{\"surface\": \"假\", \"essential\": true, \"quadrant\": \"双否肯定格\", \"reason\": \"谎言一重否加善意二重否，双否为肯定\"}"
+ },
+ {
+  "tag": "D_同B情境但词形旁观",
+  "run": 3,
+  "content": "{\"surface\": \"假\", \"essential\": true, \"quadrant\": \"假真\", \"reason\": \"谎言一重加善意二重，双否为肯定\"}"
+ }
+]
