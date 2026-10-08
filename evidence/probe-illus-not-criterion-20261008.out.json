@@ -1,0 +1,32 @@
+[
+ {
+  "tag": "A'_修正后字段",
+  "run": 1,
+  "content": "{\"qualified\": false, \"reason\": \"例示不构成判据，且无可审的A，按EXISTENCE_NOT_QUANTITATIVE不构成合格预测。\"}"
+ },
+ {
+  "tag": "A'_修正后字段",
+  "run": 2,
+  "content": "{\"qualified\": false, \"reason\": \"例示不构成判据，且无可审的A，按EXISTENCE_NOT_QUANTITATIVE不构成合格预测。\"}"
+ },
+ {
+  "tag": "A'_修正后字段",
+  "run": 3,
+  "content": "{\"qualified\": false, \"reason\": \"例示仅示范两时态并存形态，无可审A，按定义不构成合格预测。\"}"
+ },
+ {
+  "tag": "B_无字段",
+  "run": 1,
+  "content": "{\"qualified\": false, \"reason\": \"无预测结构、无可核验条件，属事后陈述而非合格预测。\"}"
+ },
+ {
+  "tag": "B_无字段",
+  "run": 2,
+  "content": "{\"qualified\": false, \"reason\": \"无预测结构、无可核验条件，属事后陈述而非合格预测。\"}"
+ },
+ {
+  "tag": "B_无字段",
+  "run": 3,
+  "content": "{\"qualified\": false, \"reason\": \"无预测结构、无可核验条件，属事后陈述而非合格预测。\"}"
+ }
+]
