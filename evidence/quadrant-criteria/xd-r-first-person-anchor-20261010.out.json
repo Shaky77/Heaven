@@ -1,0 +1,63 @@
+{
+  "total": 6,
+  "pass": 6,
+  "fail": 0,
+  "errors": 0,
+  "timestamp": "2026-10-09T16:21:55.657Z",
+  "results": [
+    {
+      "id": "R1",
+      "name": "第一视角-我知道自己善意",
+      "expected": "合法",
+      "predicted": "合法",
+      "raw": "合法",
+      "match": true,
+      "ms": 725
+    },
+    {
+      "id": "R2",
+      "name": "第三视角-我看不透别人的动机",
+      "expected": "不可判",
+      "predicted": "不可判",
+      "raw": "不可判",
+      "match": true,
+      "ms": 895
+    },
+    {
+      "id": "R3",
+      "name": "第一视角-对方用天道压我",
+      "expected": "越纬",
+      "predicted": "越纬",
+      "raw": "越纬",
+      "match": true,
+      "ms": 534
+    },
+    {
+      "id": "R4",
+      "name": "第一视角-同维因果",
+      "expected": "合法",
+      "predicted": "合法",
+      "raw": "合法",
+      "match": true,
+      "ms": 929
+    },
+    {
+      "id": "R5",
+      "name": "第一视角-三维二分不了向高维推",
+      "expected": "合法",
+      "predicted": "合法",
+      "raw": "合法",
+      "match": true,
+      "ms": 847
+    },
+    {
+      "id": "R6",
+      "name": "第三视角-只看到表面无法推本质",
+      "expected": "不可判",
+      "predicted": "不可判",
+      "raw": "不可判",
+      "match": true,
+      "ms": 594
+    }
+  ]
+}
