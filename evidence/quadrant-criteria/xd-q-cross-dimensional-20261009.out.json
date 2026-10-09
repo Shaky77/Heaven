@@ -1,0 +1,81 @@
+{
+  "total": 8,
+  "pass": 3,
+  "fail": 5,
+  "errors": 0,
+  "timestamp": "2026-10-09T15:58:35.155Z",
+  "results": [
+    {
+      "id": "C1",
+      "name": "天道压人道：物理真理否定价值",
+      "expected": "越纬",
+      "predicted": "越纬",
+      "raw": "是（越纬）",
+      "match": true,
+      "ms": 949
+    },
+    {
+      "id": "C2",
+      "name": "人道压天道：价值否定事实",
+      "expected": "越纬",
+      "predicted": "越纬",
+      "raw": "是（越纬）",
+      "match": true,
+      "ms": 666
+    },
+    {
+      "id": "C3",
+      "name": "同维推理-人道内部",
+      "expected": "不越纬",
+      "predicted": "越纬",
+      "raw": "否（不越纬）",
+      "match": false,
+      "ms": 502
+    },
+    {
+      "id": "C4",
+      "name": "同维推理-天道内部",
+      "expected": "不越纬",
+      "predicted": "越纬",
+      "raw": "否（不越纬）",
+      "match": false,
+      "ms": 529
+    },
+    {
+      "id": "C5",
+      "name": "高维真压低维对：科学压道德",
+      "expected": "越纬",
+      "predicted": "越纬",
+      "raw": "是（越纬）",
+      "match": true,
+      "ms": 522
+    },
+    {
+      "id": "C6",
+      "name": "由内往外推：表面真→本质假（合法升维）",
+      "expected": "不越纬",
+      "predicted": "越纬",
+      "raw": "否（不越纬）",
+      "match": false,
+      "ms": 599
+    },
+    {
+      "id": "C7",
+      "name": "善意谎言：表面假+本质真（合法四分）",
+      "expected": "不越纬",
+      "predicted": "越纬",
+      "raw": "是（越纬）",
+      "match": false,
+      "ms": 619
+    },
+    {
+      "id": "C8",
+      "name": "楚门的世界：表面真+本质假（合法四分）",
+      "expected": "不越纬",
+      "predicted": "越纬",
+      "raw": "否（不越纬）",
+      "match": false,
+      "ms": 629
+    }
+  ]
+}
