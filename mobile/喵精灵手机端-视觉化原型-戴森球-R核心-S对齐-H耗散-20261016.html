@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html data-page-node-id="TDk198kc1eyUhjpobzgiJ4" lang="zh">
+<head data-page-node-id="xF8s5DjpxjY61Bx7rbpsju">
+<script data-page-node-id="h0Ipu2ZY7wrmhewusnTrOW" src="/page/page_comm/inject.js"></script>
+<meta data-page-node-id="IjO6oiETXtmdoqMiRlX3xB" charset="utf-8">
+<meta data-page-node-id="xOdt2ACoVhPv8gM3ciN6QU" content="width=device-width, initial-scale=1" name="viewport">
+<title data-page-node-id="NhN5PLb4qCtqSRX3MdHl5L" data-pnid-children="LBmJ27AZzatfRaYN9Pw4tx">唯稳律 · 视觉化原型 (M = R·S / D·H)</title>
+<style data-page-node-id="4ss884p6H9j3NosL2Uvarb" data-pnid-children="wWeFn8Kve3rOqhGQReW26j">
+  html,body{margin:0;height:100%;background:#000;overflow:hidden;
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei",Helvetica,Arial,sans-serif;color:#e8eefc;}
+  #app{position:fixed;inset:0;}
+  #hud{position:fixed;left:18px;top:16px;z-index:10;pointer-events:none;
+    text-shadow:0 0 8px rgba(0,0,0,.9);}
+  #hud .title{font-size:20px;font-weight:700;letter-spacing:1px;
+    color:#ffe9a8;text-shadow:0 0 14px rgba(255,210,120,.6);}
+  #hud .eq{font-size:15px;margin-top:6px;color:#bfe3ff;font-variant-numeric:tabular-nums;}
+  #hud .legend{margin-top:14px;font-size:12.5px;line-height:1.9;color:#c9d4ea;}
+  #hud .legend b{font-weight:700;}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle;}
+  #foot{position:fixed;left:0;right:0;bottom:14px;text-align:center;z-index:10;
+    font-size:12px;color:#7f8aa3;pointer-events:none;text-shadow:0 0 8px rgba(0,0,0,.9);}
+  #tip{position:fixed;right:18px;bottom:16px;z-index:10;font-size:12px;color:#6b7790;pointer-events:none;}
+</style>
+</head>
+<body data-page-node-id="jFjsi2GLby8cIHP5tSi6uR">
+<div data-page-node-id="mw2jiMH6ULqVfC7dAKzR9G" id="app"></div>
+
+<div data-page-node-id="wt42yCfWoJRo8sZ5d4upCN" id="hud">
+  <div data-page-node-id="64pOwkFd9mZqcOe6quyXlz" class="title"><!--pnid:CAkdFcaOyhSb1lmu5mMCQg-->唯稳律 · 视觉化</div>
+  <div data-page-node-id="wLbJ2NPfq9vCdfZmJPHTSV" class="eq"><!--pnid:MsBplRENOkdvOCmhlRMDMG-->M = (R × S) / (D × H)</div>
+  <div data-page-node-id="UgMDLXmiSJ2eNenKgcwZ3B" class="legend">
+    <div data-page-node-id="Z7YZUBZp4R2R2SnDQQhaYM"><span data-page-node-id="CPSBS8WmNQTnaDnbnK3cKW" class="dot" style="background:#fff2cc; box-shadow:0 0 10px #ffd87a"></span><b data-page-node-id="wXsbpMt2HZbAEZllGoDlKc"><!--pnid:DT9kGT0p2erJ04c9YwDGk1-->R</b><!--pnid:duW9FIGPURH70Ujtnr7v84--> 中心发光核 · 稳定存续不变量 (y=R)</div>
+    <div data-page-node-id="XGrosGiTDOuxPiWV4t7R5F"><span data-page-node-id="SvIclQ5ZYr3BAPvALwJCYj" class="dot" style="background:#ffd166; box-shadow:0 0 10px #ffb347"></span><b data-page-node-id="BuqmeNoQOx56WxMNSEX8WW"><!--pnid:zKPeC1h5CAm9A0KZjv6omI-->S</b><!--pnid:hZm8P5aWx6jW5Vi77vgRrc--> 金色粒子流 · 积累向 R 对齐</div>
+    <div data-page-node-id="93ljDS73E9jLedSTrRxq72"><span data-page-node-id="avbgGRZrZprcWaQst1ArPa" class="dot" style="background:#5fa8ff; box-shadow:0 0 10px #4a90e2"></span><b data-page-node-id="UOfg0PlYcpCRD7LWtCYmc8"><!--pnid:VkiY6vieafuZEtDgmI95Sm-->H</b><!--pnid:mt8bpkROumCuqFKTQj2unR--> 蓝色雾流 · 情感/耗散项 (分母·消散)</div>
+    <div data-page-node-id="r7YaMwVfGHus2glqDbUJIw"><span data-page-node-id="ksFqEQ19eZ4tnFiAGM3btF" class="dot" style="background:#8a93a8; box-shadow:0 0 6px #6b7488"></span><b data-page-node-id="WRJHXk9Z3zgsfkrCeKXE6R"><!--pnid:YUNeSvSvgy6X1dP3Px6CRh-->壳层</b><!--pnid:jRkSJ137qR758OmIdQ7v0H--> · 边界 (戴森球母题)</div>
+  </div>
+</div>
+
+<div data-page-node-id="E3p1R2s56hqqDWhf1Tz3AL" id="foot"><!--pnid:y4fJ6D9ZIkhTdiM3fanDYJ-->视觉为「壳」，结构为「判域」—— 颜值显形机制，不替代机制。拖拽旋转 · 滚轮缩放</div>
+<div data-page-node-id="vb96FqFB7tElIF5G3K78dh" id="tip"><!--pnid:mqoBTbCcbNZTK5JGWb3lQm-->唯稳律案 · 2026-10-16</div>
+
+<script data-page-node-id="BqBSYN9tK7lWE11Rm8vbav" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script data-page-node-id="mpPWxrzv2LlZXwyV2FUGon" src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script data-page-node-id="qmw48P5smRQiFt9VmP0Yae" data-pnid-children="Qalgg5LIjJppVf9NcVVXDc">
+(function(){
+  const app = document.getElementById('app');
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x000008, 0.012);
+
+  const camera = new THREE.PerspectiveCamera(55, innerWidth/innerHeight, 0.1, 2000);
+  camera.position.set(0, 14, 46);
+
+  const renderer = new THREE.WebGLRenderer({antialias:true, alpha:false});
+  renderer.setSize(innerWidth, innerHeight);
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  app.appendChild(renderer.domElement);
+
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.06;
+  controls.autoRotate = true;
+  controls.autoRotateSpeed = 0.6;
+  controls.minDistance = 18;
+  controls.maxDistance = 120;
+
+  // ---- 生成圆形发光纹理 ----
+  function glowTexture(rgb){
+    const s=64, c=document.createElement('canvas'); c.width=c.height=s;
+    const g=c.getContext('2d');
+    const grd=g.createRadialGradient(s/2,s/2,0,s/2,s/2,s/2);
+    grd.addColorStop(0,'rgba(255,255,255,1)');
+    grd.addColorStop(0.25, rgb);
+    grd.addColorStop(1,'rgba(0,0,0,0)');
+    g.fillStyle=grd; g.fillRect(0,0,s,s);
+    return new THREE.CanvasTexture(c);
+  }
+  const texGold = glowTexture('rgba(255,196,90,0.95)');
+  const texBlue = glowTexture('rgba(95,160,255,0.9)');
+  const texWhite = glowTexture('rgba(255,244,210,1)');
+
+  // ---- R 核心：稳定存续不变量 ----
+  const core = new THREE.Mesh(
+    new THREE.SphereGeometry(3.0, 48, 48),
+    new THREE.MeshBasicMaterial({color:0xfff2cc})
+  );
+  scene.add(core);
+
+  // 核心多层光晕
+  const halos = [];
+  [{r:5.0,op:0.55},{r:8.0,op:0.30},{r:12.0,op:0.15}].forEach((h,i)=>{
+    const sp = new THREE.Sprite(new THREE.SpriteMaterial({
+      map:texWhite, color:0xffe2a0, transparent:true, opacity:h.op,
+      blending:THREE.AdditiveBlending, depthWrite:false
+    }));
+    sp.scale.set(h.r*2, h.r*2, 1);
+    halos.push(sp); scene.add(sp);
+  });
+
+  // ---- 戴森球壳层 (Wireframe) ----
+  const shell = new THREE.Mesh(
+    new THREE.IcosahedronGeometry(20, 2),
+    new THREE.MeshBasicMaterial({color:0x8a93a8, wireframe:true, transparent:true, opacity:0.10})
+  );
+  scene.add(shell);
+  const shell2 = new THREE.Mesh(
+    new THREE.IcosahedronGeometry(20, 1),
+    new THREE.MeshBasicMaterial({color:0x4a90e2, wireframe:true, transparent:true, opacity:0.06})
+  );
+  scene.add(shell2);
+
+  // ---- S 粒子流：积累向 R 对齐 (金色, 向内螺旋) ----
+  const S_N = 2600;
+  const sGeo = new THREE.BufferGeometry();
+  const sPos = new Float32Array(S_N*3);
+  const sData = []; // {r, theta, phi, speed, inward}
+  for(let i=0;i<S_N;i++){
+    const r = 16 + Math.random()*5;
+    const theta = Math.random()*Math.PI*2;
+    const phi = Math.acos(2*Math.random()-1);
+    sData.push({r, theta, phi, spin:0.002+Math.random()*0.004,
+                inward:0.012+Math.random()*0.02});
+    const x=r*Math.sin(phi)*Math.cos(theta), y=r*Math.cos(phi), z=r*Math.sin(phi)*Math.sin(theta);
+    sPos[i*3]=x; sPos[i*3+1]=y; sPos[i*3+2]=z;
+  }
+  sGeo.setAttribute('position', new THREE.BufferAttribute(sPos,3));
+  const sMat = new THREE.PointsMaterial({size:0.9, map:texGold, color:0xffcf6e,
+    transparent:true, opacity:0.95, blending:THREE.AdditiveBlending, depthWrite:false});
+  const sPoints = new THREE.Points(sGeo, sMat);
+  scene.add(sPoints);
+
+  // ---- H 粒子流：情感/耗散 (蓝色, 向外上升消散) ----
+  const H_N = 1200;
+  const hGeo = new THREE.BufferGeometry();
+  const hPos = new Float32Array(H_N*3);
+  const hData = [];
+  function resetH(k){
+    const r = 2 + Math.random()*3;
+    const theta = Math.random()*Math.PI*2;
+    const phi = Math.acos(2*Math.random()-1);
+    hData[k] = {r, theta, phi, rise:0.06+Math.random()*0.10, life:0};
+    hPos[k*3]=r*Math.sin(phi)*Math.cos(theta);
+    hPos[k*3+1]=r*Math.cos(phi);
+    hPos[k*3+2]=r*Math.sin(phi)*Math.sin(theta);
+  }
+  for(let i=0;i<H_N;i++) resetH(i);
+  hGeo.setAttribute('position', new THREE.BufferAttribute(hPos,3));
+  const hMat = new THREE.PointsMaterial({size:1.1, map:texBlue, color:0x7fb4ff,
+    transparent:true, opacity:0.7, blending:THREE.AdditiveBlending, depthWrite:false});
+  const hPoints = new THREE.Points(hGeo, hMat);
+  scene.add(hPoints);
+
+  // ---- 星尘背景 ----
+  const bgGeo = new THREE.BufferGeometry();
+  const bgN=1400, bgp=new Float32Array(bgN*3);
+  for(let i=0;i<bgN;i++){
+    const r=120+Math.random()*300, t=Math.random()*Math.PI*2, p=Math.acos(2*Math.random()-1);
+    bgp[i*3]=r*Math.sin(p)*Math.cos(t); bgp[i*3+1]=r*Math.cos(p); bgp[i*3+2]=r*Math.sin(p)*Math.sin(t);
+  }
+  bgGeo.setAttribute('position', new THREE.BufferAttribute(bgp,3));
+  scene.add(new THREE.Points(bgGeo, new THREE.PointsMaterial({
+    size:0.7, color:0x6678aa, transparent:true, opacity:0.5})));
+
+  // ---- 动画 ----
+  const clock = new THREE.Clock();
+  function animate(){
+    requestAnimationFrame(animate);
+    const dt = clock.getDelta();
+    const t = clock.elapsedTime;
+
+    // 核心脉动
+    const pulse = 1 + Math.sin(t*1.6)*0.04;
+    core.scale.setScalar(pulse);
+    halos.forEach((h,i)=> h.scale.setScalar((5 + i*3.5)*2*(1+Math.sin(t*1.6+i)*0.03)));
+
+    // 壳旋转
+    shell.rotation.y += dt*0.05; shell.rotation.x += dt*0.02;
+    shell2.rotation.y -= dt*0.035; shell2.rotation.z += dt*0.02;
+
+    // S 向内螺旋对齐 R
+    const sp = sGeo.attributes.position.array;
+    for(let i=0;i<S_N;i++){
+      const d=sData[i];
+      d.r -= d.inward; d.theta += d.spin;
+      if(d.r <= 3.2){ // 抵达核心 -> 重置到外圈 (循环积累)
+        d.r = 16 + Math.random()*5; d.theta = Math.random()*Math.PI*2;
+        d.phi = Math.acos(2*Math.random()-1);
+      }
+      sp[i*3]   = d.r*Math.sin(d.phi)*Math.cos(d.theta);
+      sp[i*3+1] = d.r*Math.cos(d.phi);
+      sp[i*3+2] = d.r*Math.sin(d.phi)*Math.sin(d.theta);
+    }
+    sGeo.attributes.position.needsUpdate = true;
+
+    // H 向外上升消散
+    const hp = hGeo.attributes.position.array;
+    for(let i=0;i<H_N;i++){
+      const d=hData[i];
+      d.r += d.rise; d.phi += dt*0.3; d.life += dt;
+      hp[i*3]   = d.r*Math.sin(d.phi)*Math.cos(d.theta);
+      hp[i*3+1] = d.r*Math.cos(d.phi) + d.life*1.2; // 上升
+      hp[i*3+2] = d.r*Math.sin(d.phi)*Math.sin(d.theta);
+      if(d.r > 60 || hp[i*3+1] > 60) resetH(i);
+    }
+    hGeo.attributes.position.needsUpdate = true;
+
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  addEventListener('resize', ()=>{
+    camera.aspect = innerWidth/innerHeight; camera.updateProjectionMatrix();
+    renderer.setSize(innerWidth, innerHeight);
+  });
+})();
+</script>
+</body>
+</html>
