@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html data-page-node-id="xMTRw0IvgIKoJYj0qLgZVD" lang="zh">
+<head data-page-node-id="tDrMsEXYOXZ2IMaZLoMYmb">
+<script data-page-node-id="j1flbMghHb9MPJR7Rm1m6y" src="/page/page_comm/inject.js"></script>
+<meta data-page-node-id="az216J6QJfsGKBr6ggPiyd" charset="utf-8">
+<meta data-page-node-id="h1tP1IZKYLaSIT6HyhAwjr" content="width=device-width, initial-scale=1" name="viewport">
+<title data-page-node-id="0QynBqVCQHNx3YK5HAvYok" data-pnid-children="70G8lqIqCDyCMN7tVGWni8">唯稳律 × 橄榄球模型 · SDH 拓扑 (手稿原图)</title>
+<style data-page-node-id="ooAZhqBsMe3KJGnZvtYz6o" data-pnid-children="8RWXUeqj1wBsK8LwVLl3kq">
+  html,body{margin:0;height:100%;background:#000;overflow:hidden;
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei",Helvetica,Arial,sans-serif;color:#e8eefc;}
+  #app{position:fixed;inset:0;}
+  #hud{position:fixed;left:18px;top:16px;z-index:10;pointer-events:none;text-shadow:0 0 8px rgba(0,0,0,.9);}
+  #hud .title{font-size:20px;font-weight:700;letter-spacing:1px;color:#ffe9a8;text-shadow:0 0 14px rgba(255,210,120,.6);}
+  #hud .sub{font-size:12.5px;margin-top:3px;color:#9fb4d8;}
+  #hud .eq{font-size:14px;margin-top:6px;color:#bfe3ff;font-variant-numeric:tabular-nums;}
+  #hud .note{font-size:11px;margin-top:2px;color:#7f8aa3;}
+  #hud .legend{margin-top:13px;font-size:12.5px;line-height:1.95;color:#c9d4ea;}
+  #hud .legend b{font-weight:700;}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle;}
+  #foot{position:fixed;left:0;right:0;bottom:14px;text-align:center;z-index:10;font-size:12px;color:#7f8aa3;pointer-events:none;text-shadow:0 0 8px rgba(0,0,0,.9);}
+  #tip{position:fixed;right:18px;bottom:16px;z-index:10;font-size:12px;color:#6b7790;pointer-events:none;}
+</style>
+</head>
+<body data-page-node-id="2YCCCAGJnzhJDt4pgqtV8j">
+<div data-page-node-id="EQ6uoS67TimUAHrcujqCR8" id="app"></div>
+
+<div data-page-node-id="yT0IedfZXoE0cweL3ZKPT4" id="hud">
+  <div data-page-node-id="h7N7wmfZM763P5sRyUtUgO" class="title"><!--pnid:nvGCPI5ZCPTO15JnXYcA80-->唯稳律 × 橄榄球模型</div>
+  <div data-page-node-id="5yzBS03H1vgxJJatqShVnY" class="sub"><!--pnid:6d8yz57lnGrSPtuzqu6oxY-->S·D 互为节点对 · H 在中间链滑动 · R 恒定锚</div>
+  <div data-page-node-id="2Qp89sjFmf3GVmkQnRcbM5" class="eq"><!--pnid:dxeDdS090GoNOReiUoIb2H-->M = (R × S) / (D × H)</div>
+  <div data-page-node-id="NVOibswT5cLQnI9JG5LJT2" class="note"><!--pnid:XX1dzRDLksa53sd7O9DfFE-->乘号是量化近似 · 机制上 S、D 为互相制衡，非相乘</div>
+  <div data-page-node-id="zWOfuQ35i7KHfPPMIpFhan" class="legend">
+    <div data-page-node-id="VAQ8ljOSwwIkfvAYSsVaZx"><span data-page-node-id="fqelHhFBfVpfNKCcUp5DTX" class="dot" style="background:#ffcf6e; box-shadow:0 0 10px #ffb347"></span><b data-page-node-id="JokSjhNAGYTsb9zx88tT5S"><!--pnid:xFiB2wODRp8ReliGR7vzI1-->S</b><!--pnid:pjCS63oUPzsGuo4U5aDoGE--> 节点① · 稳态储备（一端奇点）</div>
+    <div data-page-node-id="2I5HupBUeoSSQfsM0LL1lr"><span data-page-node-id="oDAXbDDR2MiX7ZRZ5OU8Gf" class="dot" style="background:#6ee7b7; box-shadow:0 0 10px #4fd1a0"></span><b data-page-node-id="QCuLYkUaTnZXIo1BgQt8hf"><!--pnid:jPEFfEmBEeIiOyrrPHpY1a-->D</b><!--pnid:xa9K9cWCJp7uvuUetIxW0O--> 节点② · 扰动/离散（另一端奇点，唯一事件）</div>
+    <div data-page-node-id="YeRNHFoniS6ABsTbA8KXRq"><span data-page-node-id="9orlDj0C9GODuwbPxLSgQQ" class="dot" style="background:#ff9bd4; box-shadow:0 0 10px #ff6fc0"></span><b data-page-node-id="9F2wOkxYjAtSQTGd1h9UKB"><!--pnid:vYUOruHI3XssRSvAElTEJO-->H</b><!--pnid:L6vc89tOH0GJ8dDHfXJayo--> 滑块 · 杠杆(知行缝隙)，在 S–D 中间链上滑动</div>
+    <div data-page-node-id="DSx5j4UKt2qjVvd7U6H2QZ"><span data-page-node-id="TSihZDhqwG9SeRpr2zuMGE" class="dot" style="background:#fff2cc; box-shadow:0 0 10px #ffd87a"></span><b data-page-node-id="RQYuC8b1EK23E60ojcv1vG"><!--pnid:Z5r2MGYqfPpmSr9hRiJenK-->R</b><!--pnid:SBPXIu8EhgfUoUA61oRCkP--> 垂直恒定轴 · 刚性不变量（不随时间平移）</div>
+    <div data-page-node-id="2jAx5DfbZum51jIPz0YhMs"><span data-page-node-id="bClJOx2IphCbsPDYuwEmE2" class="dot" style="background:#9affc8; box-shadow:0 0 10px #5fe0a0"></span><b data-page-node-id="vU6cTTAgGWj2hSqXsb5MkD"><!--pnid:g3cBYSUGUzaRRtaz5Xzna9-->M</b><!--pnid:4Q7IcXrafG2CkruUN25xmy--> 稳态结果 · 收敛态（中心绿点）</div>
+  </div>
+</div>
+
+<div data-page-node-id="t1ic39zLBbk6aRjK5QxvY2" id="foot"><!--pnid:pdRBGChHy0IY3oxhMz9K6O-->视觉为「壳」，结构为「判域」—— 按手稿橄榄球拓扑：S/D 制衡、H 在中间链滑动、R 恒定。拖拽旋转 · 滚轮缩放</div>
+<div data-page-node-id="kbrLnabHaSBg9NokQOZv26" id="tip"><!--pnid:WD84dgzPewJYArmyZeAXB0-->唯稳律案 · 2026-10-16</div>
+
+<script data-page-node-id="fSCFWd9ZbHs4n2Oowqr1iA" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script data-page-node-id="MIXHwUeQPNlaypSiFawLcv" src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script data-page-node-id="eVSETxBV9WPc0kProUYYQ3" data-pnid-children="p2vsfyixzJSoGzxm3i5qkh">
+(function(){
+  const app=document.getElementById('app');
+  const scene=new THREE.Scene();
+  scene.fog=new THREE.FogExp2(0x000008,0.008);
+  const camera=new THREE.PerspectiveCamera(52,innerWidth/innerHeight,0.1,2000);
+  camera.position.set(28,16,46);
+  const renderer=new THREE.WebGLRenderer({antialias:true});
+  renderer.setSize(innerWidth,innerHeight);
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  app.appendChild(renderer.domElement);
+
+  const controls=new THREE.OrbitControls(camera,renderer.domElement);
+  controls.enableDamping=true; controls.dampingFactor=0.06;
+  controls.autoRotate=true; controls.autoRotateSpeed=0.7;
+  controls.minDistance=24; controls.maxDistance=160;
+  controls.target.set(0,0,0);
+
+  function glow(rgb){
+    const s=64,c=document.createElement('canvas');c.width=c.height=s;
+    const g=c.getContext('2d');
+    const grd=g.createRadialGradient(s/2,s/2,0,s/2,s/2,s/2);
+    grd.addColorStop(0,'rgba(255,255,255,1)');grd.addColorStop(0.25,rgb);grd.addColorStop(1,'rgba(0,0,0,0)');
+    g.fillStyle=grd;g.fillRect(0,0,s,s);return new THREE.CanvasTexture(c);
+  }
+  const tGold=glow('rgba(255,196,90,0.95)');
+  const tGreen=glow('rgba(110,231,183,0.95)');
+  const tPink=glow('rgba(255,155,212,0.95)');
+  const tWhite=glow('rgba(255,244,210,1)');
+
+  const RX=14, RY=4.6, RZ=4.6; // 橄榄球半轴：长轴沿 X
+
+  // 橄榄球壳（半透明面 + 线框，几何感）
+  const ballGroup=new THREE.Group();
+  const shell=new THREE.Mesh(
+    new THREE.SphereGeometry(1,40,28),
+    new THREE.MeshBasicMaterial({color:0x4a6fa5,transparent:true,opacity:0.10,depthWrite:false})
+  );
+  shell.scale.set(RX,RY,RZ);
+  const shellW=new THREE.Mesh(
+    new THREE.SphereGeometry(1,24,16),
+    new THREE.MeshBasicMaterial({color:0x6f8fc0,wireframe:true,transparent:true,opacity:0.08,depthWrite:false})
+  );
+  shellW.scale.set(RX,RY,RZ);
+  ballGroup.add(shell,shellW);
+
+  // S 节点（左端奇点）
+  const Snode=new THREE.Mesh(new THREE.SphereGeometry(1.6,32,32),new THREE.MeshBasicMaterial({color:0xffcf6e}));
+  Snode.position.set(-RX,0,0);
+  const sHalo=new THREE.Sprite(new THREE.SpriteMaterial({map:tGold,color:0xffd98a,transparent:true,opacity:0.6,blending:THREE.AdditiveBlending,depthWrite:false}));
+  sHalo.scale.set(7,7,1); sHalo.position.copy(Snode.position);
+  ballGroup.add(Snode,sHalo);
+
+  // D 节点（右端奇点）
+  const Dnode=new THREE.Mesh(new THREE.SphereGeometry(1.6,32,32),new THREE.MeshBasicMaterial({color:0x6ee7b7}));
+  Dnode.position.set(RX,0,0);
+  const dHalo=new THREE.Sprite(new THREE.SpriteMaterial({map:tGreen,color:0x9af0c8,transparent:true,opacity:0.6,blending:THREE.AdditiveBlending,depthWrite:false}));
+  dHalo.scale.set(7,7,1); dHalo.position.copy(Dnode.position);
+  ballGroup.add(Dnode,dHalo);
+
+  // S–D 中间链（连杆）
+  const link=new THREE.Mesh(
+    new THREE.CylinderGeometry(0.12,0.12,RX*2,8),
+    new THREE.MeshBasicMaterial({color:0xc9b8ff,transparent:true,opacity:0.5,blending:THREE.AdditiveBlending,depthWrite:false})
+  );
+  link.rotation.z=Math.PI/2; // 沿 X 轴
+  ballGroup.add(link);
+
+  // H 滑块（在中间链上滑动）
+  const Hslider=new THREE.Mesh(new THREE.SphereGeometry(0.95,24,24),new THREE.MeshBasicMaterial({color:0xff9bd4}));
+  const hHalo=new THREE.Sprite(new THREE.SpriteMaterial({map:tPink,color:0xffb0dd,transparent:true,opacity:0.7,blending:THREE.AdditiveBlending,depthWrite:false}));
+  hHalo.scale.set(5,5,1);
+  ballGroup.add(Hslider,hHalo);
+
+  // M 稳态收敛点（中心下方小绿点，代表稳态结果）
+  const Mnode=new THREE.Mesh(new THREE.SphereGeometry(0.7,20,20),new THREE.MeshBasicMaterial({color:0x9affc8}));
+  Mnode.position.set(0,-RY-2.5,0);
+  const mHalo=new THREE.Sprite(new THREE.SpriteMaterial({map:glow('rgba(154,255,200,0.95)'),color:0xbfffd8,transparent:true,opacity:0.6,blending:THREE.AdditiveBlending,depthWrite:false}));
+  mHalo.scale.set(4,4,1); mHalo.position.copy(Mnode.position);
+  ballGroup.add(Mnode,mHalo);
+
+  scene.add(ballGroup);
+
+  // R 垂直恒定轴（不随球旋转，绝对参照）
+  const Raxis=new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18,0.18,90,12),
+    new THREE.MeshBasicMaterial({color:0xfff2cc})
+  );
+  scene.add(Raxis);
+  [{r:3,op:0.4},{r:6,op:0.18}].forEach(h=>{
+    const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:tWhite,color:0xffe2a0,transparent:true,opacity:h.op,blending:THREE.AdditiveBlending,depthWrite:false}));
+    sp.scale.set(h.r*2,h.r*2,1); scene.add(sp);
+  });
+
+  // 背景星尘
+  const bgN=1300,bgp=new Float32Array(bgN*3);
+  for(let i=0;i<bgN;i++){
+    const r=140+Math.random()*320,a=Math.random()*Math.PI*2,p=Math.acos(2*Math.random()-1);
+    bgp[i*3]=r*Math.sin(p)*Math.cos(a);bgp[i*3+1]=r*Math.cos(p);bgp[i*3+2]=r*Math.sin(p)*Math.sin(a);
+  }
+  const bgGeo=new THREE.BufferGeometry();bgGeo.setAttribute('position',new THREE.BufferAttribute(bgp,3));
+  scene.add(new THREE.Points(bgGeo,new THREE.PointsMaterial({size:0.7,color:0x6678aa,transparent:true,opacity:0.5})));
+
+  const clock=new THREE.Clock();
+  function animate(){
+    requestAnimationFrame(animate);
+    const dt=clock.getDelta(),t=clock.elapsedTime;
+    ballGroup.rotation.x+=dt*0.25; // 橄榄球自转（绕长轴，端点奇点不动）
+    ballGroup.rotation.y+=dt*0.08;
+
+    // H 在 S–D 中间链上滑动（局部 X 轴往复）
+    const hx=Math.sin(t*0.9)*RX*0.7;
+    Hslider.position.set(hx,0,0);
+    hHalo.position.set(hx,0,0);
+    // H 越偏向 D，D 越被放大（制衡），偏向 S，S 越被放大
+    const dToD=(RX-hx)/(2*RX), dToS=(RX+hx)/(2*RX);
+    Dnode.scale.setScalar(1+dToD*0.5);
+    Snode.scale.setScalar(1+dToS*0.5);
+
+    // M 稳态点轻微脉动
+    Mnode.scale.setScalar(1+Math.sin(t*1.4)*0.12);
+
+    controls.update();
+    renderer.render(scene,camera);
+  }
+  animate();
+  addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html data-page-node-id="O9tpqBwjWm07zgGnFABk5I" lang="zh-CN">
+<head data-page-node-id="xh47f5K0OPH4gcUf0k6cPQ">
+<script data-page-node-id="VSVxZoE5KkNYWbgTJ9BpjJ" src="/page/page_comm/inject.js"></script>
+<meta data-page-node-id="4jvDkzPPxW1ZTIj1O01y1f" charset="utf-8">
+<meta data-page-node-id="yCNHdxm8jCrGOQIoVLcV8V" content="width=device-width,initial-scale=1" name="viewport">
+<title data-page-node-id="yAxk8fgpJ40kM3qsrenVFK" data-pnid-children="vU2DWWsKxYBHIMDfCiycFX">唯稳律 · DNA碱基对节点演化（D扰动→H推进→S积累）</title>
+<style data-page-node-id="malZY3D5fahUmWZFOAdWPT" data-pnid-children="0pazvqSUJRFyGHUZA7VrKF">
+  :root{ --gold:#ffd166; --cyan:#5fa8ff; --pink:#ff9ed2; }
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;background:radial-gradient(circle at 50% 38%,#0a0e1a,#04050a 72%);overflow:hidden;
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#dfe6f3;}
+  #app{position:fixed;inset:0;}
+  .panel{position:fixed;backdrop-filter:blur(8px);background:rgba(10,14,26,.55);border:1px solid rgba(120,160,220,.18);
+    border-radius:14px;padding:13px 15px;font-size:12.5px;line-height:1.6;max-width:300px;}
+  #title{top:18px;left:18px;}
+  #title h1{margin:0 0 4px;font-size:15px;font-weight:600;letter-spacing:.5px;}
+  #title .sub{color:#8fa3c4;font-size:11.5px;}
+  #legend{bottom:18px;left:18px;}
+  #legend .row{display:flex;align-items:center;gap:8px;margin:3px 0;}
+  #legend .dot{width:11px;height:11px;border-radius:50%;flex:0 0 auto;}
+  #legend b{color:#fff;font-weight:600;}
+  #note{bottom:18px;right:18px;max-width:286px;color:#9fb0cf;font-size:11.5px;}
+  #note b{color:var(--gold);}
+  .hl-gold{color:var(--gold);} .hl-cyan{color:var(--cyan);} .hl-pink{color:var(--pink);}
+  #btns{top:18px;right:18px;display:flex;gap:8px;}
+  button{background:rgba(30,40,64,.7);color:#cfe0ff;border:1px solid rgba(120,160,220,.3);border-radius:9px;
+    padding:7px 11px;font-size:12px;cursor:pointer;}
+  button:hover{background:rgba(45,60,92,.85);}
+</style>
+</head>
+<body data-page-node-id="iwV7EKKIO2n2jU7pnqH9mf">
+<div data-page-node-id="BYyIsFIo3oRLGS82t9dfSh" id="app"></div>
+<div data-page-node-id="plvI2RrYAzO6oT3fWBYfRD" class="panel" id="title">
+  <h1 data-page-node-id="yuVfIaD6HpC9rGKt4u5bz5"><!--pnid:U2mO1FRo39VyHJ16lsaiPe-->唯稳律 · DNA碱基对节点演化</h1>
+  <div data-page-node-id="P582Lxjsx0PthAFDvWJSpx" class="sub"><!--pnid:8ZRBeVuy2NDrzupazRSgny-->每一对碱基对 = 一次演化事件：D扰动 → H推进 → S积累 → 活下来</div>
+</div>
+<div data-page-node-id="kbq21gPC1D7iqAt4ZwUzD0" class="panel" id="legend">
+  <div data-page-node-id="9Po2RN9at0jnPtfQiE7EK1" class="row"><span data-page-node-id="3IMAM7VwkO9KicSQAnBW4a" class="dot" style="background:#5fa8ff; box-shadow:0 0 8px #5fa8ff"></span><b data-page-node-id="FSHNrBgNRDe4lfw3NzRSmv"><!--pnid:ThELwutcgw7Tyxf8NTllph-->D</b><!--pnid:odKCaxbYBsvSQ9fVOPbme7--> 外部扰动（从外飞入）</div>
+  <div data-page-node-id="edXOVi0D5YZIfTBKlTj6JR" class="row"><span data-page-node-id="peywd2HZ2GQWLeUHJZ95iZ" class="dot" style="background:#ff9ed2; box-shadow:0 0 8px #ff9ed2"></span><b data-page-node-id="XdeuULvGoqSkpJrNpw7jW1"><!--pnid:cUBIUc4XaH1Wwa8IrveqDt-->H</b><!--pnid:WfJf1sXE6kBg1CW1CgIJQn--> 杠杆/知行缝隙（在节点横档上滑动）</div>
+  <div data-page-node-id="547j1svU0zxsvj2YKy9R7Q" class="row"><span data-page-node-id="rO6c1S5Q9mJ1hOMEZAvehG" class="dot" style="background:#ffd166; box-shadow:0 0 8px #ffb347"></span><b data-page-node-id="1bi9n2GHd5OdSA5K4Ql2wY"><!--pnid:pqiFi6m0u8Z2fgU6DlnyGX-->S</b><!--pnid:Do5DMjpQHL6Zvs9EHY7B4M--> 积累（节点亮起 = 留存下来的演化痕）</div>
+  <div data-page-node-id="B6Qx2LpbRKVByHqbkR9f6O" class="row"><span data-page-node-id="mwApd7uOfLBeerXNk08BCS" class="dot" style="background:#9fb0cf"></span><!--pnid:fj8rR25a66sanCghVgarOL-->中轴 = 演化轴（时间）· <b data-page-node-id="FbhBTqOP4PqoHhlsjGvfD5"><!--pnid:SbnyB1x1uFI0ZRW9M0yb6c-->R</b><!--pnid:JnbJ68koaJBywWVGvHPcZO--> 是背景环境，不在图内</div>
+</div>
+<div data-page-node-id="YR6sRHkzbsh30MNnWNOZap" class="panel" id="note"><!--pnid:EvzmWXRHEw7MDZgdqMbxv0-->
+  DNA 双螺旋在生物学上是<b data-page-node-id="m9NXvgNTke72BjFLwc3XDP"><!--pnid:crYj339GCjhwU1C02GVWsT-->一对一对碱基对</b><!--pnid:33WguQcifqiuajnrsMAWXz-->沿中轴堆叠，不是两条弹簧互相扭。每一对节点即一次 <span data-page-node-id="e4frOdQyt3PdxH9C3OmVOh" class="hl-cyan"><!--pnid:ygT3eVywwWVVqJYHsarYaS-->D</span><!--pnid:hOrKgujCbGM5gTthEg5rAK--> 来袭时，生命为<span data-page-node-id="IaghQU8cg0GYLnZ9oNbwCZ" class="hl-gold"><!--pnid:MOQyJnHVqTq5V8JUCbdYx7-->R（活）</span><!--pnid:TT7a6kSmd5I5Ah00fDxpjr-->把 <span data-page-node-id="bfRebqIFIsGGdXmqqsPcMe" class="hl-pink"><!--pnid:1bzxwfNjIxH13pezkIgmRM-->H</span><!--pnid:3ZYzEbPrBB3FWvL32rHjZ3--> 向演化方向推、积累一次 <span data-page-node-id="JAEAVKigY1LJsPszhQURRW" class="hl-gold"><!--pnid:4aleUx6rHBiS8hGEjG0ZmO-->S</span><!--pnid:L49TFii5bdNsSFsdeh4XDO--> 的痕。
+</div>
+<div data-page-node-id="rHW1gImn5EtbVZ7PeGukIy" id="btns">
+  <button data-page-node-id="8W84yA4nLtDAGrVMUAntXf" id="btnReplay"><!--pnid:7Ahe7zlBmA7GmYrXxmFql8-->重播演化</button>
+  <button data-page-node-id="XqH2pxo64pDCdk69LIvzoh" id="btnSpin"><!--pnid:OkqzGIngDrf1iXuOyqRdby-->自转：开</button>
+</div>
+
+<script data-page-node-id="FSvUKBhyjRCVftWjdyMyDh" data-pnid-children="1ovA6zt7U8KiUK1tg4AQYT" type="importmap">
+{ "imports": {
+  "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+}}
+</script>
+<script data-page-node-id="txJdHs4qxHlwECQv9ELOTI" data-pnid-children="e2YosoVuXXXzpY6Ci8x9KW" type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const app = document.getElementById('app');
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x05060a, 0.011);
+const camera = new THREE.PerspectiveCamera(55, innerWidth/innerHeight, 0.1, 1000);
+camera.position.set(2, 5, 34);
+const renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
+renderer.setSize(innerWidth, innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+app.appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.target.set(0, 0, 0);
+
+scene.add(new THREE.AmbientLight(0x4060a0, 0.6));
+const p1 = new THREE.PointLight(0xffe0a0, 1.3, 200); p1.position.set(20,30,20); scene.add(p1);
+const p2 = new THREE.PointLight(0x60a0ff, 0.9, 200); p2.position.set(-20,-12,-20); scene.add(p2);
+
+// 中轴（演化轴 / 时间）
+const Hgt = 26, N = 26, step = Hgt/N, radius = 3.2, twist = 0.42;
+const axis = new THREE.Mesh(
+  new THREE.CylinderGeometry(0.05,0.05, Hgt, 8),
+  new THREE.MeshBasicMaterial({color:0x2a3550, transparent:true, opacity:0.45})
+);
+scene.add(axis);
+
+const group = new THREE.Group();
+scene.add(group);
+
+const nodes = [];
+const dParticles = [];
+const easeOut = t => 1-Math.pow(1-t,3);
+const easeIn  = t => t*t;
+
+function makeNode(i){
+  const angle = i*twist, y = -Hgt/2 + i*step;
+  const ng = new THREE.Group(); ng.position.y = y; ng.rotation.y = angle;
+  const mat = new THREE.MeshStandardMaterial({color:0x39435c, metalness:0.3, roughness:0.75});
+  // 横档（沿 X）
+  const rung = new THREE.Mesh(new THREE.CylinderGeometry(0.08,0.08, radius*2, 8), mat);
+  rung.rotation.z = Math.PI/2; ng.add(rung);
+  // 末端配对球（碱基对）
+  const ballA = new THREE.Mesh(new THREE.SphereGeometry(0.27,16,16), mat.clone()); ballA.position.x =  radius; ng.add(ballA);
+  const ballB = new THREE.Mesh(new THREE.SphereGeometry(0.27,16,16), mat.clone()); ballB.position.x = -radius; ng.add(ballB);
+  // H 滑块（沿横档滑动）
+  const slider = new THREE.Mesh(new THREE.SphereGeometry(0.17,12,12), new THREE.MeshBasicMaterial({color:0xff9ed2}));
+  ng.add(slider);
+  group.add(ng);
+  return {ng, rung, ballA, ballB, slider, y, t0:i*0.42, lit:false};
+}
+
+for(let i=0;i<N;i++) nodes.push(makeNode(i));
+
+function spawnD(node){
+  const d = new THREE.Mesh(new THREE.SphereGeometry(0.22,12,12), new THREE.MeshBasicMaterial({color:0x5fa8ff}));
+  const start = new THREE.Vector3(radius*2.8, node.y, 0);
+  const target = new THREE.Vector3(0, node.y, 0);
+  d.position.copy(start);
+  group.add(d);
+  dParticles.push({mesh:d, start, target, p:0});
+}
+
+function litNode(node){
+  node.lit = true;
+  [node.rung, node.ballA, node.ballB].forEach(m=>{
+    m.material.color.set(0xffd166);
+    m.material.emissive.set(0xb8860b);
+    m.material.emissiveIntensity = 0.9;
+  });
+  spawnD(node);
+}
+
+let startT = 0, spin = true;
+const clock = new THREE.Clock();
+
+function update(){
+  const e = clock.getElapsedTime() - startT;
+  for(const node of nodes){
+    if(!node.lit && e > node.t0) litNode(node);
+    if(node.lit){
+      const k = Math.min(1, (e - node.t0)/0.85);
+      node.slider.position.x = THREE.MathUtils.lerp(0, radius*0.9, easeOut(k));
+    }
+  }
+  for(let i=dParticles.length-1; i>=0; i--){
+    const dp = dParticles[i];
+    dp.p = Math.min(1, dp.p + 0.022);
+    dp.mesh.position.lerpVectors(dp.start, dp.target, easeIn(dp.p));
+    dp.mesh.scale.setScalar(1 - dp.p*0.6);
+    if(dp.p >= 1){
+      group.remove(dp.mesh); dp.mesh.geometry.dispose(); dp.mesh.material.dispose();
+      dParticles.splice(i,1);
+    }
+  }
+  if(spin) group.rotation.y += 0.0035;
+  axis.rotation.y = group.rotation.y;
+}
+
+function animate(){
+  requestAnimationFrame(animate);
+  update();
+  controls.update();
+  renderer.render(scene, camera);
+}
+animate();
+
+document.getElementById('btnSpin').onclick = (ev)=>{
+  spin = !spin; ev.target.textContent = '自转：' + (spin?'开':'关');
+};
+document.getElementById('btnReplay').onclick = ()=>{
+  startT = clock.getElapsedTime();
+  nodes.forEach(n=>{
+    n.lit = false; n.slider.position.x = 0;
+    [n.rung,n.ballA,n.ballB].forEach(m=>{ m.material.color.set(0x39435c); m.material.emissive.set(0x000000); m.material.emissiveIntensity = 0; });
+  });
+  dParticles.forEach(dp=>{ group.remove(dp.mesh); dp.mesh.geometry.dispose(); dp.mesh.material.dispose(); });
+  dParticles.length = 0;
+};
+
+addEventListener('resize', ()=>{
+  camera.aspect = innerWidth/innerHeight; camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+</script>
+</body>
+</html>
